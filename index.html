@@ -6,7 +6,7 @@
 <title>Diesse Media — Centro Media Comunicazione Outdoor | Affissioni Napoli e Campania</title>
 <meta name="description" content="Diesse Media SRL è un centro media specializzato in comunicazione outdoor: pianificazione affissioni, maxi impianti e campagne pubblicitarie esterne in Campania e in tutta Italia.">
 <link rel="stylesheet" href="css/style.css?v=3">
-<link rel="stylesheet" href="css/hero.css?v=3">
+<link rel="stylesheet" href="css/hero.css?v=4">
 </head>
 <body>
 
@@ -697,13 +697,17 @@
     render();
   });
 
-  /* hover: la rotazione decelera fino a fermarsi */
   function glide(target, dur, delay) {
     gsap.killTweensOf(speed);
     gsap.to(speed, { v: target, duration: dur, delay: delay || 0 });
   }
-  stage.addEventListener('mouseenter', function () { glide(0, 0.7); });
-  stage.addEventListener('mouseleave', function () { glide(BASE, 0.9); });
+
+  /* hover: SOLO su dispositivi con puntatore vero.
+     Su touch gli eventi mouse emulati fermerebbero la giostra senza mai farla ripartire. */
+  if (window.matchMedia('(hover: hover)').matches) {
+    stage.addEventListener('mouseenter', function () { glide(0, 0.7); });
+    stage.addEventListener('mouseleave', function () { glide(BASE, 0.9); });
+  }
 
   /* trascinamento (mouse o dito); il click resta valido solo senza drag */
   var dragging = false, lastX = 0, movedTot = 0;
@@ -718,11 +722,15 @@
     angle = (angle + dx * 0.3) % 360;
     render();
   });
-  window.addEventListener('pointerup', function () {
+  /* pointercancel: su touch il browser lo emette quando il gesto diventa scroll —
+     senza gestirlo la giostra resterebbe ferma per sempre */
+  function endDrag() {
     if (!dragging) return;
     dragging = false;
     glide(BASE, 0.9, 1.0);
-  });
+  }
+  window.addEventListener('pointerup', endDrag);
+  window.addEventListener('pointercancel', endDrag);
   cards.forEach(function (c) {
     c.addEventListener('click', function (e) { if (movedTot > 8) { e.preventDefault(); } });
     c.addEventListener('dragstart', function (e) { e.preventDefault(); });

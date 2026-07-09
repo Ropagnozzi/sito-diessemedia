@@ -68,6 +68,8 @@
   height: 540px;
   margin-top: 10px;
   perspective: 1500px;
+  /* il trascinamento orizzontale ruota la giostra, quello verticale scorre la pagina */
+  touch-action: pan-y;
 }
 .ring {
   position: absolute;
@@ -90,6 +92,10 @@
   cursor: pointer;
   text-decoration: none !important;
   transition: border-color .3s, box-shadow .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .ring-card:hover {
   border-color: var(--border-glow);
