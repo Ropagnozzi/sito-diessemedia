@@ -150,6 +150,59 @@ body::after {
 }
 .st-in .st-c { opacity: 1; transform: none; }
 
+/* ---------- Sfondo WebGL a particelle (js/fx.js) ---------- */
+#fx-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ---------- Cursore magnetico (solo desktop, js/fx.js) ---------- */
+html.cur-on * { cursor: none !important; }
+html.cur-on input,
+html.cur-on textarea,
+html.cur-on select { cursor: auto !important; }
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+}
+.cursor-dot.vis, .cursor-ring.vis { opacity: 1; }
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: var(--accent-bright);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+.cursor-ring {
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+  border: 1.5px solid rgba(255, 154, 46, .5);
+  transition: width .25s, height .25s, margin .25s, border-color .25s, background .25s, opacity .3s;
+}
+.cursor-ring.on {
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  border-color: rgba(255, 154, 46, .95);
+  background: rgba(238, 125, 0, .1);
+}
+
+/* elementi con attrazione magnetica */
+.magnet { transition: transform .35s cubic-bezier(.16, 1, .3, 1); will-change: transform; }
+.magnet:hover { transition: transform .06s linear; }
+
 /* ---------- Reveal allo scroll (classi assegnate da js/site.js) ---------- */
 .reveal {
   opacity: 0;
