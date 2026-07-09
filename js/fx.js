@@ -75,44 +75,42 @@
   var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 300);
   camera.position.z = 60;
 
-  /* sprite morbido rotondo per le particelle */
-  var spr = document.createElement('canvas');
-  spr.width = spr.height = 64;
-  var g = spr.getContext('2d');
-  var grad = g.createRadialGradient(32, 32, 0, 32, 32, 32);
-  grad.addColorStop(0, 'rgba(255,255,255,1)');
-  grad.addColorStop(0.35, 'rgba(255,255,255,.55)');
-  grad.addColorStop(1, 'rgba(255,255,255,0)');
-  g.fillStyle = grad;
-  g.fillRect(0, 0, 64, 64);
-  var sprite = new THREE.CanvasTexture(spr);
+  /* luci: bianca direzionale + punto luce arancio brand + ambiente freddo tenue */
+  scene.add(new THREE.HemisphereLight(0x3a4a6a, 0x14100c, 0.55));
+  var keyLight = new THREE.DirectionalLight(0xffffff, 1.1);
+  keyLight.position.set(40, 60, 80);
+  scene.add(keyLight);
+  var brandLight = new THREE.PointLight(0xff8a1e, 1.6, 260);
+  brandLight.position.set(-50, -20, 50);
+  scene.add(brandLight);
 
-  var COUNT = small ? 320 : 850;
-  var pos = new Float32Array(COUNT * 3);
-  var col = new Float32Array(COUNT * 3);
-  var ORANGE = [1, 0.55, 0.12], AMBER = [1, 0.72, 0.35], WHITE = [0.95, 0.96, 1], BLUE = [0.45, 0.6, 1];
-  for (var i = 0; i < COUNT; i++) {
-    pos[i * 3]     = (Math.random() - 0.5) * 140;
-    pos[i * 3 + 1] = (Math.random() - 0.5) * 80;
-    pos[i * 3 + 2] = (Math.random() - 0.5) * 70;
-    var r = Math.random(), c = r < 0.45 ? ORANGE : (r < 0.7 ? AMBER : (r < 0.9 ? WHITE : BLUE));
-    col[i * 3] = c[0]; col[i * 3 + 1] = c[1]; col[i * 3 + 2] = c[2];
-  }
-  var geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  geo.setAttribute('color', new THREE.BufferAttribute(col, 3));
-
-  var mat = new THREE.PointsMaterial({
-    size: small ? 1.6 : 1.9,
-    map: sprite,
-    vertexColors: true,
-    transparent: true,
-    opacity: 0.85,
-    depthWrite: false,
-    blending: THREE.AdditiveBlending,
-    sizeAttenuation: true
+  /* poche sfere metalliche, tutte piccole e identiche */
+  var COUNT = small ? 36 : 80;
+  var RADIUS = 0.45;
+  var geo = new THREE.SphereGeometry(RADIUS, 20, 20);
+  var mat = new THREE.MeshStandardMaterial({
+    color: 0xcdd3dd,
+    metalness: 0.9,
+    roughness: 0.28
   });
-  var field = new THREE.Points(geo, mat);
+  var field = new THREE.Group();
+  var spheres = new THREE.InstancedMesh(geo, mat, COUNT);
+  var base = [];
+  var dummy = new THREE.Object3D();
+  for (var i = 0; i < COUNT; i++) {
+    var p = {
+      x: (Math.random() - 0.5) * 140,
+      y: (Math.random() - 0.5) * 80,
+      z: (Math.random() - 0.5) * 70,
+      phase: Math.random() * Math.PI * 2,
+      speed: 0.25 + Math.random() * 0.35
+    };
+    base.push(p);
+    dummy.position.set(p.x, p.y, p.z);
+    dummy.updateMatrix();
+    spheres.setMatrixAt(i, dummy.matrix);
+  }
+  field.add(spheres);
   scene.add(field);
 
   var tMouseX = 0, tMouseY = 0, curX = 0, curY = 0;
@@ -133,6 +131,14 @@
   (function loop() {
     requestAnimationFrame(loop);
     var t = clock.getElapsedTime();
+    /* galleggiamento individuale, lento */
+    for (var i = 0; i < COUNT; i++) {
+      var p = base[i];
+      dummy.position.set(p.x, p.y + Math.sin(t * p.speed + p.phase) * 1.4, p.z);
+      dummy.updateMatrix();
+      spheres.setMatrixAt(i, dummy.matrix);
+    }
+    spheres.instanceMatrix.needsUpdate = true;
     /* deriva lenta + parallasse dolce verso il mouse */
     curX += (tMouseX - curX) * 0.03;
     curY += (tMouseY - curY) * 0.03;
