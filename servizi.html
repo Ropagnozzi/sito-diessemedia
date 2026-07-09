@@ -5,9 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Servizi — Diesse Media | Affissioni, Maxi Impianti, Pianificazione OOH</title>
 <meta name="description" content="I servizi di Diesse Media: pianificazione media outdoor, affissioni classiche 6x3 e 4x3, maxi affissioni, arredo urbano, stampa e logistica, campagne geolocalizzate.">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
+
+<!-- Preloader: animazione completa solo alla prima visita della sessione -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-inner">
+    <img src="assets/logo-white.png" alt="">
+    <div class="preloader-bar"><span></span></div>
+  </div>
+</div>
+<script>
+(function () {
+  var p = document.getElementById('preloader');
+  try {
+    if (sessionStorage.getItem('dsmSeen')) { p.classList.add('skip'); }
+    else { sessionStorage.setItem('dsmSeen', '1'); }
+  } catch (e) { p.classList.add('skip'); }
+  /* rete di sicurezza: si chiude comunque */
+  setTimeout(function () { p.classList.add('done'); }, 3000);
+})();
+</script>
 
 <header class="site-header">
   <div class="container header-inner">
@@ -151,6 +170,7 @@
   </div>
 </footer>
 
-<script defer src="js/site.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script defer src="js/site.js?v=2"></script>
 </body>
 </html>

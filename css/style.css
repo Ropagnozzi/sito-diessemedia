@@ -84,6 +84,65 @@ body::after {
   pointer-events: none;
 }
 
+/* ---------- Preloader ---------- */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #07080d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .65s ease, visibility .65s;
+}
+.preloader-inner { display: flex; flex-direction: column; align-items: center; }
+.preloader img {
+  height: 72px;
+  width: auto;
+  opacity: 1;
+  filter: drop-shadow(0 0 34px rgba(238, 125, 0, .4));
+  animation: preLogo .9s cubic-bezier(.16, 1, .3, 1) both;
+}
+@keyframes preLogo {
+  from { opacity: 0; transform: translateY(18px) scale(.92); }
+  to   { opacity: 1; transform: none; }
+}
+.preloader-bar {
+  width: 180px;
+  height: 2px;
+  margin-top: 28px;
+  background: rgba(255, 255, 255, .12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.preloader-bar span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  transform: translateX(-100%);
+  animation: preBar 1.15s .15s ease-in-out forwards;
+}
+@keyframes preBar { to { transform: translateX(0); } }
+.preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+.preloader.skip { display: none; }
+
+/* ---------- Titoli rivelati lettera per lettera (js/site.js) ---------- */
+.st-w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: .13em;
+  margin-bottom: -.13em;
+}
+.st-c {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(1.15em) rotate(5deg);
+  transition: transform .75s cubic-bezier(.16, 1, .3, 1), opacity .45s ease;
+}
+.st-in .st-c { opacity: 1; transform: none; }
+
 /* ---------- Reveal allo scroll (classi assegnate da js/site.js) ---------- */
 .reveal {
   opacity: 0;
