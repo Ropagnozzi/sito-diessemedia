@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Diesse Media — Centro Media Comunicazione Outdoor | Affissioni Napoli e Campania</title>
 <meta name="description" content="Diesse Media SRL è un centro media specializzato in comunicazione outdoor: pianificazione affissioni, maxi impianti e campagne pubblicitarie esterne in Campania e in tutta Italia.">
-<link rel="stylesheet" href="css/style.css?v=3">
-<link rel="stylesheet" href="css/hero.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/hero.css?v=5">
 </head>
 <body>
 
@@ -709,26 +709,48 @@
     stage.addEventListener('mouseleave', function () { glide(BASE, 0.9); });
   }
 
-  /* trascinamento (mouse o dito); il click resta valido solo senza drag */
-  var dragging = false, lastX = 0, movedTot = 0;
-  stage.addEventListener('pointerdown', function (e) {
-    dragging = true; lastX = e.clientX; movedTot = 0;
-    gsap.killTweensOf(speed); speed.v = 0;
+  /* trascinamento con direction-lock:
+     gesto orizzontale = ruota la giostra (e blocco il pan nativo della pagina),
+     gesto verticale   = lascio scorrere la pagina */
+  var dragging = false, mode = null, startX = 0, startY = 0, lastX = 0, movedTot = 0;
+
+  cards.forEach(function (c) {
+    c.setAttribute('draggable', 'false');
+    Array.prototype.forEach.call(c.querySelectorAll('img'), function (i) {
+      i.setAttribute('draggable', 'false');
+    });
   });
-  window.addEventListener('pointermove', function (e) {
-    if (!dragging) return;
-    var dx = e.clientX - lastX; lastX = e.clientX;
-    movedTot += Math.abs(dx);
-    angle = (angle + dx * 0.3) % 360;
-    render();
-  });
-  /* pointercancel: su touch il browser lo emette quando il gesto diventa scroll —
-     senza gestirlo la giostra resterebbe ferma per sempre */
+
   function endDrag() {
     if (!dragging) return;
     dragging = false;
     glide(BASE, 0.9, 1.0);
   }
+
+  stage.addEventListener('pointerdown', function (e) {
+    dragging = true; mode = null;
+    startX = lastX = e.clientX; startY = e.clientY; movedTot = 0;
+    gsap.killTweensOf(speed); speed.v = 0;
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!dragging) return;
+    if (mode === null) {
+      var adx = Math.abs(e.clientX - startX), ady = Math.abs(e.clientY - startY);
+      if (adx > 6 || ady > 6) {
+        mode = adx > ady ? 'h' : 'v';
+        if (mode === 'v') { endDrag(); return; }
+      }
+    }
+    if (mode !== 'h') return;
+    var dx = e.clientX - lastX; lastX = e.clientX;
+    movedTot += Math.abs(dx);
+    angle = (angle + dx * 0.3) % 360;
+    render();
+  });
+  /* alcuni browser mobile ignorano touch-action: qui il pan nativo viene bloccato davvero */
+  stage.addEventListener('touchmove', function (e) {
+    if (dragging && mode === 'h') { e.preventDefault(); }
+  }, { passive: false });
   window.addEventListener('pointerup', endDrag);
   window.addEventListener('pointercancel', endDrag);
   cards.forEach(function (c) {
