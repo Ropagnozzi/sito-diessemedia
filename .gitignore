@@ -1,0 +1,13 @@
+# dominio ufficiale: NON pubblicare sul repo di staging
+CNAME
+
+# materiali di lavoro, non parte del sito pubblicato
+wordpress-theme/
+build-wordpress-theme.py
+6x3 1.jpg
+MAXI MD1.jpg
+STAZIONE 1.jpeg
+LOGO DSM CON SCRITTA SRL.png
+
+Thumbs.db
+desktop.ini
