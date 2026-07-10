@@ -503,6 +503,7 @@ body { padding-top: 77px; }
   align-items: center;
 }
 .split h2 { font-size: clamp(26px, 3.2vw, 34px); margin-bottom: 18px; letter-spacing: -.4px; }
+.split h2 .accent { color: var(--accent-bright); text-shadow: 0 0 26px rgba(238, 125, 0, .35); }
 .split p { color: var(--text-muted); margin-bottom: 14px; }
 
 /* ---------- Liste check ---------- */
