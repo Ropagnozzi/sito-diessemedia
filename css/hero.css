@@ -118,13 +118,14 @@
   background: linear-gradient(to top, rgba(4, 6, 10, .92), transparent);
   color: #fff;
   font-family: var(--font-head);
+  text-align: center;
 }
 .ring-label b { display: block; font-size: 19px; font-weight: 700; }
 .ring-label small { display: block; font-size: 13.5px; color: var(--text-soft); margin-top: 3px; font-weight: 400; }
 
 /* card CTA contatti */
 .ring-cta { background: linear-gradient(160deg, #ff9224, #b85e00); display: flex; align-items: center; }
-.ring-cta-inner { padding: 30px 26px; font-family: var(--font-head); }
+.ring-cta-inner { padding: 30px 26px; font-family: var(--font-head); text-align: center; }
 .ring-cta-inner b { display: block; font-size: 26px; line-height: 1.2; font-weight: 800; color: #1a0c00; }
 .ring-cta-inner small { display: block; font-size: 15px; margin: 14px 0 22px; color: rgba(26, 12, 0, .8); font-family: var(--font-body); }
 .ring-cta-btn { display: inline-block; background: #14161d; color: #fff; padding: 12px 22px; border-radius: 8px; font-weight: 600; font-size: 15px; }
