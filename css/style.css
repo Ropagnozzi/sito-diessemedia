@@ -342,6 +342,8 @@ body { padding-top: 77px; }
   color: #0b0800;
   background: linear-gradient(135deg, #ff9224, var(--accent));
 }
+/* versione mobile: nell'header, sempre visibile (nascosta su desktop) */
+.lang-switch-mobile { display: none; }
 .btn-primary {
   background: linear-gradient(135deg, #ff9224, var(--accent));
   color: #0b0800;
@@ -724,7 +726,15 @@ table.formats td:first-child { font-family: var(--font-head); font-weight: 600; 
   .main-nav a { padding: 13px 4px; font-size: 16px; border-bottom: 1px solid var(--border); }
   .main-nav a.active { border-bottom-color: var(--accent); }
   .main-nav .btn { margin-top: 16px; text-align: center; }
-  .lang-switch { margin: 16px auto 0; align-self: center; }
+  /* su mobile: nascondi il selettore dentro il menu, mostra quello nell'header */
+  .main-nav .lang-switch { display: none; }
+  .nav-toggle { order: 3; }
+  .lang-switch-mobile {
+    display: inline-flex;
+    order: 2;
+    margin-left: auto;
+    margin-right: 12px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

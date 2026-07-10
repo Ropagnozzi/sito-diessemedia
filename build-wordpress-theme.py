@@ -172,6 +172,10 @@ add_action( 'wp_enqueue_scripts', 'dsm_assets' );
       <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo.png" alt="Diesse Media SRL" class="logo-light">
       <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo-white.png" alt="" class="logo-dark" aria-hidden="true">
     </a>
+    <span class="lang-switch lang-switch-mobile" role="group" aria-label="Language">
+      <button type="button" data-lang-btn="it">IT</button>
+      <button type="button" data-lang-btn="en">EN</button>
+    </span>
     <button class="nav-toggle" aria-label="Apri menu" data-i18n-aria-label="a11y.menu" onclick="document.getElementById('nav').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
