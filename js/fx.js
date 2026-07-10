@@ -1,5 +1,5 @@
-/* Effetti avanzati: cursore magnetico (desktop) + sfondo WebGL a particelle.
-   Fallback totale: senza WebGL/Three resta l'aurora CSS; su touch niente cursore. */
+/* Effetti avanzati: cursore magnetico (desktop) + rete metallica deformabile (WebGL).
+   Fallback totale: senza WebGL/Three resta l'aurora CSS + griglia statica; su touch niente cursore. */
 (function () {
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -51,7 +51,7 @@
     });
   }
 
-  /* ==================== SFONDO WEBGL A PARTICELLE ==================== */
+  /* ==================== RETE METALLICA DEFORMABILE (WebGL) ==================== */
   if (reduced || !window.THREE) return;
 
   var canvas = document.createElement('canvas');
@@ -61,11 +61,14 @@
 
   var renderer;
   try {
-    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false, powerPreference: 'low-power' });
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true, powerPreference: 'low-power' });
   } catch (err) {
     canvas.remove();
     return;
   }
+
+  /* la rete WebGL sostituisce la griglia CSS statica */
+  document.documentElement.classList.add('fx-on');
 
   var small = window.innerWidth < 680;
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, small ? 1 : 1.75));
@@ -75,51 +78,67 @@
   var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 300);
   camera.position.z = 60;
 
-  /* luci: bianca direzionale + punto luce arancio brand + ambiente freddo tenue */
-  scene.add(new THREE.HemisphereLight(0x3a4a6a, 0x14100c, 0.55));
-  var keyLight = new THREE.DirectionalLight(0xffffff, 1.1);
-  keyLight.position.set(40, 60, 80);
-  scene.add(keyLight);
-  var brandLight = new THREE.PointLight(0xff8a1e, 1.6, 260);
-  brandLight.position.set(-50, -20, 50);
-  scene.add(brandLight);
+  /* piano della rete: copre il viewport a z=0 con margine (fino a schermi 21:9) */
+  var worldH = 2 * Math.tan(Math.PI / 6) * 60; /* altezza visibile a z=0 con fov 60 */
+  var planeW = worldH * 2.3;
+  var planeH = worldH * 1.15;
+  var STEP = small ? 2.6 : 1.7;
+  var NX = Math.max(2, Math.round(planeW / STEP));
+  var NY = Math.max(2, Math.round(planeH / STEP));
+  var PX = NX + 1, PY = NY + 1, COUNT = PX * PY;
 
-  /* poche sfere metalliche, tutte piccole e identiche */
-  var COUNT = small ? 36 : 80;
-  var RADIUS = 0.45;
-  var geo = new THREE.SphereGeometry(RADIUS, 20, 20);
-  var mat = new THREE.MeshStandardMaterial({
-    color: 0xcdd3dd,
-    metalness: 0.9,
-    roughness: 0.28
+  var pos = new Float32Array(COUNT * 3);
+  var col = new Float32Array(COUNT * 3);
+  var baseX = new Float32Array(COUNT);
+  var baseY = new Float32Array(COUNT);
+
+  /* grigio acciaio → riflesso arancio brand vicino al mouse */
+  var BR = 0.45, BG = 0.5, BB = 0.6;
+  var HR = 1.0, HG = 0.62, HB = 0.2;
+
+  var x, y, k = 0;
+  for (y = 0; y < PY; y++) {
+    for (x = 0; x < PX; x++) {
+      var wx = -planeW / 2 + x * (planeW / NX);
+      var wy = -planeH / 2 + y * (planeH / NY);
+      baseX[k] = wx;
+      baseY[k] = wy;
+      pos[k * 3] = wx; pos[k * 3 + 1] = wy; pos[k * 3 + 2] = 0;
+      col[k * 3] = BR; col[k * 3 + 1] = BG; col[k * 3 + 2] = BB;
+      k++;
+    }
+  }
+
+  /* segmenti: solo fili orizzontali e verticali, come una rete vera */
+  var idx = [];
+  for (y = 0; y < PY; y++) {
+    for (x = 0; x < PX; x++) {
+      var a = y * PX + x;
+      if (x < NX) { idx.push(a, a + 1); }
+      if (y < NY) { idx.push(a, a + PX); }
+    }
+  }
+
+  var geom = new THREE.BufferGeometry();
+  geom.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geom.setAttribute('color', new THREE.BufferAttribute(col, 3));
+  geom.setIndex(idx);
+
+  var net = new THREE.LineSegments(geom, new THREE.LineBasicMaterial({
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.3
+  }));
+  scene.add(net);
+
+  /* posizione del mouse in coordinate mondo sul piano della rete */
+  var FAR = 99999;
+  var tX = FAR, tY = FAR, mX = FAR, mY = FAR;
+  window.addEventListener('pointermove', function (e) {
+    tX = ((e.clientX / window.innerWidth) * 2 - 1) * (worldH / 2) * camera.aspect;
+    tY = (-(e.clientY / window.innerHeight) * 2 + 1) * (worldH / 2);
   });
-  var field = new THREE.Group();
-  var spheres = new THREE.InstancedMesh(geo, mat, COUNT);
-  var base = [];
-  var dummy = new THREE.Object3D();
-  for (var i = 0; i < COUNT; i++) {
-    var p = {
-      x: (Math.random() - 0.5) * 140,
-      y: (Math.random() - 0.5) * 80,
-      z: (Math.random() - 0.5) * 70,
-      phase: Math.random() * Math.PI * 2,
-      speed: 0.25 + Math.random() * 0.35
-    };
-    base.push(p);
-    dummy.position.set(p.x, p.y, p.z);
-    dummy.updateMatrix();
-    spheres.setMatrixAt(i, dummy.matrix);
-  }
-  field.add(spheres);
-  scene.add(field);
-
-  var tMouseX = 0, tMouseY = 0, curX = 0, curY = 0;
-  if (fine) {
-    window.addEventListener('mousemove', function (e) {
-      tMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-      tMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-    });
-  }
+  document.documentElement.addEventListener('mouseleave', function () { tX = FAR; tY = FAR; });
 
   window.addEventListener('resize', function () {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -127,25 +146,36 @@
     renderer.setSize(window.innerWidth, window.innerHeight);
   });
 
+  var AMP = 7;            /* profondità della deformazione */
+  var SIG2 = 2 * 8 * 8;   /* ampiezza della campana */
+  var posAttr = geom.getAttribute('position');
+  var colAttr = geom.getAttribute('color');
   var clock = new THREE.Clock();
+
   (function loop() {
     requestAnimationFrame(loop);
     var t = clock.getElapsedTime();
-    /* galleggiamento individuale, lento */
+    /* il punto di deformazione insegue il mouse con inerzia */
+    mX += (tX - mX) * 0.12;
+    mY += (tY - mY) * 0.12;
     for (var i = 0; i < COUNT; i++) {
-      var p = base[i];
-      dummy.position.set(p.x, p.y + Math.sin(t * p.speed + p.phase) * 1.4, p.z);
-      dummy.updateMatrix();
-      spheres.setMatrixAt(i, dummy.matrix);
+      var bx = baseX[i], by = baseY[i];
+      /* respiro lento della rete */
+      var wave = Math.sin(bx * 0.12 + t * 0.6) * 0.5 + Math.cos(by * 0.15 + t * 0.45) * 0.5;
+      /* campana di deformazione sotto il mouse */
+      var dx = bx - mX, dy = by - mY;
+      var g = Math.exp(-(dx * dx + dy * dy) / SIG2);
+      pos[i * 3 + 2] = wave + AMP * g;
+      /* i fili si accendono d'arancio dove la rete si solleva */
+      var h = g * 1.5; if (h > 1) { h = 1; }
+      col[i * 3]     = BR + (HR - BR) * h;
+      col[i * 3 + 1] = BG + (HG - BG) * h;
+      col[i * 3 + 2] = BB + (HB - BB) * h;
     }
-    spheres.instanceMatrix.needsUpdate = true;
-    /* deriva lenta + parallasse dolce verso il mouse */
-    curX += (tMouseX - curX) * 0.03;
-    curY += (tMouseY - curY) * 0.03;
-    field.rotation.y = t * 0.02 + curX * 0.22;
-    field.rotation.x = Math.sin(t * 0.05) * 0.04 + curY * 0.12;
-    /* parallasse con lo scroll */
-    field.position.y = (window.scrollY || 0) * -0.008;
+    posAttr.needsUpdate = true;
+    colAttr.needsUpdate = true;
+    /* leggera parallasse con lo scroll */
+    net.position.y = (window.scrollY || 0) * -0.004;
     renderer.render(scene, camera);
   })();
 })();
