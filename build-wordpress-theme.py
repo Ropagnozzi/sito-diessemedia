@@ -105,6 +105,7 @@ def build():
     write(os.path.join(THEME, 'js', 'hero.js'), hero_js(index_html) + '\n')
     write(os.path.join(THEME, 'js', 'site.js'), read(os.path.join(BASE, 'js', 'site.js')))
     write(os.path.join(THEME, 'js', 'fx.js'), read(os.path.join(BASE, 'js', 'fx.js')))
+    write(os.path.join(THEME, 'js', 'i18n.js'), read(os.path.join(BASE, 'js', 'i18n.js')))
 
     # ---------- functions.php ----------
     write(os.path.join(THEME, 'functions.php'), r"""<?php
@@ -125,7 +126,8 @@ function dsm_assets() {
     wp_enqueue_style( 'dsm-hero', get_template_directory_uri() . '/css/hero.css', array( 'dsm-style' ), $v );
     wp_enqueue_script( 'lenis', 'https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js', array(), '1.1.14', true );
     wp_enqueue_script( 'three', 'https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js', array(), '0.149.0', true );
-    wp_enqueue_script( 'dsm-site', get_template_directory_uri() . '/js/site.js', array( 'lenis' ), $v, true );
+    wp_enqueue_script( 'dsm-i18n', get_template_directory_uri() . '/js/i18n.js', array(), $v, true );
+    wp_enqueue_script( 'dsm-site', get_template_directory_uri() . '/js/site.js', array( 'lenis', 'dsm-i18n' ), $v, true );
     wp_enqueue_script( 'dsm-fx', get_template_directory_uri() . '/js/fx.js', array( 'three' ), $v, true );
     if ( is_front_page() ) {
         wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js', array(), '3.12.5', true );
@@ -170,28 +172,33 @@ add_action( 'wp_enqueue_scripts', 'dsm_assets' );
       <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo.png" alt="Diesse Media SRL" class="logo-light">
       <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo-white.png" alt="" class="logo-dark" aria-hidden="true">
     </a>
-    <button class="nav-toggle" aria-label="Apri menu" onclick="document.getElementById('nav').classList.toggle('open')">
+    <button class="nav-toggle" aria-label="Apri menu" data-i18n-aria-label="a11y.menu" onclick="document.getElementById('nav').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
     <nav class="main-nav" id="nav">
       <?php
       $dsm_items = array(
-          array( home_url( '/' ),           'Home',                 is_front_page() ),
-          array( home_url( '/servizi/' ),   'Servizi',              is_page( 'servizi' ) ),
-          array( home_url( '/impianti/' ),  'Impianti e Copertura', is_page( 'impianti' ) ),
-          array( home_url( '/chi-siamo/' ), 'Chi Siamo',            is_page( 'chi-siamo' ) ),
-          array( home_url( '/contatti/' ),  'Contatti',             is_page( 'contatti' ) ),
+          array( home_url( '/' ),           'Home',                 is_front_page(),        'nav.home' ),
+          array( home_url( '/servizi/' ),   'Servizi',              is_page( 'servizi' ),   'nav.servizi' ),
+          array( home_url( '/impianti/' ),  'Impianti e Copertura', is_page( 'impianti' ),  'nav.impianti' ),
+          array( home_url( '/chi-siamo/' ), 'Chi Siamo',            is_page( 'chi-siamo' ), 'nav.chisiamo' ),
+          array( home_url( '/contatti/' ),  'Contatti',             is_page( 'contatti' ),  'nav.contatti' ),
       );
       foreach ( $dsm_items as $it ) {
           printf(
-              '<a href="%s"%s>%s</a>',
+              '<a href="%s"%s data-i18n="%s">%s</a>',
               esc_url( $it[0] ),
               $it[2] ? ' class="active"' : '',
+              esc_attr( $it[3] ),
               esc_html( $it[1] )
           );
       }
       ?>
-      <a href="<?php echo esc_url( home_url( '/contatti/' ) ); ?>" class="btn btn-primary">Richiedi preventivo</a>
+      <a href="<?php echo esc_url( home_url( '/contatti/' ) ); ?>" class="btn btn-primary" data-i18n="nav.cta">Richiedi preventivo</a>
+      <span class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="it">IT</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </span>
     </nav>
   </div>
 </header>

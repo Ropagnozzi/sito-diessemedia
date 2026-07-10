@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chi Siamo — Diesse Media | Centro Media Outdoor</title>
-<meta name="description" content="Diesse Media SRL: centro media indipendente specializzato in comunicazione outdoor. Esperienza, tecnologia proprietaria e presenza diretta sul territorio campano.">
+<title data-i18n="meta.about.title">Chi Siamo — Diesse Media | Centro Media Outdoor</title>
+<meta name="description" data-i18n-content="meta.about.desc" content="Diesse Media SRL: centro media indipendente specializzato in comunicazione outdoor. Esperienza, tecnologia proprietaria e presenza diretta sul territorio campano.">
 <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
@@ -34,66 +34,70 @@
       <img src="assets/logo.png" alt="Diesse Media SRL" class="logo-light">
       <img src="assets/logo-white.png" alt="" class="logo-dark" aria-hidden="true">
     </a>
-    <button class="nav-toggle" aria-label="Apri menu" onclick="document.getElementById('nav').classList.toggle('open')">
+    <button class="nav-toggle" aria-label="Apri menu" data-i18n-aria-label="a11y.menu" onclick="document.getElementById('nav').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
     <nav class="main-nav" id="nav">
-      <a href="index.html">Home</a>
-      <a href="servizi.html">Servizi</a>
-      <a href="impianti.html">Impianti e Copertura</a>
-      <a href="chi-siamo.html" class="active">Chi Siamo</a>
-      <a href="contatti.html">Contatti</a>
-      <a href="contatti.html" class="btn btn-primary">Richiedi preventivo</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="servizi.html" data-i18n="nav.servizi">Servizi</a>
+      <a href="impianti.html" data-i18n="nav.impianti">Impianti e Copertura</a>
+      <a href="chi-siamo.html" class="active" data-i18n="nav.chisiamo">Chi Siamo</a>
+      <a href="contatti.html" data-i18n="nav.contatti">Contatti</a>
+      <a href="contatti.html" class="btn btn-primary" data-i18n="nav.cta">Richiedi preventivo</a>
+      <span class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="it">IT</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </span>
     </nav>
   </div>
 </header>
 
 <section class="page-hero">
   <div class="container">
-    <p class="eyebrow">Chi Siamo</p>
-    <h1>Specialisti dell'outdoor, per scelta</h1>
-    <p>Diesse Media è un centro media indipendente che fa una cosa sola, e la fa bene: comunicazione esterna.</p>
+    <p class="eyebrow" data-i18n="about.hero.eyebrow">Chi Siamo</p>
+    <h1 data-i18n="about.hero.title">Specialisti dell'outdoor, per scelta</h1>
+    <p data-i18n="about.hero.sub">Diesse Media è un centro media indipendente che fa una cosa sola, e la fa bene: comunicazione esterna.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container split">
     <div>
-      <h2>La nostra storia</h2>
-      <p>Diesse Media nasce a Napoli dall'esperienza pluriennale nel mercato delle affissioni e della pubblicità esterna. Negli anni siamo cresciuti fino a diventare un punto di riferimento per aziende, agenzie e istituzioni che vogliono comunicare sul territorio campano e nazionale.</p>
-      <p>Alla conoscenza diretta del territorio — impianto per impianto, strada per strada — abbiamo affiancato strumenti digitali sviluppati internamente che rendono la pianificazione trasparente e misurabile.</p>
+      <h2 data-i18n="about.story.title">La nostra storia</h2>
+      <p data-i18n="about.story.p1">Diesse Media nasce a Napoli dall'esperienza pluriennale nel mercato delle affissioni e della pubblicità esterna. Negli anni siamo cresciuti fino a diventare un punto di riferimento per aziende, agenzie e istituzioni che vogliono comunicare sul territorio campano e nazionale.</p>
+      <p data-i18n="about.story.p2">Alla conoscenza diretta del territorio — impianto per impianto, strada per strada — abbiamo affiancato strumenti digitali sviluppati internamente che rendono la pianificazione trasparente e misurabile.</p>
     </div>
-    <div class="photo">Foto team / sede<br>(assets/foto/chi-siamo.jpg)</div>
+    <div class="photo" data-i18n="about.story.photo">Foto team / sede<br>(assets/foto/chi-siamo.jpg)</div>
   </div>
 </section>
 
 <section class="section alt">
   <div class="container">
     <div class="section-head center">
-      <p class="eyebrow">I nostri valori</p>
-      <h2>Perché scegliere Diesse Media</h2>
+      <p class="eyebrow" data-i18n="about.values.eyebrow">I nostri valori</p>
+      <h2 data-i18n="about.values.title">Perché scegliere Diesse Media</h2>
     </div>
     <div class="grid grid-3">
       <div class="card">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
         </div>
-        <h3>Trasparenza</h3>
-        <p>Mappe condivise, preventivi dettagliati impianto per impianto e report fotografici: sai sempre dove va il tuo investimento.</p>
+        <h3 data-i18n="about.val1.t">Trasparenza</h3>
+        <p data-i18n="about.val1.d">Mappe condivise, preventivi dettagliati impianto per impianto e report fotografici: sai sempre dove va il tuo investimento.</p>
       </div>
       <div class="card">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
         </div>
-        <h3>Precisione</h3>
-        <p>Pianifichiamo con dati reali: popolazione, bacini d'utenza e flussi di traffico. Niente scelte a sensazione.</p>
+        <h3 data-i18n="about.val2.t">Precisione</h3>
+        <p data-i18n="about.val2.d">Pianifichiamo con dati reali: popolazione, bacini d'utenza e flussi di traffico. Niente scelte a sensazione.</p>
       </div>
       <div class="card">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <h3>Presenza sul territorio</h3>
-        <p>Le nostre squadre operano direttamente sul campo: conosciamo ogni impianto perché ci passiamo davanti ogni giorno.</p>
+        <h3 data-i18n="about.val3.t">Presenza sul territorio</h3>
+        <p data-i18n="about.val3.d">Le nostre squadre operano direttamente sul campo: conosciamo ogni impianto perché ci passiamo davanti ogni giorno.</p>
       </div>
     </div>
   </div>
@@ -102,19 +106,19 @@
 <section class="section">
   <div class="container">
     <div class="stats">
-      <div class="stat"><div class="num">8.000+</div><div class="label">Impianti pianificabili</div></div>
-      <div class="stat"><div class="num">5</div><div class="label">Province campane presidiate</div></div>
-      <div class="stat"><div class="num">20+</div><div class="label">Anni di esperienza</div></div>
-      <div class="stat"><div class="num">100%</div><div class="label">Campagne verificate</div></div>
+      <div class="stat"><div class="num" data-i18n="stat.impianti.n">8.000+</div><div class="label" data-i18n="stat.impianti.l">Impianti pianificabili</div></div>
+      <div class="stat"><div class="num">5</div><div class="label" data-i18n="about.stat2.l">Province campane presidiate</div></div>
+      <div class="stat"><div class="num" data-i18n="stat.anni.n">20+</div><div class="label" data-i18n="stat.anni.l">Anni di esperienza</div></div>
+      <div class="stat"><div class="num" data-i18n="stat.verifica.n">100%</div><div class="label" data-i18n="about.stat4.l">Campagne verificate</div></div>
     </div>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="container">
-    <h2>Conosciamoci</h2>
-    <p>Raccontaci il tuo progetto di comunicazione: bastano due righe per iniziare.</p>
-    <a href="contatti.html" class="btn btn-primary">Scrivici</a>
+    <h2 data-i18n="about.ctaband.title">Conosciamoci</h2>
+    <p data-i18n="about.ctaband.text">Raccontaci il tuo progetto di comunicazione: bastano due righe per iniziare.</p>
+    <a href="contatti.html" class="btn btn-primary" data-i18n="about.ctaband.btn">Scrivici</a>
   </div>
 </section>
 
@@ -123,38 +127,38 @@
     <div class="footer-grid">
       <div class="footer-logo">
         <img src="assets/logo-white.png" alt="Diesse Media SRL">
-        <p style="margin-top:14px;">Centro media specializzato in comunicazione outdoor e pianificazione pubblicitaria geolocalizzata.</p>
+        <p style="margin-top:14px;" data-i18n="footer.tagline">Centro media specializzato in comunicazione outdoor e pianificazione pubblicitaria geolocalizzata.</p>
       </div>
       <div>
-        <h4>Sito</h4>
+        <h4 data-i18n="footer.h.sito">Sito</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="servizi.html">Servizi</a></li>
-          <li><a href="impianti.html">Impianti e Copertura</a></li>
-          <li><a href="chi-siamo.html">Chi Siamo</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="servizi.html" data-i18n="nav.servizi">Servizi</a></li>
+          <li><a href="impianti.html" data-i18n="nav.impianti">Impianti e Copertura</a></li>
+          <li><a href="chi-siamo.html" data-i18n="nav.chisiamo">Chi Siamo</a></li>
         </ul>
       </div>
       <div>
-        <h4>Servizi</h4>
+        <h4 data-i18n="footer.h.servizi">Servizi</h4>
         <ul>
-          <li><a href="servizi.html">Affissioni classiche</a></li>
-          <li><a href="servizi.html">Maxi affissioni</a></li>
-          <li><a href="servizi.html">Pianificazione media</a></li>
-          <li><a href="servizi.html">Stampa e logistica</a></li>
+          <li><a href="servizi.html" data-i18n="footer.serv.affissioni">Affissioni classiche</a></li>
+          <li><a href="servizi.html" data-i18n="footer.serv.maxi">Maxi affissioni</a></li>
+          <li><a href="servizi.html" data-i18n="footer.serv.pian">Pianificazione media</a></li>
+          <li><a href="servizi.html" data-i18n="footer.serv.stampa">Stampa e logistica</a></li>
         </ul>
       </div>
       <div>
-        <h4>Contatti</h4>
+        <h4 data-i18n="footer.h.contatti">Contatti</h4>
         <ul>
           <li><a href="mailto:info@diessemedia.it">info@diessemedia.it</a></li>
-          <li>[Telefono da inserire]</li>
-          <li>[Indirizzo da inserire]<br>Napoli, Italia</li>
+          <li data-i18n="footer.tel">[Telefono da inserire]</li>
+          <li data-i18n="footer.addr">[Indirizzo da inserire]<br>Napoli, Italia</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Diesse Media SRL — Tutti i diritti riservati</span>
-      <span>P.IVA [da inserire]</span>
+      <span data-i18n="footer.rights">&copy; 2026 Diesse Media SRL — Tutti i diritti riservati</span>
+      <span data-i18n="footer.piva">P.IVA [da inserire]</span>
     </div>
   </div>
 </footer>
@@ -162,6 +166,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
 <script defer src="js/fx.js?v=3"></script>
-<script defer src="js/site.js?v=3"></script>
+<script defer src="js/i18n.js?v=2"></script>
+<script defer src="js/site.js?v=4"></script>
 </body>
 </html>

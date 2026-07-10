@@ -103,6 +103,21 @@ Dopo ogni modifica al sito, ri-lanciare lo script e ricaricare lo zip.
 | Riquadro showreel | index.html + hero.css | sequenza cinematografica poster→maxi→stazione, sotto i numeri |
 | Cursore magnetico | fx.js | SOLO desktop (hover+pointer fine) |
 | Sfondo rete metallica | fx.js (Three.js 0.149) | fili acciaio che si deformano al passaggio del mouse |
+| Bilingue IT/EN | i18n.js + attributi data-i18n | selettore IT/EN nell'header; IT default; scelta salvata in localStorage |
+
+### Come funziona il bilingue (i18n)
+
+- **L'italiano è la fonte** e resta nell'HTML; l'inglese vive nel dizionario
+  in `js/i18n.js` (indicizzato dalle chiavi `data-i18n`).
+- Ogni testo traducibile ha `data-i18n="chiave"` (o `data-i18n-placeholder`,
+  `data-i18n-alt`, `data-i18n-content`, `data-i18n-aria-label` per gli attributi).
+- `i18n.js` gira PRIMA di `site.js` (cattura l'italiano, applica la lingua salvata).
+- **Per aggiungere/modificare un testo:** modifica l'italiano nell'HTML e, se la
+  frase ha una chiave `data-i18n`, aggiorna la traduzione inglese in `js/i18n.js`.
+  Per un testo NUOVO: aggiungi `data-i18n="nuova.chiave"` nell'HTML e la voce
+  corrispondente nel dizionario EN di `i18n.js`.
+- Al cambio lingua `site.js` ri-divide i titoli (effetto lettera per lettera) e
+  i contatori usano il separatore migliaia giusto (it: `.` / en: `,`).
 
 ## Lezioni critiche (non ripetere gli errori)
 

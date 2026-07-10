@@ -313,6 +313,35 @@ body { padding-top: 77px; }
   transition: background .2s, box-shadow .25s, transform .15s;
   text-decoration: none !important;
 }
+
+/* ---------- Selettore lingua IT/EN ---------- */
+.lang-switch {
+  display: inline-flex;
+  gap: 2px;
+  margin-left: 6px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .04);
+}
+.lang-switch button {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: .5px;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px 11px;
+  border-radius: 999px;
+  transition: color .2s, background .2s;
+}
+.lang-switch button:hover { color: #fff; }
+.lang-switch button.on {
+  color: #0b0800;
+  background: linear-gradient(135deg, #ff9224, var(--accent));
+}
 .btn-primary {
   background: linear-gradient(135deg, #ff9224, var(--accent));
   color: #0b0800;
@@ -695,6 +724,7 @@ table.formats td:first-child { font-family: var(--font-head); font-weight: 600; 
   .main-nav a { padding: 13px 4px; font-size: 16px; border-bottom: 1px solid var(--border); }
   .main-nav a.active { border-bottom-color: var(--accent); }
   .main-nav .btn { margin-top: 16px; text-align: center; }
+  .lang-switch { margin: 16px auto 0; align-self: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Servizi — Diesse Media | Affissioni, Maxi Impianti, Pianificazione OOH</title>
-<meta name="description" content="I servizi di Diesse Media: pianificazione media outdoor, affissioni classiche 6x3 e 4x3, maxi affissioni, arredo urbano, stampa e logistica, campagne geolocalizzate.">
+<title data-i18n="meta.serv.title">Servizi — Diesse Media | Affissioni, Maxi Impianti, Pianificazione OOH</title>
+<meta name="description" data-i18n-content="meta.serv.desc" content="I servizi di Diesse Media: pianificazione media outdoor, affissioni classiche 6x3 e 4x3, maxi affissioni, arredo urbano, stampa e logistica, campagne geolocalizzate.">
 <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
@@ -34,25 +34,29 @@
       <img src="assets/logo.png" alt="Diesse Media SRL" class="logo-light">
       <img src="assets/logo-white.png" alt="" class="logo-dark" aria-hidden="true">
     </a>
-    <button class="nav-toggle" aria-label="Apri menu" onclick="document.getElementById('nav').classList.toggle('open')">
+    <button class="nav-toggle" aria-label="Apri menu" data-i18n-aria-label="a11y.menu" onclick="document.getElementById('nav').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
     <nav class="main-nav" id="nav">
-      <a href="index.html">Home</a>
-      <a href="servizi.html" class="active">Servizi</a>
-      <a href="impianti.html">Impianti e Copertura</a>
-      <a href="chi-siamo.html">Chi Siamo</a>
-      <a href="contatti.html">Contatti</a>
-      <a href="contatti.html" class="btn btn-primary">Richiedi preventivo</a>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="servizi.html" class="active" data-i18n="nav.servizi">Servizi</a>
+      <a href="impianti.html" data-i18n="nav.impianti">Impianti e Copertura</a>
+      <a href="chi-siamo.html" data-i18n="nav.chisiamo">Chi Siamo</a>
+      <a href="contatti.html" data-i18n="nav.contatti">Contatti</a>
+      <a href="contatti.html" class="btn btn-primary" data-i18n="nav.cta">Richiedi preventivo</a>
+      <span class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="it">IT</button>
+        <button type="button" data-lang-btn="en">EN</button>
+      </span>
     </nav>
   </div>
 </header>
 
 <section class="page-hero">
   <div class="container">
-    <p class="eyebrow">Servizi</p>
-    <h1>Dalla strategia all'impianto in strada</h1>
-    <p>Un servizio completo di pianificazione e gestione della comunicazione esterna, con un unico referente per tutta la campagna.</p>
+    <p class="eyebrow" data-i18n="serv.hero.eyebrow">Servizi</p>
+    <h1 data-i18n="serv.hero.title">Dalla strategia all'impianto in strada</h1>
+    <p data-i18n="serv.hero.sub">Un servizio completo di pianificazione e gestione della comunicazione esterna, con un unico referente per tutta la campagna.</p>
   </div>
 </section>
 
@@ -63,43 +67,43 @@
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
         </div>
-        <h3>Affissioni classiche</h3>
-        <p>Poster 6x3, 4x3, 100x140, 140x200 e formati speciali su impianti selezionati. Circuiti cittadini e provinciali con posizioni ad alto traffico veicolare e pedonale.</p>
+        <h3 data-i18n="serv.card1.t">Affissioni classiche</h3>
+        <p data-i18n="serv.card1.d">Poster 6x3, 4x3, 100x140, 140x200 e formati speciali su impianti selezionati. Circuiti cittadini e provinciali con posizioni ad alto traffico veicolare e pedonale.</p>
       </div>
       <div class="card">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
         </div>
-        <h3>Maxi affissioni</h3>
-        <p>Grandi teli su facciate, ponteggi e location di prestigio. La soluzione a massimo impatto per lanci di prodotto, brand awareness e campagne istituzionali.</p>
+        <h3 data-i18n="serv.card2.t">Maxi affissioni</h3>
+        <p data-i18n="serv.card2.d">Grandi teli su facciate, ponteggi e location di prestigio. La soluzione a massimo impatto per lanci di prodotto, brand awareness e campagne istituzionali.</p>
       </div>
       <div class="card">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
         </div>
-        <h3>Pianificazione geolocalizzata</h3>
-        <p>Strumenti proprietari di pianificazione su mappa: analisi di bacini d'utenza, isocrone di percorrenza e dati ISTAT di popolazione per scegliere gli impianti giusti.</p>
+        <h3 data-i18n="serv.card3.t">Pianificazione geolocalizzata</h3>
+        <p data-i18n="serv.card3.d">Strumenti proprietari di pianificazione su mappa: analisi di bacini d'utenza, isocrone di percorrenza e dati ISTAT di popolazione per scegliere gli impianti giusti.</p>
       </div>
       <div class="card">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"/><path d="M2 22h20M10 6V2h4v4"/><path d="M9 11h6M9 15h6"/></svg>
         </div>
-        <h3>Arredo urbano e paline</h3>
-        <p>Comunicazione su pensiline, paline e transenne: formati capillari che accompagnano il pubblico negli spostamenti quotidiani in città.</p>
+        <h3 data-i18n="serv.card4.t">Arredo urbano e paline</h3>
+        <p data-i18n="serv.card4.d">Comunicazione su pensiline, paline e transenne: formati capillari che accompagnano il pubblico negli spostamenti quotidiani in città.</p>
       </div>
       <div class="card">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
         </div>
-        <h3>Stampa e logistica</h3>
-        <p>Coordiniamo stampa, distribuzione dei materiali e squadre di affissatori su tutto il territorio: consegna e uscita campagna nei tempi concordati.</p>
+        <h3 data-i18n="serv.card5.t">Stampa e logistica</h3>
+        <p data-i18n="serv.card5.d">Coordiniamo stampa, distribuzione dei materiali e squadre di affissatori su tutto il territorio: consegna e uscita campagna nei tempi concordati.</p>
       </div>
       <div class="card">
         <div class="icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         </div>
-        <h3>Verifica e reportistica</h3>
-        <p>Report fotografico di avvenuta affissione per ogni impianto: la certezza documentata che la tua campagna è in strada come pianificato.</p>
+        <h3 data-i18n="serv.card6.t">Verifica e reportistica</h3>
+        <p data-i18n="serv.card6.d">Report fotografico di avvenuta affissione per ogni impianto: la certezza documentata che la tua campagna è in strada come pianificato.</p>
       </div>
     </div>
   </div>
@@ -107,15 +111,15 @@
 
 <section class="section alt">
   <div class="container split">
-    <div class="photo">Screenshot pianificatore su mappa<br>(assets/foto/servizi-pianificatore.jpg)</div>
+    <div class="photo" data-i18n="serv.photo">Screenshot pianificatore su mappa<br>(assets/foto/servizi-pianificatore.jpg)</div>
     <div>
-      <h2>La pianificazione che si vede sulla mappa</h2>
-      <p>Con il nostro pianificatore proprietario condividiamo con il cliente una mappa interattiva della campagna: ogni impianto proposto è georeferenziato, con formato, foto e bacino d'utenza raggiunto.</p>
+      <h2 data-i18n="serv.split.title">La pianificazione che si vede sulla mappa</h2>
+      <p data-i18n="serv.split.text">Con il nostro pianificatore proprietario condividiamo con il cliente una mappa interattiva della campagna: ogni impianto proposto è georeferenziato, con formato, foto e bacino d'utenza raggiunto.</p>
       <ul class="checklist">
-        <li>Mappa interattiva condivisibile via link</li>
-        <li>Calcolo della popolazione raggiunta per comune</li>
-        <li>Isocrone di percorrenza dai punti vendita</li>
-        <li>Export dell'offerta in Excel formattato</li>
+        <li data-i18n="serv.li1">Mappa interattiva condivisibile via link</li>
+        <li data-i18n="serv.li2">Calcolo della popolazione raggiunta per comune</li>
+        <li data-i18n="serv.li3">Isocrone di percorrenza dai punti vendita</li>
+        <li data-i18n="serv.li4">Export dell'offerta in Excel formattato</li>
       </ul>
     </div>
   </div>
@@ -123,9 +127,9 @@
 
 <section class="cta-band">
   <div class="container">
-    <h2>Parliamo della tua prossima campagna</h2>
-    <p>Ti rispondiamo con una proposta di pianificazione concreta: impianti, mappa e preventivo.</p>
-    <a href="contatti.html" class="btn btn-primary">Richiedi preventivo</a>
+    <h2 data-i18n="serv.ctaband.title">Parliamo della tua prossima campagna</h2>
+    <p data-i18n="serv.ctaband.text">Ti rispondiamo con una proposta di pianificazione concreta: impianti, mappa e preventivo.</p>
+    <a href="contatti.html" class="btn btn-primary" data-i18n="nav.cta">Richiedi preventivo</a>
   </div>
 </section>
 
@@ -134,38 +138,38 @@
     <div class="footer-grid">
       <div class="footer-logo">
         <img src="assets/logo-white.png" alt="Diesse Media SRL">
-        <p style="margin-top:14px;">Centro media specializzato in comunicazione outdoor e pianificazione pubblicitaria geolocalizzata.</p>
+        <p style="margin-top:14px;" data-i18n="footer.tagline">Centro media specializzato in comunicazione outdoor e pianificazione pubblicitaria geolocalizzata.</p>
       </div>
       <div>
-        <h4>Sito</h4>
+        <h4 data-i18n="footer.h.sito">Sito</h4>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="servizi.html">Servizi</a></li>
-          <li><a href="impianti.html">Impianti e Copertura</a></li>
-          <li><a href="chi-siamo.html">Chi Siamo</a></li>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="servizi.html" data-i18n="nav.servizi">Servizi</a></li>
+          <li><a href="impianti.html" data-i18n="nav.impianti">Impianti e Copertura</a></li>
+          <li><a href="chi-siamo.html" data-i18n="nav.chisiamo">Chi Siamo</a></li>
         </ul>
       </div>
       <div>
-        <h4>Servizi</h4>
+        <h4 data-i18n="footer.h.servizi">Servizi</h4>
         <ul>
-          <li><a href="servizi.html">Affissioni classiche</a></li>
-          <li><a href="servizi.html">Maxi affissioni</a></li>
-          <li><a href="servizi.html">Pianificazione media</a></li>
-          <li><a href="servizi.html">Stampa e logistica</a></li>
+          <li><a href="servizi.html" data-i18n="footer.serv.affissioni">Affissioni classiche</a></li>
+          <li><a href="servizi.html" data-i18n="footer.serv.maxi">Maxi affissioni</a></li>
+          <li><a href="servizi.html" data-i18n="footer.serv.pian">Pianificazione media</a></li>
+          <li><a href="servizi.html" data-i18n="footer.serv.stampa">Stampa e logistica</a></li>
         </ul>
       </div>
       <div>
-        <h4>Contatti</h4>
+        <h4 data-i18n="footer.h.contatti">Contatti</h4>
         <ul>
           <li><a href="mailto:info@diessemedia.it">info@diessemedia.it</a></li>
-          <li>[Telefono da inserire]</li>
-          <li>[Indirizzo da inserire]<br>Napoli, Italia</li>
+          <li data-i18n="footer.tel">[Telefono da inserire]</li>
+          <li data-i18n="footer.addr">[Indirizzo da inserire]<br>Napoli, Italia</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Diesse Media SRL — Tutti i diritti riservati</span>
-      <span>P.IVA [da inserire]</span>
+      <span data-i18n="footer.rights">&copy; 2026 Diesse Media SRL — Tutti i diritti riservati</span>
+      <span data-i18n="footer.piva">P.IVA [da inserire]</span>
     </div>
   </div>
 </footer>
@@ -173,6 +177,7 @@
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
 <script defer src="js/fx.js?v=3"></script>
-<script defer src="js/site.js?v=3"></script>
+<script defer src="js/i18n.js?v=2"></script>
+<script defer src="js/site.js?v=4"></script>
 </body>
 </html>

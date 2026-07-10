@@ -52,13 +52,14 @@
   function animateNum(el) {
     if (el.dataset.counted) return;
     el.dataset.counted = '1';
-    var m = el.textContent.trim().match(/^([\d.]+)(.*)$/);
+    var m = el.textContent.trim().match(/^([\d.,]+)(.*)$/);
     if (!m) return;
-    var end = parseInt(m[1].replace(/\./g, ''), 10);
+    var sep = m[1].indexOf(',') > -1 ? ',' : '.';   /* separatore migliaia locale (it: . / en: ,) */
+    var end = parseInt(m[1].replace(/[.,]/g, ''), 10);
     var suffix = m[2] || '';
     if (!end) return;
     var t0 = null, DUR = 1600;
-    function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
+    function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, sep); }
     function tick(ts) {
       if (!t0) t0 = ts;
       var p = Math.min(1, (ts - t0) / DUR);
@@ -153,4 +154,11 @@
   window.addEventListener('resize', sweep);
   [120, 700, 1700, 2600].forEach(function (ms) { setTimeout(sweep, ms); });
   sweep();
+
+  /* al cambio lingua: i18n ha rimpiazzato il testo dei titoli (spazzando le
+     lettere), quindi li ri-divido e li rendo subito visibili. */
+  window.addEventListener('dsm:langchange', function () {
+    var hs = document.querySelectorAll('.hero-copy h1, .page-hero h1, .section-head h2, .split h2, .cta-band h2');
+    for (var i = 0; i < hs.length; i++) { splitHeading(hs[i]); hs[i].classList.add('st-in'); }
+  });
 })();
