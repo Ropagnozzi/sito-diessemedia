@@ -24,16 +24,28 @@
           child.textContent.split(/(\s+)/).forEach(function (w) {
             if (!w) return;
             if (/^\s+$/.test(w)) { frag.appendChild(document.createTextNode(' ')); return; }
-            var ws = document.createElement('span');
-            ws.className = 'st-w';
-            for (var i = 0; i < w.length; i++) {
+            function charSpan(ch) {
               var cs = document.createElement('span');
               cs.className = 'st-c';
-              cs.textContent = w.charAt(i);
+              cs.textContent = ch;
               cs.style.transitionDelay = (chIndex * 20) + 'ms';
               chIndex++;
-              ws.appendChild(cs);
+              return cs;
             }
+            /* il cinese non ha spazi: ogni carattere è un blocco a sé, così
+               la riga può andare a capo tra un carattere e l'altro */
+            if (/[㐀-鿿豈-﫿＀-￯]/.test(w)) {
+              for (var c = 0; c < w.length; c++) {
+                var wc = document.createElement('span');
+                wc.className = 'st-w';
+                wc.appendChild(charSpan(w.charAt(c)));
+                frag.appendChild(wc);
+              }
+              return;
+            }
+            var ws = document.createElement('span');
+            ws.className = 'st-w';
+            for (var i = 0; i < w.length; i++) { ws.appendChild(charSpan(w.charAt(i))); }
             frag.appendChild(ws);
           });
           node.replaceChild(frag, child);

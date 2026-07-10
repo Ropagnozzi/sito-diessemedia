@@ -27,6 +27,14 @@
   --container: 1160px;
 }
 
+/* cinese: font CJK (Noto Sans SC, caricato solo quando si sceglie 中文) */
+html[lang="zh"] {
+  --font-head: 'Noto Sans SC', 'Lexend', system-ui, sans-serif;
+  --font-body: 'Noto Sans SC', 'Source Sans 3', system-ui, sans-serif;
+}
+html[lang="zh"] .sv-head,
+html[lang="zh"] .sv-sub { font-family: 'Noto Sans SC', sans-serif; }
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {

@@ -202,6 +202,7 @@ add_action( 'wp_enqueue_scripts', 'dsm_assets' );
       <span class="lang-switch" role="group" aria-label="Language">
         <button type="button" data-lang-btn="it">IT</button>
         <button type="button" data-lang-btn="en">EN</button>
+        <button type="button" data-lang-btn="zh">中文</button>
       </span>
     </nav>
   </div>

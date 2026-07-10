@@ -103,12 +103,16 @@ Dopo ogni modifica al sito, ri-lanciare lo script e ricaricare lo zip.
 | Riquadro showreel | index.html + hero.css | sequenza cinematografica poster→maxi→stazione, sotto i numeri |
 | Cursore magnetico | fx.js | SOLO desktop (hover+pointer fine) |
 | Sfondo rete metallica | fx.js (Three.js 0.149) | fili acciaio che si deformano al passaggio del mouse |
-| Bilingue IT/EN | i18n.js + attributi data-i18n | selettore IT/EN nell'header; IT default; scelta salvata in localStorage |
+| Multilingua IT/EN/ZH | i18n.js + attributi data-i18n | selettore IT/EN/中文 nell'header; IT default; scelta salvata in localStorage |
 
-### Come funziona il bilingue (i18n)
+### Come funziona il multilingua (i18n)
 
-- **L'italiano è la fonte** e resta nell'HTML; l'inglese vive nel dizionario
-  in `js/i18n.js` (indicizzato dalle chiavi `data-i18n`).
+- Lingue: **italiano (fonte), inglese, cinese semplificato (中文)**.
+- **L'italiano è la fonte** e resta nell'HTML; inglese e cinese vivono nei
+  dizionari `DICTS.en` / `DICTS.zh` in `js/i18n.js` (chiavi `data-i18n`).
+- Il **cinese** carica il font Noto Sans SC solo quando selezionato; l'animazione
+  dei titoli va a capo per singolo carattere (CJK). Per aggiungere una lingua:
+  nuovo dizionario in `DICTS` + pulsante `data-lang-btn` nel selettore.
 - Ogni testo traducibile ha `data-i18n="chiave"` (o `data-i18n-placeholder`,
   `data-i18n-alt`, `data-i18n-content`, `data-i18n-aria-label` per gli attributi).
 - `i18n.js` gira PRIMA di `site.js` (cattura l'italiano, applica la lingua salvata).
