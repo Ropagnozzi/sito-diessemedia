@@ -150,7 +150,10 @@ body::after {
 }
 .st-in .st-c { opacity: 1; transform: none; }
 
-/* ---------- Sfondo WebGL a particelle (js/fx.js) ---------- */
+/* ---------- Rete metallica WebGL (js/fx.js) ---------- */
+/* quando la rete WebGL è attiva, la griglia CSS statica si spegne */
+html.fx-on body::after { display: none; }
+
 #fx-bg {
   position: fixed;
   inset: 0;
