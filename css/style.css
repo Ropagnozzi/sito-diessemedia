@@ -242,13 +242,19 @@ h1, h2, h3, h4 {
 
 /* ---------- Header ---------- */
 .site-header {
-  position: sticky;
+  /* fixed (non sticky): resta SEMPRE visibile — lo sticky si rompe
+     con overflow-x non-visible sugli antenati (fix touch) */
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   background: rgba(7, 8, 13, .82);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
+/* compensa l'header fisso */
+body { padding-top: 77px; }
 /* linea di energia sotto l'header */
 .site-header::after {
   content: '';
