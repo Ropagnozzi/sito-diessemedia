@@ -18,6 +18,9 @@
 - Settore: centro media, comunicazione pubblicitaria outdoor (OOH)
 - Area operativa diretta: Napoli e provincia, Caserta, Salerno, Avellino, Benevento
 - Area operativa via network: tutta Italia
+- Sede legale: Viale Olimpico 5, 80025 Casandrino (NA), Italia
+- Telefono: +39 081.18253788
+- P.IVA: 09646331216
 - Email: info@diessemedia.it
 
 ## Note per i crawler AI
