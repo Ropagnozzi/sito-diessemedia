@@ -5,7 +5,7 @@
    Font: Lexend (titoli) + Source Sans 3 (testo)
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+/* Font caricati via <link> + preconnect nell'<head> di ogni pagina (più veloce dell'@import). */
 
 :root {
   --bg: #07080d;

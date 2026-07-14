@@ -103,6 +103,8 @@ def build():
 
     # ---------- assets ----------
     shutil.copytree(os.path.join(BASE, 'assets'), os.path.join(THEME, 'assets'))
+    if os.path.exists(os.path.join(BASE, 'favicon.ico')):
+        shutil.copy(os.path.join(BASE, 'favicon.ico'), os.path.join(THEME, 'favicon.ico'))
 
     # ---------- hero.js + site.js ----------
     index_html = read(os.path.join(BASE, 'index.html'))
@@ -147,6 +149,13 @@ add_action( 'wp_enqueue_scripts', 'dsm_assets' );
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap">
+<link rel="icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/icons/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AdvertisingAgency","@id":"https://www.diessemedia.it/#organization","name":"Diesse Media","legalName":"Diesse Media SRL","url":"https://www.diessemedia.it/","logo":"https://www.diessemedia.it/assets/logo.png","image":"https://www.diessemedia.it/assets/og-cover.jpg","email":"info@diessemedia.it","description":"Centro media specializzato in comunicazione outdoor: pianificazione affissioni, maxi affissioni, arredo urbano e digital in Campania e in tutta Italia.","areaServed":[{"@type":"AdministrativeArea","name":"Campania"},{"@type":"Country","name":"Italia"}],"address":{"@type":"PostalAddress","addressLocality":"Napoli","addressRegion":"Campania","addressCountry":"IT"}}</script>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

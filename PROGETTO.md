@@ -139,6 +139,27 @@ Dopo ogni modifica al sito, ri-lanciare lo script e ricaricare lo zip.
   font/librerie (ora caricati da Google/jsDelivr/cdnjs: trasmettono l'IP a terzi,
   disclosure già presente nella cookie policy).
 
+## SEO
+
+Audit completo eseguito con la skill Claude SEO (2026-07-14): Health Score ~40/100
+(sito pre-lancio). **Quick-win tecnici già implementati:**
+- `robots.txt` (con regole bot AI), `sitemap.xml`, `llms.txt`, `404.html` brandizzata.
+- **Schema.org JSON-LD** in ogni pagina: `AdvertisingAgency` (Organization) + `WebSite`
+  (home) + `BreadcrumbList` (pagine interne) + 6× `Service` (servizi). Dominio
+  `www.diessemedia.it`. Telefono/P.IVA/indirizzo-via/sameAs OMESSI dallo schema
+  finché non ci sono i dati reali (meglio omettere che mettere segnaposto non validi).
+- `canonical`, **Open Graph + Twitter Card** (+ immagine social `assets/og-cover.jpg`
+  1200×630), **favicon** (`favicon.ico` + `assets/icons/`) su tutte le pagine.
+- Performance: font Google spostati da `@import` (in style.css) a `<link>`+preconnect
+  nell'`<head>`; foto scena compresse (668→158 KB, 593→132 KB); `preload` LCP in home.
+
+**Ancora da fare (richiedono dati/decisioni del committente):** completare NAP reale
+(→ poi aggiornare lo schema), foto reali + validare i numeri, profili social (`sameAs`),
+Google Business Profile ("Advertising agency"), decisione EN/ZH (URL statici+hreflang
+per SEO oppure solo UX), pagine città (Napoli/Caserta/…), FAQ, case study, H1 con keyword.
+Nota WP: OG/canonical per-pagina nel tema WordPress vanno aggiunti via functions.php (il
+build inietta solo font+favicon+Organization nell'header.php).
+
 ## Lezioni critiche (non ripetere gli errori)
 
 1. **Touch/mobile:** hover solo dentro `(hover:hover)`; gestire sempre

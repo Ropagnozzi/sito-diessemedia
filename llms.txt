@@ -1,0 +1,25 @@
+# Diesse Media
+
+> Diesse Media SRL è un centro media indipendente specializzato in comunicazione
+> pubblicitaria outdoor (affissioni). Pianifica e gestisce campagne di affissioni
+> classiche, maxi affissioni, arredo urbano e digital a Napoli e in tutta la
+> Campania, con un network di partner per la copertura su tutto il territorio
+> nazionale. Utilizza strumenti proprietari di pianificazione geolocalizzata
+> basati su dati ISTAT di popolazione e isocrone di percorrenza.
+
+## Pagine principali
+- [Servizi](https://www.diessemedia.it/servizi.html): affissioni classiche 6x3/4x3, maxi affissioni, arredo urbano, pianificazione geolocalizzata, stampa e logistica, verifica fotografica.
+- [Impianti e Copertura](https://www.diessemedia.it/impianti.html): formati disponibili (6x3, 4x3, 140x200, 100x140, maxi, arredo urbano) e aree di copertura (Napoli, Caserta, Salerno, Avellino, Benevento; rete nazionale).
+- [Chi Siamo](https://www.diessemedia.it/chi-siamo.html): storia, valori e metodo di lavoro.
+- [Contatti](https://www.diessemedia.it/contatti.html): richiesta preventivo, sede, orari.
+
+## Dati aziendali
+- Ragione sociale: Diesse Media SRL
+- Settore: centro media, comunicazione pubblicitaria outdoor (OOH)
+- Area operativa diretta: Napoli e provincia, Caserta, Salerno, Avellino, Benevento
+- Area operativa via network: tutta Italia
+- Email: info@diessemedia.it
+
+## Note per i crawler AI
+- I contenuti in inglese e cinese sono generati via JavaScript lato client: la
+  versione italiana è la fonte primaria e autorevole dei contenuti.

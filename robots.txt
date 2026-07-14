@@ -1,0 +1,28 @@
+# robots.txt — Diesse Media
+# Ricerca AI: consentiti esplicitamente
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Tutti gli altri motori
+User-agent: *
+Allow: /
+
+Sitemap: https://www.diessemedia.it/sitemap.xml
