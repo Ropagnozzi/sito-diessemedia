@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="meta.privacy.title">Privacy Policy — Diesse Media</title>
+<meta name="description" data-i18n-content="meta.privacy.desc" content="Informativa sulla privacy di Diesse Media SRL ai sensi del Regolamento (UE) 2016/679 (GDPR): titolare, dati trattati, finalità, diritti dell'interessato.">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="css/style.css?v=12">
+</head>
+<body>
+
+<!-- Preloader: animazione completa solo alla prima visita della sessione -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-inner">
+    <img src="assets/logo-white.png" alt="">
+    <div class="preloader-bar"><span></span></div>
+  </div>
+</div>
+<script>
+(function () {
+  var p = document.getElementById('preloader');
+  try {
+    if (sessionStorage.getItem('dsmSeen')) { p.classList.add('skip'); }
+    else { sessionStorage.setItem('dsmSeen', '1'); }
+  } catch (e) { p.classList.add('skip'); }
+  setTimeout(function () { p.classList.add('done'); }, 3000);
+})();
+</script>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="Diesse Media — Home">
+      <img src="assets/logo.png" alt="Diesse Media SRL" class="logo-light">
+      <img src="assets/logo-white.png" alt="" class="logo-dark" aria-hidden="true">
+    </a>
+    <span class="lang-switch lang-switch-mobile" role="group" aria-label="Language">
+      <button type="button" data-lang-btn="it">IT</button>
+      <button type="button" data-lang-btn="en">EN</button><button type="button" data-lang-btn="zh">中文</button>
+    </span>
+    <button class="nav-toggle" aria-label="Apri menu" data-i18n-aria-label="a11y.menu" onclick="document.getElementById('nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav" id="nav">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="servizi.html" data-i18n="nav.servizi">Servizi</a>
+      <a href="impianti.html" data-i18n="nav.impianti">Impianti e Copertura</a>
+      <a href="chi-siamo.html" data-i18n="nav.chisiamo">Chi Siamo</a>
+      <a href="contatti.html" data-i18n="nav.contatti">Contatti</a>
+      <a href="contatti.html" class="btn btn-primary" data-i18n="nav.cta">Richiedi preventivo</a>
+      <span class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="it">IT</button>
+        <button type="button" data-lang-btn="en">EN</button><button type="button" data-lang-btn="zh">中文</button>
+      </span>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow" data-i18n="privacy.hero.eyebrow">Informativa</p>
+    <h1 data-i18n="privacy.hero.title">Privacy Policy</h1>
+    <p data-i18n="privacy.hero.sub">Come trattiamo i tuoi dati personali, ai sensi del Regolamento (UE) 2016/679 (GDPR).</p>
+  </div>
+</section>
+
+<main class="section">
+  <div class="container legal">
+    <p class="legal-note" data-i18n="legal.langnote">La presente informativa è redatta in italiano, lingua che fa fede. Ultimo aggiornamento: luglio 2026.</p>
+
+    <h2>1. Titolare del trattamento</h2>
+    <p>Il Titolare del trattamento dei dati personali è <strong>Diesse Media S.R.L.</strong>, con sede in [Indirizzo da inserire], Napoli (Italia), P.IVA [da inserire].</p>
+    <ul>
+      <li>Email: <a href="mailto:info@diessemedia.it">info@diessemedia.it</a></li>
+      <li>PEC: [PEC da inserire]</li>
+      <li>Telefono: [Telefono da inserire]</li>
+    </ul>
+    <p>Il Titolare non ha nominato un Responsabile della Protezione dei Dati (DPO), non essendone obbligato. [In caso di nomina, indicare qui i contatti del DPO.]</p>
+
+    <h2>2. Quali dati trattiamo</h2>
+    <p>In relazione all'utilizzo di questo sito trattiamo le seguenti categorie di dati:</p>
+    <ul>
+      <li><strong>Dati che ci fornisci volontariamente.</strong> Quando compili il modulo di contatto o ci scrivi via email: nome e cognome, azienda (facoltativa), indirizzo email, numero di telefono (facoltativo) e il contenuto del messaggio. Il modulo di contatto apre il tuo programma di posta con una email precompilata verso <a href="mailto:info@diessemedia.it">info@diessemedia.it</a>: i dati inseriti vengono quindi inviati e trattati come normale corrispondenza.</li>
+      <li><strong>Dati di navigazione.</strong> I sistemi informatici e il fornitore di hosting acquisiscono, nel normale funzionamento, alcuni dati la cui trasmissione è implicita nei protocolli di Internet (ad es. indirizzo IP, tipo di browser e dispositivo, data e ora della richiesta, pagine visitate). Sono utilizzati per garantire il corretto funzionamento e la sicurezza del sito e in forma aggregata per finalità statistiche.</li>
+      <li><strong>Dati salvati sul tuo dispositivo.</strong> Il sito utilizza esclusivamente archiviazione tecnica locale (localStorage) per ricordare la lingua scelta e alcune preferenze di visualizzazione. Non utilizziamo cookie di profilazione. I dettagli sono nella <a href="cookie.html" data-i18n="footer.cookie">Cookie Policy</a>.</li>
+    </ul>
+
+    <h2>3. Perché trattiamo i tuoi dati e base giuridica</h2>
+    <table class="legal-table">
+      <thead><tr><th data-i18n="legal.th.finalita">Finalità</th><th data-i18n="legal.th.base">Base giuridica</th></tr></thead>
+      <tbody>
+        <tr><td>Rispondere alle richieste di contatto, informazioni e preventivo</td><td>Riscontro a una tua richiesta / misure precontrattuali (art. 6.1.b GDPR)</td></tr>
+        <tr><td>Garantire il funzionamento, la sicurezza e la manutenzione del sito</td><td>Legittimo interesse del Titolare (art. 6.1.f GDPR)</td></tr>
+        <tr><td>Adempiere a obblighi di legge, contabili e fiscali</td><td>Obbligo legale (art. 6.1.c GDPR)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4. Modalità del trattamento</h2>
+    <p>Il trattamento avviene con strumenti informatici e telematici e, ove necessario, cartacei, con logiche strettamente correlate alle finalità indicate e adottando misure tecniche e organizzative adeguate a garantire la sicurezza e la riservatezza dei dati.</p>
+
+    <h2>5. A chi comunichiamo i dati</h2>
+    <p>I dati possono essere trattati da personale autorizzato del Titolare e da soggetti terzi che forniscono servizi funzionali al sito (ad es. fornitore di hosting e di posta elettronica), nominati Responsabili del trattamento ai sensi dell'art. 28 GDPR. I dati non sono oggetto di diffusione né di comunicazione a terzi per finalità di marketing.</p>
+
+    <h2>6. Trasferimenti verso Paesi terzi</h2>
+    <p>Per il suo funzionamento il sito carica alcune risorse tecniche (font tipografici e librerie di animazione) da fornitori terzi e può essere ospitato su infrastrutture i cui server sono situati anche al di fuori dell'Unione Europea. Tali fornitori possono venire a conoscenza dell'indirizzo IP dell'utente. Gli eventuali trasferimenti extra-UE avvengono verso soggetti che offrono garanzie adeguate (decisioni di adeguatezza o Clausole Contrattuali Standard della Commissione Europea). L'elenco delle risorse di terze parti è riportato nella <a href="cookie.html" data-i18n="footer.cookie">Cookie Policy</a>.</p>
+
+    <h2>7. Per quanto tempo conserviamo i dati</h2>
+    <p>I dati forniti tramite richiesta di contatto sono conservati per il tempo necessario a gestire la richiesta e gli eventuali rapporti che ne derivino, oltre ai termini di legge per la relativa documentazione. I dati di navigazione sono conservati per il tempo tecnico necessario e comunque nei limiti previsti dalla normativa vigente.</p>
+
+    <h2>8. I tuoi diritti</h2>
+    <p>In qualità di interessato puoi esercitare in ogni momento i diritti previsti dagli artt. 15-22 del GDPR:</p>
+    <ul>
+      <li>accesso ai tuoi dati e alle informazioni sul trattamento;</li>
+      <li>rettifica dei dati inesatti e integrazione di quelli incompleti;</li>
+      <li>cancellazione dei dati ("diritto all'oblio");</li>
+      <li>limitazione del trattamento;</li>
+      <li>portabilità dei dati;</li>
+      <li>opposizione al trattamento;</li>
+      <li>revoca del consenso, ove il trattamento vi si basi, senza pregiudizio per la liceità del trattamento precedente.</li>
+    </ul>
+    <p>Per esercitare i tuoi diritti puoi scrivere a <a href="mailto:info@diessemedia.it">info@diessemedia.it</a>. Hai inoltre il diritto di proporre reclamo all'Autorità di controllo — il <strong>Garante per la protezione dei dati personali</strong> (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">www.garanteprivacy.it</a>).</p>
+
+    <h2>9. Natura del conferimento</h2>
+    <p>Il conferimento dei dati tramite il modulo di contatto è facoltativo; tuttavia il mancato conferimento dei dati necessari (ad es. email) rende impossibile dare seguito alla tua richiesta.</p>
+
+    <h2>10. Modifiche alla presente informativa</h2>
+    <p>Il Titolare si riserva di aggiornare la presente informativa per adeguarla a modifiche normative o al sito. La versione aggiornata è sempre pubblicata su questa pagina, con indicazione della data di ultimo aggiornamento.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <img src="assets/logo-white.png" alt="Diesse Media SRL">
+        <p style="margin-top:14px;" data-i18n="footer.tagline">Centro media specializzato in comunicazione outdoor e pianificazione pubblicitaria geolocalizzata.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.h.sito">Sito</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+          <li><a href="servizi.html" data-i18n="nav.servizi">Servizi</a></li>
+          <li><a href="impianti.html" data-i18n="nav.impianti">Impianti e Copertura</a></li>
+          <li><a href="chi-siamo.html" data-i18n="nav.chisiamo">Chi Siamo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.h.servizi">Servizi</h4>
+        <ul>
+          <li><a href="servizi.html" data-i18n="footer.serv.affissioni">Affissioni classiche</a></li>
+          <li><a href="servizi.html" data-i18n="footer.serv.maxi">Maxi affissioni</a></li>
+          <li><a href="servizi.html" data-i18n="footer.serv.pian">Pianificazione media</a></li>
+          <li><a href="servizi.html" data-i18n="footer.serv.stampa">Stampa e logistica</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.h.contatti">Contatti</h4>
+        <ul>
+          <li><a href="mailto:info@diessemedia.it">info@diessemedia.it</a></li>
+          <li data-i18n="footer.tel">[Telefono da inserire]</li>
+          <li data-i18n="footer.addr">[Indirizzo da inserire]<br>Napoli, Italia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer.rights">&copy; 2026 Diesse Media SRL — Tutti i diritti riservati</span>
+      <span class="footer-legal"><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a> &middot; <a href="cookie.html" data-i18n="footer.cookie">Cookie Policy</a></span>
+      <span data-i18n="footer.piva">P.IVA [da inserire]</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Banner cookie -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" hidden>
+  <p class="cookie-text" data-i18n="cookie.text">Questo sito utilizza cookie tecnici e risorse di terze parti (font e librerie) necessari al suo funzionamento. Non utilizziamo cookie di profilazione. Maggiori informazioni nella <a href="cookie.html">Cookie Policy</a>.</p>
+  <button type="button" class="btn btn-primary" id="cookie-ok" data-i18n="cookie.accept">Ho capito</button>
+</div>
+<script>
+(function () {
+  var b = document.getElementById('cookie-banner');
+  if (!b) return;
+  try { if (!localStorage.getItem('dsmCookieOK')) b.hidden = false; } catch (e) { b.hidden = false; }
+  var ok = document.getElementById('cookie-ok');
+  if (ok) ok.addEventListener('click', function () {
+    try { localStorage.setItem('dsmCookieOK', '1'); } catch (e) {}
+    b.hidden = true;
+  });
+})();
+</script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+<script defer src="js/fx.js?v=3"></script>
+<script defer src="js/i18n.js?v=4"></script>
+<script defer src="js/site.js?v=5"></script>
+</body>
+</html>

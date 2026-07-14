@@ -19,6 +19,8 @@ PAGES = {
     'impianti.html':  'page-impianti.php',
     'chi-siamo.html': 'page-chi-siamo.php',
     'contatti.html':  'page-contatti.php',
+    'privacy.html':   'page-privacy.php',
+    'cookie.html':    'page-cookie.php',
 }
 
 TPL_URI = "<?php echo esc_url( get_template_directory_uri() ); ?>"
@@ -29,6 +31,8 @@ LINK_MAP = [
     ('href="impianti.html"',  'href="<?php echo esc_url( home_url( \'/impianti/\' ) ); ?>"'),
     ('href="chi-siamo.html"', 'href="<?php echo esc_url( home_url( \'/chi-siamo/\' ) ); ?>"'),
     ('href="contatti.html"',  'href="<?php echo esc_url( home_url( \'/contatti/\' ) ); ?>"'),
+    ('href="privacy.html"',   'href="<?php echo esc_url( home_url( \'/privacy/\' ) ); ?>"'),
+    ('href="cookie.html"',    'href="<?php echo esc_url( home_url( \'/cookie/\' ) ); ?>"'),
     ('src="assets/',          'src="' + TPL_URI + '/assets/'),
 ]
 
@@ -209,10 +213,29 @@ add_action( 'wp_enqueue_scripts', 'dsm_assets' );
 </header>
 """)
 
-    # ---------- footer.php (dal footer del sito statico) ----------
+    # ---------- footer.php (dal footer del sito statico + banner cookie) ----------
     footer_html = extract(index_html, '<footer class="site-footer">', '</footer>', include_end=True)
     footer_html = apply_links(footer_html)
-    write(os.path.join(THEME, 'footer.php'), footer_html + "\n\n<?php wp_footer(); ?>\n</body>\n</html>\n")
+    cookie_banner = apply_links('''
+<!-- Banner cookie -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" hidden>
+  <p class="cookie-text" data-i18n="cookie.text">Questo sito utilizza cookie tecnici e risorse di terze parti (font e librerie) necessari al suo funzionamento. Non utilizziamo cookie di profilazione. Maggiori informazioni nella <a href="cookie.html">Cookie Policy</a>.</p>
+  <button type="button" class="btn btn-primary" id="cookie-ok" data-i18n="cookie.accept">Ho capito</button>
+</div>
+<script>
+(function () {
+  var b = document.getElementById('cookie-banner');
+  if (!b) return;
+  try { if (!localStorage.getItem('dsmCookieOK')) b.hidden = false; } catch (e) { b.hidden = false; }
+  var ok = document.getElementById('cookie-ok');
+  if (ok) ok.addEventListener('click', function () {
+    try { localStorage.setItem('dsmCookieOK', '1'); } catch (e) {}
+    b.hidden = true;
+  });
+})();
+</script>
+''')
+    write(os.path.join(THEME, 'footer.php'), footer_html + "\n" + cookie_banner + "\n<?php wp_footer(); ?>\n</body>\n</html>\n")
 
     # ---------- template delle pagine ----------
     for src, dst in PAGES.items():

@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title data-i18n="meta.serv.title">Servizi — Diesse Media | Affissioni, Maxi Impianti, Pianificazione OOH</title>
-<meta name="description" data-i18n-content="meta.serv.desc" content="I servizi di Diesse Media: pianificazione media outdoor, affissioni classiche 6x3 e 4x3, maxi affissioni, arredo urbano, stampa e logistica, campagne geolocalizzate.">
+<title data-i18n="meta.cookie.title">Cookie Policy — Diesse Media</title>
+<meta name="description" data-i18n-content="meta.cookie.desc" content="Cookie Policy di Diesse Media: il sito usa solo cookie tecnici e archiviazione locale, nessun cookie di profilazione. Risorse di terze parti utilizzate.">
+<meta name="robots" content="index, follow">
 <link rel="stylesheet" href="css/style.css?v=12">
 </head>
 <body>
@@ -23,7 +24,6 @@
     if (sessionStorage.getItem('dsmSeen')) { p.classList.add('skip'); }
     else { sessionStorage.setItem('dsmSeen', '1'); }
   } catch (e) { p.classList.add('skip'); }
-  /* rete di sicurezza: si chiude comunque */
   setTimeout(function () { p.classList.add('done'); }, 3000);
 })();
 </script>
@@ -43,7 +43,7 @@
     </button>
     <nav class="main-nav" id="nav">
       <a href="index.html" data-i18n="nav.home">Home</a>
-      <a href="servizi.html" class="active" data-i18n="nav.servizi">Servizi</a>
+      <a href="servizi.html" data-i18n="nav.servizi">Servizi</a>
       <a href="impianti.html" data-i18n="nav.impianti">Impianti e Copertura</a>
       <a href="chi-siamo.html" data-i18n="nav.chisiamo">Chi Siamo</a>
       <a href="contatti.html" data-i18n="nav.contatti">Contatti</a>
@@ -58,84 +58,57 @@
 
 <section class="page-hero">
   <div class="container">
-    <p class="eyebrow" data-i18n="serv.hero.eyebrow">Servizi</p>
-    <h1 data-i18n="serv.hero.title">Dalla strategia all'impianto in strada</h1>
-    <p data-i18n="serv.hero.sub">Un servizio completo di pianificazione e gestione della comunicazione esterna, con un unico referente per tutta la campagna.</p>
+    <p class="eyebrow" data-i18n="cookie.hero.eyebrow">Informativa</p>
+    <h1 data-i18n="cookie.hero.title">Cookie Policy</h1>
+    <p data-i18n="cookie.hero.sub">I cookie e le tecnologie di archiviazione utilizzati da questo sito.</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="grid grid-3">
-      <div class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
-        </div>
-        <h3 data-i18n="serv.card1.t">Affissioni classiche</h3>
-        <p data-i18n="serv.card1.d">Poster 6x3, 4x3, 100x140, 140x200 e formati speciali su impianti selezionati. Circuiti cittadini e provinciali con posizioni ad alto traffico veicolare e pedonale.</p>
-      </div>
-      <div class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg>
-        </div>
-        <h3 data-i18n="serv.card2.t">Maxi affissioni</h3>
-        <p data-i18n="serv.card2.d">Grandi teli su facciate, ponteggi e location di prestigio. La soluzione a massimo impatto per lanci di prodotto, brand awareness e campagne istituzionali.</p>
-      </div>
-      <div class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
-        </div>
-        <h3 data-i18n="serv.card3.t">Pianificazione geolocalizzata</h3>
-        <p data-i18n="serv.card3.d">Strumenti proprietari di pianificazione su mappa: analisi di bacini d'utenza, isocrone di percorrenza e dati ISTAT di popolazione per scegliere gli impianti giusti.</p>
-      </div>
-      <div class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"/><path d="M2 22h20M10 6V2h4v4"/><path d="M9 11h6M9 15h6"/></svg>
-        </div>
-        <h3 data-i18n="serv.card4.t">Arredo urbano e paline</h3>
-        <p data-i18n="serv.card4.d">Comunicazione su pensiline, paline e transenne: formati capillari che accompagnano il pubblico negli spostamenti quotidiani in città.</p>
-      </div>
-      <div class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-        </div>
-        <h3 data-i18n="serv.card5.t">Stampa e logistica</h3>
-        <p data-i18n="serv.card5.d">Coordiniamo stampa, distribuzione dei materiali e squadre di affissatori su tutto il territorio: consegna e uscita campagna nei tempi concordati.</p>
-      </div>
-      <div class="card">
-        <div class="icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-        </div>
-        <h3 data-i18n="serv.card6.t">Verifica e reportistica</h3>
-        <p data-i18n="serv.card6.d">Report fotografico di avvenuta affissione per ogni impianto: la certezza documentata che la tua campagna è in strada come pianificato.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<main class="section">
+  <div class="container legal">
+    <p class="legal-note" data-i18n="legal.langnote">La presente informativa è redatta in italiano, lingua che fa fede. Ultimo aggiornamento: luglio 2026.</p>
 
-<section class="section alt">
-  <div class="container split">
-    <div class="photo" data-i18n="serv.photo">Screenshot pianificatore su mappa<br>(assets/foto/servizi-pianificatore.jpg)</div>
-    <div>
-      <h2 data-i18n="serv.split.title">La pianificazione che si vede sulla mappa</h2>
-      <p data-i18n="serv.split.text">Con il nostro pianificatore proprietario condividiamo con il cliente una mappa interattiva della campagna: ogni impianto proposto è georeferenziato, con formato, foto e bacino d'utenza raggiunto.</p>
-      <ul class="checklist">
-        <li data-i18n="serv.li1">Mappa interattiva condivisibile via link</li>
-        <li data-i18n="serv.li2">Calcolo della popolazione raggiunta per comune</li>
-        <li data-i18n="serv.li3">Isocrone di percorrenza dai punti vendita</li>
-        <li data-i18n="serv.li4">Export dell'offerta in Excel formattato</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <h2>1. Cosa sono i cookie</h2>
+    <p>I cookie sono piccoli file di testo che i siti visitati inviano al dispositivo dell'utente, dove vengono memorizzati per essere ritrasmessi al successivo accesso. Tecnologie analoghe (ad es. il <em>localStorage</em>) consentono di memorizzare informazioni sul dispositivo. In questa pagina, per semplicità, ci riferiamo a tutte queste tecnologie con il termine "cookie".</p>
 
-<section class="cta-band">
-  <div class="container">
-    <h2 data-i18n="serv.ctaband.title">Parliamo della tua prossima campagna</h2>
-    <p data-i18n="serv.ctaband.text">Ti rispondiamo con una proposta di pianificazione concreta: impianti, mappa e preventivo.</p>
-    <a href="contatti.html" class="btn btn-primary" data-i18n="nav.cta">Richiedi preventivo</a>
+    <h2>2. Questo sito non usa cookie di profilazione</h2>
+    <p>Diesse Media <strong>non utilizza cookie di profilazione, di marketing o di tracciamento pubblicitario</strong>, né strumenti di analisi che profilano l'utente. Utilizziamo unicamente archiviazione tecnica di prima parte, necessaria al funzionamento del sito, per la quale — ai sensi delle Linee guida del Garante — non è richiesto il consenso.</p>
+
+    <h2>3. Cookie e archiviazione tecnica utilizzati</h2>
+    <table class="legal-table">
+      <thead><tr><th data-i18n="legal.th.nome">Nome</th><th data-i18n="legal.th.tipo">Tipo</th><th data-i18n="legal.th.scopo">Finalità</th><th data-i18n="legal.th.durata">Durata</th></tr></thead>
+      <tbody>
+        <tr><td><code>dsmLang</code></td><td>localStorage (tecnico)</td><td>Ricorda la lingua scelta (IT / EN / 中文)</td><td>Persistente</td></tr>
+        <tr><td><code>dsmSeen</code></td><td>sessionStorage (tecnico)</td><td>Indica che l'animazione di apertura è già stata mostrata</td><td>Sessione</td></tr>
+        <tr><td><code>dsmCookieOK</code></td><td>localStorage (tecnico)</td><td>Ricorda la presa visione di questa informativa</td><td>Persistente</td></tr>
+      </tbody>
+    </table>
+
+    <h2>4. Risorse di terze parti</h2>
+    <p>Per il suo funzionamento il sito carica alcune risorse statiche (font e librerie) da fornitori terzi. Queste risorse <strong>non installano cookie di profilazione</strong>, ma il fornitore, servendo il file, può venire a conoscenza dell'indirizzo IP dell'utente. I fornitori utilizzati sono:</p>
+    <table class="legal-table">
+      <thead><tr><th data-i18n="legal.th.servizio">Servizio</th><th data-i18n="legal.th.scopo">Finalità</th><th data-i18n="legal.th.privacy">Privacy</th></tr></thead>
+      <tbody>
+        <tr><td>Google Fonts</td><td>Font tipografici (incl. cinese)</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com</a></td></tr>
+        <tr><td>jsDelivr (CDN)</td><td>Librerie di scorrimento e grafica 3D</td><td><a href="https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net" target="_blank" rel="noopener">jsdelivr.com</a></td></tr>
+        <tr><td>Cloudflare cdnjs</td><td>Libreria di animazione</td><td><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>5. Come gestire i cookie</h2>
+    <p>Trattandosi di archiviazione tecnica, non è necessario alcun consenso. Puoi comunque cancellare o bloccare i dati salvati in qualsiasi momento dalle impostazioni del tuo browser. Le istruzioni per i browser più diffusi:</p>
+    <ul>
+      <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+      <li><a href="https://support.mozilla.org/it/kb/Gestione%20dei%20cookie" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+      <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
+      <li><a href="https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Microsoft Edge</a></li>
+    </ul>
+    <p>La disattivazione dell'archiviazione tecnica può compromettere alcune funzionalità del sito (ad es. la memorizzazione della lingua).</p>
+
+    <h2>6. Riferimenti e contatti</h2>
+    <p>Per ogni informazione sul trattamento dei dati personali consulta la <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a> o scrivi a <a href="mailto:info@diessemedia.it">info@diessemedia.it</a>. Il Titolare del trattamento è Diesse Media S.R.L. (Napoli).</p>
   </div>
-</section>
+</main>
 
 <footer class="site-footer">
   <div class="container">

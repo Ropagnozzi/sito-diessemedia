@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title data-i18n="meta.imp.title">Impianti e Copertura — Diesse Media | Formati e Territorio</title>
 <meta name="description" data-i18n-content="meta.imp.desc" content="Il parco impianti Diesse Media: formati 6x3, 4x3, maxi affissioni e arredo urbano. Copertura in Campania e network nazionale su tutta Italia.">
-<link rel="stylesheet" href="css/style.css?v=7">
+<link rel="stylesheet" href="css/style.css?v=12">
 </head>
 <body>
 
@@ -196,15 +196,34 @@
     </div>
     <div class="footer-bottom">
       <span data-i18n="footer.rights">&copy; 2026 Diesse Media SRL — Tutti i diritti riservati</span>
+      <span class="footer-legal"><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a> &middot; <a href="cookie.html" data-i18n="footer.cookie">Cookie Policy</a></span>
       <span data-i18n="footer.piva">P.IVA [da inserire]</span>
     </div>
   </div>
 </footer>
 
+<!-- Banner cookie -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" hidden>
+  <p class="cookie-text" data-i18n="cookie.text">Questo sito utilizza cookie tecnici e risorse di terze parti (font e librerie) necessari al suo funzionamento. Non utilizziamo cookie di profilazione. Maggiori informazioni nella <a href="cookie.html">Cookie Policy</a>.</p>
+  <button type="button" class="btn btn-primary" id="cookie-ok" data-i18n="cookie.accept">Ho capito</button>
+</div>
+<script>
+(function () {
+  var b = document.getElementById('cookie-banner');
+  if (!b) return;
+  try { if (!localStorage.getItem('dsmCookieOK')) b.hidden = false; } catch (e) { b.hidden = false; }
+  var ok = document.getElementById('cookie-ok');
+  if (ok) ok.addEventListener('click', function () {
+    try { localStorage.setItem('dsmCookieOK', '1'); } catch (e) {}
+    b.hidden = true;
+  });
+})();
+</script>
+
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
 <script defer src="js/fx.js?v=3"></script>
-<script defer src="js/i18n.js?v=3"></script>
+<script defer src="js/i18n.js?v=4"></script>
 <script defer src="js/site.js?v=5"></script>
 </body>
 </html>

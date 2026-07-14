@@ -123,6 +123,22 @@ Dopo ogni modifica al sito, ri-lanciare lo script e ricaricare lo zip.
 - Al cambio lingua `site.js` ri-divide i titoli (effetto lettera per lettera) e
   i contatori usano il separatore migliaia giusto (it: `.` / en: `,`).
 
+## GDPR / Aspetti legali
+
+- Pagine **`privacy.html`** (informativa privacy ex artt. 13-14 GDPR) e
+  **`cookie.html`** (cookie policy). Link nel footer di tutte le pagine
+  (`.footer-legal`).
+- **Banner cookie** (`.cookie-banner`, id `cookie-banner`) su tutte le pagine:
+  informativo (solo cookie tecnici, nessuna profilazione), con "Ho capito";
+  la presa visione è salvata in localStorage `dsmCookieOK`.
+- Il **corpo legale resta in italiano** (lingua che fa fede, indicato nella nota
+  in cima); header/footer/banner/hero/intestazioni-tabella traducono (IT/EN/ZH).
+- **DA COMPLETARE prima della pubblicazione** (testi template, non consulenza legale):
+  far validare da un consulente/DPO e compilare i segnaposto — `[Indirizzo]`,
+  `[P.IVA]`, `[PEC]`, `[Telefono]`, eventuale DPO. Valutare l'auto-hosting di
+  font/librerie (ora caricati da Google/jsDelivr/cdnjs: trasmettono l'IP a terzi,
+  disclosure già presente nella cookie policy).
+
 ## Lezioni critiche (non ripetere gli errori)
 
 1. **Touch/mobile:** hover solo dentro `(hover:hover)`; gestire sempre
