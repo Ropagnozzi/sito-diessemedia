@@ -7,6 +7,7 @@
     en: {
       'nav.home': 'Home',
       'nav.servizi': 'Services',
+      'nav.maxi': 'Large Formats',
       'nav.impianti': 'Media &amp; Coverage',
       'nav.chisiamo': 'About',
       'nav.contatti': 'Contact',
@@ -234,6 +235,7 @@
     zh: {
       'nav.home': '首页',
       'nav.servizi': '服务',
+      'nav.maxi': '大幅面',
       'nav.impianti': '媒体与覆盖',
       'nav.chisiamo': '关于我们',
       'nav.contatti': '联系我们',
