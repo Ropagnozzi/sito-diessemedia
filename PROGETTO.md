@@ -54,10 +54,13 @@ chi-siamo.html      Chi Siamo
 contatti.html       Contatti (form via mailto)
 css/style.css       Stile globale (tema scuro tech)
 css/hero.css        Hero: giostra 3D + riquadro showreel
-css/maxi.css        Pagina Maxi Formati (hero immersivo, galleria, scala)
-js/maxi.js          Dati impianti maxi + filtri + lightbox (SEGNAPOSTO da sostituire)
-maxi-impianti-TEMPLATE.csv  Template per compilare i maxi impianti reali
-assets/foto/maxi/   Foto dei maxi impianti (nome file = colonna "photo" del CSV)
+css/maxi.css        Pagina Maxi Formati (hero, galleria, MAPPA Leaflet, scala)
+js/maxi.js          Galleria + mappa: filtri, lightbox, marker (legge maxi-data.js)
+js/maxi-data.js     Dati impianti maxi — GENERATO, non modificare a mano
+maxi-impianti.xlsx  ★ File master da compilare (una riga per impianto, con lat/lng)
+build-maxi-data.py  Convertitore  xlsx -> js/maxi-data.js
+AGGIORNA_MAPPA_MAXI.bat  Doppio-click: rigenera i dati dopo aver modificato l'xlsx
+assets/foto/maxi/   Foto dei maxi impianti (nome file = colonna "photo" dell'xlsx)
 js/site.js          Preloader, scroll fluido, reveal, titoli split, contatori
 js/fx.js            Cursore magnetico (desktop) + rete metallica WebGL
 assets/logo.png     Logo colori originali (ritagliato)

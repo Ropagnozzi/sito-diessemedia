@@ -125,6 +125,50 @@
 .maxi-lb__cta{ margin-top:26px; }
 @media(max-width:520px){ .maxi-specs{ grid-template-columns:1fr; } }
 
+/* ---------- Mappa impianti (Leaflet) ---------- */
+.maxi-map-head{ margin-top:48px; }
+.maxi-map-head h3{ font-family:var(--font-head); font-weight:700; font-size:22px; margin:0 0 6px; }
+.maxi-map-head p{ color:var(--text-muted); max-width:640px; margin:0 0 16px; }
+.maxi-map{
+  height:480px; border-radius:var(--radius); overflow:hidden;
+  border:1px solid var(--border); background:#0a0c12;
+}
+.maxi-map .leaflet-control-attribution{ background:rgba(7,8,13,.7); color:var(--text-muted); }
+.maxi-map .leaflet-control-attribution a{ color:var(--text-soft); }
+.maxi-map .leaflet-bar a{ background:#12151f; color:var(--text-soft); border-color:var(--border); }
+.maxi-map .leaflet-bar a:hover{ background:#1a1e2a; }
+@media(max-width:600px){ .maxi-map{ height:380px; } }
+
+/* pin arancione brandizzato */
+.maxi-pin span{
+  display:block; width:20px; height:20px; margin:2px;
+  background:var(--accent); border:2px solid rgba(255,255,255,.85);
+  border-radius:50% 50% 50% 0; transform:rotate(-45deg);
+  box-shadow:0 3px 9px rgba(0,0,0,.55);
+}
+
+/* popup scuro coerente col tema */
+.maxi-pop-wrap .leaflet-popup-content-wrapper{
+  background:var(--bg-elev); color:var(--text); border:1px solid var(--border);
+  border-radius:12px; box-shadow:var(--shadow-md);
+}
+.maxi-pop-wrap .leaflet-popup-content{ margin:0; width:240px !important; }
+.maxi-pop-wrap .leaflet-popup-tip{ background:var(--bg-elev); border:1px solid var(--border); }
+.maxi-pop-wrap a.leaflet-popup-close-button{ color:var(--text-muted); }
+.maxi-pop__img{ height:120px; background-size:cover; background-position:center; border-radius:12px 12px 0 0; }
+.maxi-pop__img.maxi-ph span{ font-size:22px; }
+.maxi-pop__b{ padding:12px 14px 14px; display:flex; flex-direction:column; gap:2px; }
+.maxi-pop__type{ font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--accent-bright); }
+.maxi-pop__b strong{ font-family:var(--font-head); font-size:17px; }
+.maxi-pop__pos{ color:var(--text-muted); font-size:13px; }
+.maxi-pop__meta{ font-size:13px; color:var(--text-soft); margin-top:4px; }
+.maxi-pop__meta b{ color:var(--accent-bright); }
+.maxi-pop__btn{
+  margin-top:10px; font:inherit; font-size:13px; cursor:pointer;
+  background:var(--accent); color:#0a0a0a; border:0; border-radius:8px; padding:8px 12px; font-weight:600;
+}
+.maxi-pop__btn:hover{ background:var(--accent-bright); }
+
 /* ---------- Senso della scala ---------- */
 .maxi-scale{ text-align:center; }
 .maxi-scale svg{ width:100%; max-width:920px; height:auto; margin-top:10px; }
