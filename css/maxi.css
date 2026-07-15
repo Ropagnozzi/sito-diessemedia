@@ -1,0 +1,139 @@
+/* ============================================================
+   Pagina Maxi Formati — stile dedicato (coerente col tema globale)
+   ============================================================ */
+
+/* ---------- Hero immersivo full-bleed ---------- */
+.maxi-hero{
+  position:relative;
+  min-height:92vh;
+  margin-top:-77px;                 /* passa sotto l'header fisso */
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+  isolation:isolate;
+}
+.maxi-hero__img{
+  position:absolute; inset:0; z-index:-2;
+  background-size:cover; background-position:center;
+  transform:scale(1.08);
+  animation:maxiZoom 20s ease-out forwards;
+}
+@keyframes maxiZoom{ to{ transform:scale(1); } }
+.maxi-hero::after{
+  content:''; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(180deg,
+    rgba(7,8,13,.55) 0%, rgba(7,8,13,.10) 38%, rgba(7,8,13,.94) 100%);
+}
+.maxi-hero .container{ padding-top:130px; padding-bottom:9vh; }
+.maxi-hero .eyebrow{ color:var(--accent-bright); }
+.maxi-hero h1{
+  font-family:var(--font-head); font-weight:800;
+  font-size:clamp(40px,7.4vw,96px); line-height:.98;
+  letter-spacing:-2px; margin:6px 0 18px;
+}
+.maxi-hero .lead{
+  font-size:clamp(17px,2.2vw,22px); color:var(--text-soft);
+  max-width:640px; margin:0 0 26px;
+}
+.maxi-hero .btn{ margin-right:12px; }
+
+/* ---------- Valore del maxi (3 concetti) ---------- */
+.maxi-value{ display:grid; grid-template-columns:repeat(3,1fr); gap:34px; }
+.maxi-value .v .n{
+  font-family:var(--font-head); font-weight:800;
+  font-size:clamp(28px,3.6vw,40px); color:var(--accent-bright); line-height:1;
+}
+.maxi-value .v h3{ margin:14px 0 8px; font-size:21px; }
+.maxi-value .v p{ color:var(--text-muted); margin:0; }
+@media(max-width:760px){ .maxi-value{ grid-template-columns:1fr; gap:22px; } }
+
+/* ---------- Filtri galleria ---------- */
+.maxi-filterbar{ margin-bottom:26px; }
+.maxi-filters{ display:flex; flex-wrap:wrap; gap:9px; align-items:center; margin-bottom:12px; }
+.maxi-filters .lbl{
+  font-size:12px; color:var(--text-muted);
+  text-transform:uppercase; letter-spacing:1.5px; margin-right:4px; min-width:66px;
+}
+.chip{
+  font:inherit; font-size:14px; cursor:pointer;
+  padding:8px 16px; border-radius:999px;
+  background:var(--surface); border:1px solid var(--border); color:var(--text-soft);
+  transition:border-color .2s, color .2s, background .2s;
+}
+.chip:hover{ border-color:var(--border-glow); color:var(--text); }
+.chip.active{ background:var(--accent); border-color:var(--accent); color:#0a0a0a; font-weight:600; }
+.maxi-count{ font-size:14px; color:var(--text-muted); margin-top:4px; }
+.maxi-count b{ color:var(--accent-bright); }
+
+/* ---------- Griglia impianti ---------- */
+.maxi-gallery{ display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:22px; }
+.maxi-card{
+  position:relative; display:block; width:100%; text-align:left;
+  border:1px solid var(--border); border-radius:var(--radius);
+  background:var(--bg-elev); overflow:hidden; cursor:pointer;
+  aspect-ratio:4/3; padding:0;
+  transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.maxi-card:hover{ transform:translateY(-4px); border-color:var(--border-glow); box-shadow:var(--shadow-md); }
+.maxi-card:focus-visible{ outline:2px solid var(--accent-bright); outline-offset:2px; }
+.maxi-card__img{ position:absolute; inset:0; background-size:cover; background-position:center; transition:transform .5s ease; }
+.maxi-card:hover .maxi-card__img{ transform:scale(1.05); }
+.maxi-ph{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(120% 90% at 72% 18%, rgba(238,125,0,.20), transparent 60%),
+    linear-gradient(160deg,#141824,#0a0c12);
+  display:flex; align-items:center; justify-content:center;
+}
+.maxi-ph span{ font-family:var(--font-head); font-weight:800; font-size:34px; color:rgba(255,255,255,.09); letter-spacing:1px; }
+.maxi-card__grad{ position:absolute; inset:0; background:linear-gradient(180deg,transparent 34%,rgba(7,8,13,.94) 100%); }
+.maxi-card__body{ position:absolute; left:0; right:0; bottom:0; padding:16px 18px; }
+.maxi-chip-type{
+  display:inline-block; font-size:11px; text-transform:uppercase; letter-spacing:1px;
+  padding:4px 10px; border-radius:999px; margin-bottom:9px;
+  background:rgba(238,125,0,.16); color:var(--accent-bright); border:1px solid rgba(238,125,0,.30);
+}
+.maxi-card__city{ font-family:var(--font-head); font-weight:700; font-size:19px; margin:0; color:var(--text); }
+.maxi-card__pos{ color:var(--text-soft); font-size:14px; margin:2px 0 0; }
+.maxi-card__meta{ display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:11px; font-size:13px; color:var(--text-muted); }
+.maxi-card__meta b{ color:var(--accent-bright); font-weight:600; }
+
+/* ---------- Lightbox scheda impianto ---------- */
+.maxi-lb{ position:fixed; inset:0; z-index:1000; display:none; }
+.maxi-lb.open{ display:flex; }
+.maxi-lb__bg{ position:absolute; inset:0; background:rgba(4,5,9,.88); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); }
+.maxi-lb__panel{
+  position:relative; margin:auto; width:min(960px,92vw); max-height:90vh; overflow:auto;
+  background:var(--bg-elev); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow-md);
+}
+.maxi-lb__img{ width:100%; aspect-ratio:16/9; background-size:cover; background-position:center; }
+.maxi-lb__img.maxi-ph span{ font-size:52px; }
+.maxi-lb__close{
+  position:absolute; top:14px; right:14px; z-index:2;
+  width:42px; height:42px; border-radius:50%; cursor:pointer;
+  border:1px solid var(--border); background:rgba(0,0,0,.45); color:#fff; font-size:22px; line-height:1;
+}
+.maxi-lb__close:hover{ border-color:var(--border-glow); }
+.maxi-lb__info{ padding:24px 28px 30px; }
+.maxi-lb__type{ color:var(--accent-bright); font-size:12px; text-transform:uppercase; letter-spacing:1.5px; }
+.maxi-lb__info h3{ font-family:var(--font-head); font-weight:700; font-size:26px; margin:6px 0 2px; }
+.maxi-lb__info .sub{ color:var(--text-muted); margin:0; }
+.maxi-specs{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px 30px; margin-top:22px; }
+.maxi-specs .s .k{ font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); }
+.maxi-specs .s .val{ font-size:17px; color:var(--text); margin-top:3px; }
+.maxi-specs .s .val b{ color:var(--accent-bright); font-weight:600; }
+.maxi-lb__cta{ margin-top:26px; }
+@media(max-width:520px){ .maxi-specs{ grid-template-columns:1fr; } }
+
+/* ---------- Senso della scala ---------- */
+.maxi-scale{ text-align:center; }
+.maxi-scale svg{ width:100%; max-width:920px; height:auto; margin-top:10px; }
+
+/* ---------- Come nasce un maxi (4 step) ---------- */
+.maxi-steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+.maxi-steps .st{ padding:24px 22px; border:1px solid var(--border); border-radius:var(--radius); background:var(--surface); }
+.maxi-steps .st .num{ font-family:var(--font-head); font-weight:800; color:var(--accent); font-size:14px; letter-spacing:2px; }
+.maxi-steps .st h3{ margin:12px 0 7px; font-size:18px; }
+.maxi-steps .st p{ color:var(--text-muted); font-size:14px; margin:0; }
+@media(max-width:900px){ .maxi-steps{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:520px){ .maxi-steps{ grid-template-columns:1fr; } }

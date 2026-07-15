@@ -1,0 +1,3 @@
+Metti qui le foto dei maxi impianti.
+Nome file = come indicato nella colonna 'photo' del CSV (es. mx-na-01.jpg).
+Consigliato: JPG orizzontale, lato lungo ~1600px, sotto i 300KB.

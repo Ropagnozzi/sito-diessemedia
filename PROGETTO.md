@@ -48,11 +48,16 @@ GitHub Pages in circa un minuto.
 ```
 index.html          Home
 servizi.html        Servizi
+maxi.html           Maxi Formati (galleria impianti filtrabile + lightbox)
 impianti.html       Impianti e Copertura
 chi-siamo.html      Chi Siamo
 contatti.html       Contatti (form via mailto)
 css/style.css       Stile globale (tema scuro tech)
 css/hero.css        Hero: giostra 3D + riquadro showreel
+css/maxi.css        Pagina Maxi Formati (hero immersivo, galleria, scala)
+js/maxi.js          Dati impianti maxi + filtri + lightbox (SEGNAPOSTO da sostituire)
+maxi-impianti-TEMPLATE.csv  Template per compilare i maxi impianti reali
+assets/foto/maxi/   Foto dei maxi impianti (nome file = colonna "photo" del CSV)
 js/site.js          Preloader, scroll fluido, reveal, titoli split, contatori
 js/fx.js            Cursore magnetico (desktop) + rete metallica WebGL
 assets/logo.png     Logo colori originali (ritagliato)
