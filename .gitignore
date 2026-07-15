@@ -6,3 +6,6 @@ wordpress-theme/
 
 Thumbs.db
 desktop.ini
+
+# File temporanei di Office (lock quando un file è aperto)
+~$*
