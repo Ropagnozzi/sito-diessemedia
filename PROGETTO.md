@@ -48,7 +48,8 @@ GitHub Pages in circa un minuto.
 ```
 index.html          Home
 servizi.html        Servizi
-maxi.html           Maxi Formati (galleria impianti filtrabile + lightbox)
+maxi.html           Maxi Formati (galleria impianti filtrabile + lightbox + mappa)
+allestimenti.html   Allestimenti (wrapping/vetrine/stand/eventi, galleria realizzazioni)
 impianti.html       Impianti e Copertura
 chi-siamo.html      Chi Siamo
 contatti.html       Contatti (form via mailto)
