@@ -8,14 +8,11 @@
   'use strict';
 
   var ITEMS = [
-    { code:'AL-01', cat:'Wrapping', title:'Wrapping flotta aziendale',   place:'Napoli',            desc:'Rivestimento integrale di tre veicoli commerciali con grafica coordinata: il brand viaggia per la città ogni giorno.', photo:'' },
-    { code:'AL-02', cat:'Vetrine',  title:'Vetrofania temporary store',  place:'Napoli',            desc:'Allestimento completo delle vetrine di un temporary store con pellicole su misura e lettering adesivo.',           photo:'' },
-    { code:'AL-03', cat:'Stand',    title:'Stand espositivo fiera',      place:'Napoli',            desc:'Stand modulare 4×3 m con pareti brandizzate, totem e bancone reception per una fiera di settore.',                  photo:'' },
-    { code:'AL-04', cat:'Eventi',   title:'Evento di lancio prodotto',   place:'Campania',          desc:'Backdrop, totem e segnaletica brandizzata per un evento di lancio: immagine coerente in ogni dettaglio.',           photo:'' },
-    { code:'AL-05', cat:'Wrapping', title:'Car wrapping full color',     place:'Napoli',            desc:'Wrapping integrale di un\'auto con pellicola stampata: massima resa cromatica e finitura professionale.',           photo:'' },
-    { code:'AL-06', cat:'Vetrine',  title:'Restyling vetrine negozio',   place:'Napoli',            desc:'Nuovo look per le vetrine di un punto vendita con vetrofanie su misura e cornici luminose.',                       photo:'' },
-    { code:'AL-07', cat:'Stand',    title:'Corner promozionale',         place:'Centro commerciale',desc:'Isola promozionale con totem, espositori e grafica coordinata in galleria commerciale.',                           photo:'' },
-    { code:'AL-08', cat:'Eventi',   title:'Allestimento congressuale',   place:'Napoli',            desc:'Segnaletica, roll-up e pannelli per un congresso: percorsi chiari e immagine coerente in tutti gli spazi.',        photo:'' }
+    { code:'AL-01', cat:'Wrapping', title:'Ascensore panoramico brandizzato', place:'C.C. Campania — Marcianise (CE)', desc:'Rivestimento integrale del vano ascensore panoramico, a tutta altezza, per la campagna TECNOMAT al Centro Commerciale Campania: un punto focale impossibile da ignorare.', photo:'al-01.jpg' },
+    { code:'AL-02', cat:'Wrapping', title:'Scale mobili brandizzate',        place:'C.C. Campania — Marcianise (CE)', desc:'Fiancate delle scale mobili rivestite con grafica coordinata: il messaggio accompagna i visitatori lungo tutta la risalita.', photo:'al-02.jpg' },
+    { code:'AL-03', cat:'Wrapping', title:'Totem nell’area centrale',        place:'C.C. Campania — Marcianise (CE)', desc:'Totem pubblicitario a tutta altezza nell’area centrale della galleria commerciale, visibile da ogni livello.', photo:'al-03.jpg' },
+    { code:'AL-04', cat:'Vetrine',  title:'Ingresso e welcome banner',        place:'C.C. Campania — Marcianise (CE)', desc:'Allestimento dell’ingresso con maxi grafica a parete e vetrofania “Benvenuti / Welcome” sulle porte automatiche.', photo:'al-04.jpg' },
+    { code:'AL-05', cat:'Wrapping', title:'Rivestimento vani ascensore',      place:'C.C. Campania — Marcianise (CE)', desc:'Wrapping dei vani ascensore su più livelli: massima visibilità in un punto di grande passaggio.', photo:'al-05.jpg' }
   ];
 
   var PHOTO_BASE = 'assets/foto/allestimenti/';

@@ -9,3 +9,6 @@ desktop.ini
 
 # File temporanei di Office (lock quando un file è aperto)
 ~$*
+
+# Cartelle originali foto (pesanti) scaricate via SwissTransfer
+assets/foto/**/swisstransfer_*/
