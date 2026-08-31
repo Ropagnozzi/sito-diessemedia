@@ -8,9 +8,12 @@ alimenta SIA la galleria SIA la mappa della pagina maxi.html.
 USO: doppio-click su AGGIORNA_MAPPA_MAXI.bat  (oppure:  python build-maxi-data.py)
 
 Colonne attese (prima riga = intestazioni, in qualsiasi ordine):
-  code, city, pos, type, dim, sqm, light, flow, photo, lat, lng
+  code, city, pos, type, dim, sqm, light, flow, photo, photo2, photo3, lat, lng
+Le colonne photo, photo2, photo3, ... (fino a quante ne servono) vengono
+raccolte in ordine: la prima è la foto di copertina, le altre si sfogliano
+nella scheda dell'impianto.
 """
-import json, sys, os
+import json, sys, os, re
 import openpyxl
 
 XLSX = 'maxi-impianti.xlsx'
@@ -49,6 +52,12 @@ def main():
     if missing:
         print('ERRORE: mancano le colonne: %s' % ', '.join(missing)); sys.exit(1)
 
+    # colonne foto: photo, photo2, photo3, ... (in ordine) -> più foto per impianto
+    def photo_order(name):
+        n = name[len('photo'):]
+        return int(n) if n.isdigit() else 1
+    photo_cols = sorted([n for n in idx if re.match(r'^photo\d*$', n)], key=photo_order)
+
     def cell(r, name):
         i = idx.get(name)
         if i is None or i >= len(r):
@@ -74,7 +83,8 @@ def main():
             'sqm':   int(sqm_v) if sqm_v is not None else None,
             'light': truthy(cell(r, 'light')),
             'flow':  str(cell(r, 'flow')  or '').strip(),
-            'photo': str(cell(r, 'photo') or '').strip(),
+            'photos': [str(cell(r, n)).strip() for n in photo_cols
+                       if cell(r, n) and str(cell(r, n)).strip()],
         }
         if lat is not None and lng is not None:
             item['lat'] = lat

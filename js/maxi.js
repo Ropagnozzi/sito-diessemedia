@@ -36,6 +36,12 @@
     return (state.city === '*' || i.city === state.city) &&
            (state.type === '*' || i.type === state.type);
   }
+  /* elenco foto dell'impianto (photos[] nuovo, photo singolo per retrocompatibilità) */
+  function photosOf(i) {
+    if (i.photos && i.photos.length) return i.photos;
+    if (i.photo) return [i.photo];
+    return [];
+  }
 
   /* ---------- chip filtri ---------- */
   function buildChips(bar, values, dim) {
@@ -55,16 +61,20 @@
   }
 
   function imgMarkup(i, cls) {
-    if (i.photo) return '<div class="' + cls + '" style="background-image:url(\'' + PHOTO_BASE + esc(i.photo) + '\')"></div>';
+    var ph = photosOf(i);
+    if (ph.length) return '<div class="' + cls + '" style="background-image:url(\'' + PHOTO_BASE + esc(ph[0]) + '\')"></div>';
     return '<div class="' + cls + ' maxi-ph"><span>' + esc(i.dim) + '</span></div>';
   }
 
   /* ---------- galleria ---------- */
   function renderGallery(list) {
     gallery.innerHTML = list.map(function (i) {
+      var np = photosOf(i).length;
+      var badge = np > 1 ? '<span class="maxi-card__count">' + np + ' foto</span>' : '';
       return '' +
         '<button class="maxi-card" data-code="' + esc(i.code) + '" aria-label="Dettagli impianto ' + esc(i.city) + ' ' + esc(i.pos) + '">' +
           imgMarkup(i, 'maxi-card__img') +
+          badge +
           '<div class="maxi-card__grad"></div>' +
           '<div class="maxi-card__body">' +
             '<span class="maxi-chip-type">' + esc(i.type) + '</span>' +
@@ -84,13 +94,51 @@
 
   /* ---------- lightbox ---------- */
   var lb = document.getElementById('maxi-lb');
+  function setMainPhoto(el, photos, dimText, idx) {
+    if (photos.length) {
+      el.className = 'maxi-lb__img';
+      el.style.backgroundImage = "url('" + PHOTO_BASE + esc(photos[idx]) + "')";
+      el.innerHTML = '';
+    } else {
+      el.className = 'maxi-lb__img maxi-ph';
+      el.style.backgroundImage = '';
+      el.innerHTML = '<span>' + esc(dimText) + '</span>';
+    }
+  }
   function openLightbox(code) {
     var i = byCode(code);
     if (!i || !lb) return;
-    lb.querySelector('#maxi-lb-img').outerHTML =
-      i.photo
-        ? '<div id="maxi-lb-img" class="maxi-lb__img" style="background-image:url(\'' + PHOTO_BASE + esc(i.photo) + '\')"></div>'
-        : '<div id="maxi-lb-img" class="maxi-lb__img maxi-ph"><span>' + esc(i.dim) + '</span></div>';
+    var photos = photosOf(i);
+    var imgEl = lb.querySelector('#maxi-lb-img');
+    setMainPhoto(imgEl, photos, i.dim, 0);
+
+    /* striscia miniature (creata al volo la prima volta) */
+    var thumbs = lb.querySelector('#maxi-lb-thumbs');
+    if (!thumbs) {
+      thumbs = document.createElement('div');
+      thumbs.id = 'maxi-lb-thumbs';
+      thumbs.className = 'maxi-lb__thumbs';
+      imgEl.parentNode.insertBefore(thumbs, imgEl.nextSibling);
+    }
+    if (photos.length > 1) {
+      thumbs.style.display = '';
+      thumbs.innerHTML = photos.map(function (p, idx) {
+        return '<button type="button" class="maxi-thumb' + (idx === 0 ? ' active' : '') +
+               '" data-idx="' + idx + '" aria-label="Foto ' + (idx + 1) + '" style="background-image:url(\'' +
+               PHOTO_BASE + esc(p) + '\')"></button>';
+      }).join('');
+      Array.prototype.forEach.call(thumbs.querySelectorAll('.maxi-thumb'), function (t) {
+        t.addEventListener('click', function () {
+          setMainPhoto(imgEl, photos, i.dim, +t.getAttribute('data-idx'));
+          Array.prototype.forEach.call(thumbs.querySelectorAll('.maxi-thumb'), function (x) { x.classList.remove('active'); });
+          t.classList.add('active');
+        });
+      });
+    } else {
+      thumbs.style.display = 'none';
+      thumbs.innerHTML = '';
+    }
+
     lb.querySelector('#maxi-lb-type').textContent = i.type;
     lb.querySelector('#maxi-lb-title').textContent = i.city;
     lb.querySelector('#maxi-lb-sub').textContent = i.pos;
@@ -138,8 +186,9 @@
   }
 
   function popupHtml(i) {
-    var thumb = i.photo
-      ? '<div class="maxi-pop__img" style="background-image:url(\'' + PHOTO_BASE + esc(i.photo) + '\')"></div>'
+    var pp = photosOf(i);
+    var thumb = pp.length
+      ? '<div class="maxi-pop__img" style="background-image:url(\'' + PHOTO_BASE + esc(pp[0]) + '\')"></div>'
       : '<div class="maxi-pop__img maxi-ph"><span>' + esc(i.dim) + '</span></div>';
     return '<div class="maxi-pop">' + thumb +
       '<div class="maxi-pop__b">' +
