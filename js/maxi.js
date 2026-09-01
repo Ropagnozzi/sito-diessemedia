@@ -42,6 +42,12 @@
     if (i.photo) return [i.photo];
     return [];
   }
+  /* se l'immagine non carica (file mancante o nome errato), esegue onFail() */
+  function guardImg(url, onFail) {
+    var probe = new Image();
+    probe.onerror = onFail;
+    probe.src = url;
+  }
 
   /* ---------- chip filtri ---------- */
   function buildChips(bar, values, dim) {
@@ -87,8 +93,21 @@
           '</div>' +
         '</button>';
     }).join('');
-    Array.prototype.forEach.call(gallery.querySelectorAll('.maxi-card'), function (c) {
+    var cards = gallery.querySelectorAll('.maxi-card');
+    list.forEach(function (i, idx) {
+      var c = cards[idx];
       c.addEventListener('click', function () { openLightbox(c.getAttribute('data-code')); });
+      var ph = photosOf(i);
+      if (ph.length) {
+        var imgEl = c.querySelector('.maxi-card__img');
+        guardImg(PHOTO_BASE + ph[0], function () {
+          imgEl.className = 'maxi-card__img maxi-ph';
+          imgEl.style.backgroundImage = '';
+          imgEl.innerHTML = '<span>' + esc(i.dim) + '</span>';
+          var badge = c.querySelector('.maxi-card__count');
+          if (badge) badge.style.display = 'none';
+        });
+      }
     });
   }
 
@@ -99,6 +118,11 @@
       el.className = 'maxi-lb__img';
       el.style.backgroundImage = "url('" + PHOTO_BASE + esc(photos[idx]) + "')";
       el.innerHTML = '';
+      guardImg(PHOTO_BASE + photos[idx], function () {
+        el.className = 'maxi-lb__img maxi-ph';
+        el.style.backgroundImage = '';
+        el.innerHTML = '<span>' + esc(dimText) + '</span>';
+      });
     } else {
       el.className = 'maxi-lb__img maxi-ph';
       el.style.backgroundImage = '';

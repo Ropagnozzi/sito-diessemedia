@@ -42,7 +42,7 @@ window.MAXI_IMPIANTI = [
     "flow": "",
     "photos": [
       "na63-1.jpg",
-      "na63-2.png"
+      "na63-2.jpg"
     ],
     "lat": 40.8434707,
     "lng": 14.285129
@@ -278,7 +278,7 @@ window.MAXI_IMPIANTI = [
     "flow": "",
     "photos": [
       "na91-1.jpg",
-      "na91-2.jpjg"
+      "na91-2.jpg"
     ],
     "lat": 40.8576935,
     "lng": 14.2597536
