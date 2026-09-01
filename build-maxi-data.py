@@ -24,6 +24,11 @@ def truthy(v):
         return False
     return str(v).strip().lower() in ('si', 'sì', 's', 'yes', 'y', 'true', '1', 'x')
 
+def photonorm(v):
+    """Normalizza il riferimento foto: minuscolo, sempre .jpg (coerente con ottimizza-foto-maxi.py)."""
+    b = os.path.splitext(str(v).strip())[0].strip().lower()
+    return b + '.jpg'
+
 def num(v):
     if v is None or str(v).strip() == '':
         return None
@@ -83,7 +88,7 @@ def main():
             'sqm':   int(sqm_v) if sqm_v is not None else None,
             'light': truthy(cell(r, 'light')),
             'flow':  str(cell(r, 'flow')  or '').strip(),
-            'photos': [str(cell(r, n)).strip() for n in photo_cols
+            'photos': [photonorm(cell(r, n)) for n in photo_cols
                        if cell(r, n) and str(cell(r, n)).strip()],
         }
         if lat is not None and lng is not None:

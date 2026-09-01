@@ -59,9 +59,10 @@ css/maxi.css        Pagina Maxi Formati (hero, galleria, MAPPA Leaflet, scala)
 js/maxi.js          Galleria + mappa: filtri, lightbox, marker (legge maxi-data.js)
 js/maxi-data.js     Dati impianti maxi — GENERATO, non modificare a mano
 maxi-impianti.xlsx  ★ File master da compilare (una riga per impianto, con lat/lng)
-build-maxi-data.py  Convertitore  xlsx -> js/maxi-data.js
-AGGIORNA_MAPPA_MAXI.bat  Doppio-click: rigenera i dati dopo aver modificato l'xlsx
-assets/foto/maxi/   Foto dei maxi impianti (nome file = colonna "photo" dell'xlsx)
+ottimizza-foto-maxi.py   Ottimizza/normalizza le foto (EXIF, max 1600px, minuscolo .jpg); idempotente
+build-maxi-data.py  Convertitore xlsx -> js/maxi-data.js (normalizza i nomi foto in minuscolo .jpg)
+AGGIORNA_MAPPA_MAXI.bat  Doppio-click: ottimizza le foto + rigenera i dati
+assets/foto/maxi/   Foto dei maxi impianti — si possono buttare "grezze": il .bat le ottimizza
 js/site.js          Preloader, scroll fluido, reveal, titoli split, contatori
 js/fx.js            Cursore magnetico (desktop) + rete metallica WebGL
 assets/logo.png     Logo colori originali (ritagliato)

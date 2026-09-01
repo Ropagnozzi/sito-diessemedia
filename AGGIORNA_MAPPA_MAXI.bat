@@ -5,6 +5,11 @@ echo ============================================================
 echo   Aggiornamento dati Maxi Formati (Excel -^> sito)
 echo ============================================================
 echo.
+echo [1/2] Ottimizzo e normalizzo le foto...
+python ottimizza-foto-maxi.py
+if errorlevel 1 py ottimizza-foto-maxi.py
+echo.
+echo [2/2] Rigenero i dati di galleria e mappa...
 python build-maxi-data.py
 if errorlevel 1 py build-maxi-data.py
 echo.

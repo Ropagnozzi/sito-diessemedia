@@ -1,3 +1,17 @@
-Metti qui le foto dei maxi impianti.
-Nome file = come indicato nella colonna 'photo' del CSV (es. mx-na-01.jpg).
-Consigliato: JPG orizzontale, lato lungo ~1600px, sotto i 300KB.
+FOTO DEI MAXI IMPIANTI
+======================
+
+Butta qui le foto degli impianti, anche "grezze" e pesanti (foto da telefono ok).
+
+Poi doppio-click su AGGIORNA_MAPPA_MAXI.bat: le foto vengono
+AUTOMATICAMENTE raddrizzate, rimpicciolite, compresse e rinominate
+in minuscolo .jpg. Non devi sistemarle a mano.
+
+Nome del file:
+- indica lo stesso nome nella colonna "photo" (o photo2, photo3) di
+  maxi-impianti.xlsx. Maiuscole/estensione non contano: lo script
+  normalizza tutto in minuscolo .jpg. Es. scrivi na100-1 o NA100-1.JPG,
+  il risultato sarà na100-1.jpg in entrambi i casi.
+
+Dopo il .bat, per pubblicare online:
+  git add -A && git commit -m "aggiorna maxi" && git push
