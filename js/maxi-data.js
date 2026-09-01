@@ -9,9 +9,9 @@ window.MAXI_IMPIANTI = [
     "dim": "1200x300",
     "sqm": 36,
     "light": false,
-    "flow": "Stazione Napoli Centrale - Attesa treni",
+    "flow": "",
     "photos": [
-      "mx-na-01.jpg"
+      "na01.jpg"
     ],
     "lat": 40.8529176,
     "lng": 14.272529
@@ -24,9 +24,9 @@ window.MAXI_IMPIANTI = [
     "dim": "1200x300",
     "sqm": 36,
     "light": false,
-    "flow": "Stazione Napoli Centrale - Attesa treni",
+    "flow": "",
     "photos": [
-      "mx-na-02.jpg"
+      "na05.jpg"
     ],
     "lat": 40.8530043,
     "lng": 14.2730587
@@ -39,8 +39,11 @@ window.MAXI_IMPIANTI = [
     "dim": "7X10 illuminato",
     "sqm": 70,
     "light": true,
-    "flow": "Zona stadio e università",
-    "photos": [],
+    "flow": "",
+    "photos": [
+      "na63-1.jpg",
+      "na63-2.png"
+    ],
     "lat": 40.8434707,
     "lng": 14.285129
   },
@@ -52,8 +55,11 @@ window.MAXI_IMPIANTI = [
     "dim": "7X10 illuminato",
     "sqm": 70,
     "light": true,
-    "flow": "~80.000 veicoli/giorno",
-    "photos": [],
+    "flow": "",
+    "photos": [
+      "na65-1.jpg",
+      "na65-2.jpg"
+    ],
     "lat": 40.8432079,
     "lng": 14.2857851
   },
@@ -66,7 +72,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 36,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na64-1.jpg",
+      "na64-2.jpg"
+    ],
     "lat": 40.8288336,
     "lng": 14.1962536
   },
@@ -79,7 +88,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 70,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na66-1.jpg",
+      "na66-2.jpg"
+    ],
     "lat": 40.8479045,
     "lng": 14.2763135
   },
@@ -92,7 +104,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 70,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na68-1.jpg",
+      "na68-2.jpg"
+    ],
     "lat": 40.8483073,
     "lng": 14.3235664
   },
@@ -105,7 +120,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 36,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na69-1.jpg",
+      "na69-2.jpg"
+    ],
     "lat": 40.8476009,
     "lng": 14.1913539
   },
@@ -118,7 +136,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 70,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na67-1.jpg",
+      "na67-2.jpg"
+    ],
     "lat": 40.8238497,
     "lng": 14.1774396
   },
@@ -131,7 +152,9 @@ window.MAXI_IMPIANTI = [
     "sqm": 49,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na72-1.jpg"
+    ],
     "lat": 40.8285001,
     "lng": 14.1973064
   },
@@ -144,7 +167,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 50,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na80-1.jpg",
+      "na80-2.jpg"
+    ],
     "lat": 40.8227712,
     "lng": 14.1930718
   },
@@ -157,7 +183,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 70,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na81-1.jpg",
+      "na81-2.jpg"
+    ],
     "lat": 40.819075,
     "lng": 14.177719
   },
@@ -170,7 +199,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 48,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na83-1.jpg",
+      "na83-2.jpg"
+    ],
     "lat": 40.8590047,
     "lng": 14.2166811
   },
@@ -183,7 +215,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 50,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na86-1.jpg",
+      "na86-2.jpg"
+    ],
     "lat": 40.8900494,
     "lng": 14.2517168
   },
@@ -196,7 +231,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 70,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na88-1.jpg",
+      "na88-2.jpg"
+    ],
     "lat": 40.8273596,
     "lng": 14.1986482
   },
@@ -209,7 +247,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 70,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na87-1.jpg",
+      "na87-2.jpg"
+    ],
     "lat": 40.8829448,
     "lng": 14.2310994
   },
@@ -235,7 +276,10 @@ window.MAXI_IMPIANTI = [
     "sqm": 40,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na91-1.jpg",
+      "na91-2.jpjg"
+    ],
     "lat": 40.8576935,
     "lng": 14.2597536
   },
@@ -248,12 +292,15 @@ window.MAXI_IMPIANTI = [
     "sqm": 63,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na92-1.jpg",
+      "na92-2.jpg"
+    ],
     "lat": 40.8206792,
     "lng": 14.1708516
   },
   {
-    "code": "NA90",
+    "code": "NA93",
     "city": "Napoli",
     "pos": "VIA STADERA 138 DIR.CENTRO",
     "type": "Facciata",
@@ -261,7 +308,9 @@ window.MAXI_IMPIANTI = [
     "sqm": 36,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na93-1.jpg"
+    ],
     "lat": 40.8749357,
     "lng": 14.3059782
   },
@@ -274,12 +323,15 @@ window.MAXI_IMPIANTI = [
     "sqm": 48,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na89-1.jpg",
+      "na89-2.jpg"
+    ],
     "lat": 40.8484328,
     "lng": 14.2885877
   },
   {
-    "code": "NA89/96",
+    "code": "NA190",
     "city": "Napoli",
     "pos": "VIA SANTA MARIA A CUBITO 530 STAZIONE METRO CHIAIANO",
     "type": "Facciata",
@@ -287,9 +339,12 @@ window.MAXI_IMPIANTI = [
     "sqm": 96,
     "light": true,
     "flow": "",
-    "photos": [],
-    "lat": 40.8909184,
-    "lng": 14.2226047
+    "photos": [
+      "na190-1.jpg",
+      "na190-2.jpg"
+    ],
+    "lat": 408909184.0,
+    "lng": 142226047.0
   },
   {
     "code": "NA30",
@@ -313,34 +368,43 @@ window.MAXI_IMPIANTI = [
     "sqm": 112,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na40-1.jpg",
+      "na40-2.jpg"
+    ],
     "lat": 40.819765,
     "lng": 14.175772
   },
   {
-    "code": "NA82",
+    "code": "NA84",
     "city": "Napoli",
-    "pos": "VIA TASSO 114 DIR.VOMERO",
+    "pos": "VIALE AUGUSTO 89  ang. Via ATTILIO REGOLO DIR.CENTRO",
     "type": "Facciata",
-    "dim": "5X10 illuminato",
-    "sqm": 50,
+    "dim": "6x12 illuminato",
+    "sqm": 70,
     "light": true,
     "flow": "",
-    "photos": [],
-    "lat": 40.8374037,
-    "lng": 14.2264429
+    "photos": [
+      "na84-1.jpg",
+      "na84-2.jpg"
+    ],
+    "lat": 40.8261875,
+    "lng": 14.2004891
   },
   {
-    "code": "NA70",
+    "code": "NA120",
     "city": "Napoli",
-    "pos": "VIA DIOCLEZIANO 567  DIR. CENTRO",
-    "type": "Facciata",
-    "dim": "5x9 illuminato",
-    "sqm": 45,
+    "pos": "Via Tasso 114, direzione Vomero",
+    "type": "Ponteggio",
+    "dim": "10x12 illuminato",
+    "sqm": 120,
     "light": true,
     "flow": "",
-    "photos": [],
-    "lat": 40.8178021,
-    "lng": 14.1783744
+    "photos": [
+      "na120-1.jpg",
+      "na120-2.jpg"
+    ],
+    "lat": 40.8374037,
+    "lng": 14.2264429
   }
 ];
