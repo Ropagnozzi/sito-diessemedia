@@ -230,6 +230,7 @@
     var pts = [];
     list.forEach(function (i) {
       if (typeof i.lat !== 'number' || typeof i.lng !== 'number') return;
+      if (i.lat < -90 || i.lat > 90 || i.lng < -180 || i.lng > 180) return; /* coord. impossibili: salta */
       var m = L.marker([i.lat, i.lng], { icon: pinIcon });
       m.bindPopup(popupHtml(i), { className: 'maxi-pop-wrap', maxWidth: 260 });
       markersLayer.addLayer(m);

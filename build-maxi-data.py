@@ -104,6 +104,10 @@ def main():
     with open(OUT, 'w', encoding='utf-8', newline='\n') as f:
         f.write(js)
 
+    for i in impianti:
+        if 'lat' in i and (not (-90 <= i['lat'] <= 90) or not (-180 <= i['lng'] <= 180)):
+            print('  !! ATTENZIONE: %s ha coordinate fuori scala (lat=%s lng=%s) — '
+                  'controlla il punto decimale nell\'xlsx.' % (i['code'], i['lat'], i['lng']))
     n_map = sum(1 for i in impianti if 'lat' in i)
     print('OK: %d impianti scritti in %s (%d con coordinate sulla mappa).' % (len(impianti), OUT, n_map))
     if n_map < len(impianti):
