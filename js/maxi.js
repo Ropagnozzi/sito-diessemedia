@@ -195,9 +195,9 @@
     var el = document.getElementById('maxi-map');
     if (!el || typeof window.L === 'undefined') return;
     map = L.map(el, { scrollWheelZoom: false, zoomControl: true }).setView([40.85, 14.26], 11);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 19, subdomains: 'abc'
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri',
+      maxZoom: 16
     }).addTo(map);
     pinIcon = L.divIcon({ className: 'maxi-pin', html: '<span></span>', iconSize: [24, 24], iconAnchor: [12, 24], popupAnchor: [0, -22] });
     markersLayer = (typeof L.markerClusterGroup === 'function')

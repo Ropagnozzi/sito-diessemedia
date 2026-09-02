@@ -151,8 +151,7 @@
   height:480px; border-radius:var(--radius); overflow:hidden;
   border:1px solid var(--border); background:#0a0c12;
 }
-/* rende scure e monocrome le tile OpenStreetMap (coerenti col tema, senza API key) */
-.maxi-map .leaflet-tile-pane{ filter: grayscale(1) invert(1) brightness(0.92) contrast(0.95); }
+/* tile Esri Dark Gray: già scure nativamente, nessun filtro/API key */
 .maxi-map .leaflet-control-attribution{ background:rgba(7,8,13,.7); color:var(--text-muted); }
 .maxi-map .leaflet-control-attribution a{ color:var(--text-soft); }
 .maxi-map .leaflet-bar a{ background:#12151f; color:var(--text-soft); border-color:var(--border); }
