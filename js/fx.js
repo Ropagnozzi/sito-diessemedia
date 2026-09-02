@@ -152,8 +152,13 @@
   var colAttr = geom.getAttribute('color');
   var clock = new THREE.Clock();
 
-  (function loop() {
+  var _last = 0, _FRAME = 1000 / 30;   /* limita la rete a ~30fps: metà del carico, resa invariata */
+  (function loop(now) {
     requestAnimationFrame(loop);
+    if (document.hidden) return;         /* scheda in secondo piano: non rendere nulla */
+    now = now || 0;
+    if (now - _last < _FRAME) return;    /* salta i frame in eccesso */
+    _last = now;
     var t = clock.getElapsedTime();
     /* il punto di deformazione insegue il mouse con inerzia */
     mX += (tX - mX) * 0.12;

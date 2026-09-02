@@ -98,7 +98,7 @@
 
   /* ---------- Scroll fluido ---------- */
   if (window.Lenis) {
-    var lenis = new Lenis({ lerp: 0.09 });
+    var lenis = new Lenis({ lerp: 0.14, wheelMultiplier: 1.1 });
     requestAnimationFrame(function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
