@@ -8,34 +8,18 @@
   if (fine && !reduced) {
     var dot = document.createElement('div');
     dot.className = 'cursor-dot';
-    var ring = document.createElement('div');
-    ring.className = 'cursor-ring';
     document.body.appendChild(dot);
-    document.body.appendChild(ring);
     document.documentElement.classList.add('cur-on');
 
-    var mx = -100, my = -100, rx = -100, ry = -100, shown = false;
+    var mx = -100, my = -100, shown = false;
 
     window.addEventListener('mousemove', function (e) {
       mx = e.clientX; my = e.clientY;
       dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
-      if (!shown) { shown = true; dot.classList.add('vis'); ring.classList.add('vis'); }
+      if (!shown) { shown = true; dot.classList.add('vis'); }
     });
     document.documentElement.addEventListener('mouseleave', function () {
-      dot.classList.remove('vis'); ring.classList.remove('vis'); shown = false;
-    });
-
-    (function follow() {
-      rx += (mx - rx) * 0.16;
-      ry += (my - ry) * 0.16;
-      ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
-      requestAnimationFrame(follow);
-    })();
-
-    /* anello che si espande sugli elementi interattivi */
-    document.addEventListener('mouseover', function (e) {
-      var hit = e.target.closest && e.target.closest('a, button, .nav-toggle, input, textarea, select, .ring-card');
-      ring.classList.toggle('on', !!hit);
+      dot.classList.remove('vis'); shown = false;
     });
 
     /* attrazione magnetica su bottoni e voci di menu */
