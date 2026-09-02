@@ -150,37 +150,49 @@
   var SIG2 = 2 * 8 * 8;   /* ampiezza della campana */
   var posAttr = geom.getAttribute('position');
   var colAttr = geom.getAttribute('color');
-  var clock = new THREE.Clock();
+  var _now = function () { return (window.performance && performance.now) ? performance.now() : Date.now(); };
 
-  var _last = 0, _FRAME = 1000 / 30;   /* limita la rete a ~30fps: metà del carico, resa invariata */
+  /* la rete si anima SOLO mentre muovi il mouse; quando è fermo torna piatta e
+     smette di renderizzare (0 carico) → lo scroll resta libero. */
+  var energy = 0, idleT = -9999, restDone = false, _last = 0, _FRAME = 1000 / 30;
+  window.addEventListener('pointermove', function () { idleT = _now(); restDone = false; });
+
   (function loop(now) {
     requestAnimationFrame(loop);
-    if (document.hidden) return;         /* scheda in secondo piano: non rendere nulla */
+    if (document.hidden) return;
     now = now || 0;
-    if (now - _last < _FRAME) return;    /* salta i frame in eccesso */
+    if (now - _last < _FRAME) return;    /* ~30fps */
     _last = now;
-    var t = clock.getElapsedTime();
-    /* il punto di deformazione insegue il mouse con inerzia */
-    mX += (tX - mX) * 0.12;
-    mY += (tY - mY) * 0.12;
+
+    var moving = (_now() - idleT) < 350;
+    energy += ((moving ? 1 : 0) - energy) * 0.10;   /* sale col mouse, decade quando fermo */
+
+    if (tX === FAR) { mX = tX; mY = tY; }
+    else if (mX === FAR) { mX = tX; mY = tY; }        /* mouse rientrato: niente "volo" da fuori schermo */
+    else { mX += (tX - mX) * 0.12; mY += (tY - mY) * 0.12; }
+
+    /* a riposo: disegna una volta la griglia piatta, poi non rendere più nulla */
+    if (energy <= 0.004 && !moving) {
+      if (restDone) return;
+      for (var r = 0; r < COUNT; r++) { pos[r * 3 + 2] = 0; col[r * 3] = BR; col[r * 3 + 1] = BG; col[r * 3 + 2] = BB; }
+      posAttr.needsUpdate = true; colAttr.needsUpdate = true;
+      renderer.render(scene, camera);
+      restDone = true;
+      return;
+    }
+
+    var amp = AMP * energy;
     for (var i = 0; i < COUNT; i++) {
-      var bx = baseX[i], by = baseY[i];
-      /* respiro lento della rete */
-      var wave = Math.sin(bx * 0.12 + t * 0.6) * 0.5 + Math.cos(by * 0.15 + t * 0.45) * 0.5;
-      /* campana di deformazione sotto il mouse */
-      var dx = bx - mX, dy = by - mY;
+      var dx = baseX[i] - mX, dy = baseY[i] - mY;
       var g = Math.exp(-(dx * dx + dy * dy) / SIG2);
-      pos[i * 3 + 2] = wave + AMP * g;
-      /* i fili si accendono d'arancio dove la rete si solleva */
-      var h = g * 1.5; if (h > 1) { h = 1; }
+      pos[i * 3 + 2] = amp * g;
+      var h = g * 1.5 * energy; if (h > 1) { h = 1; }
       col[i * 3]     = BR + (HR - BR) * h;
       col[i * 3 + 1] = BG + (HG - BG) * h;
       col[i * 3 + 2] = BB + (HB - BB) * h;
     }
     posAttr.needsUpdate = true;
     colAttr.needsUpdate = true;
-    /* leggera parallasse con lo scroll */
-    net.position.y = (window.scrollY || 0) * -0.004;
     renderer.render(scene, camera);
   })();
 })();
