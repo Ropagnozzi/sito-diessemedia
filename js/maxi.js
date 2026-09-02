@@ -18,6 +18,26 @@
   var PHOTO_BASE = 'assets/foto/maxi/';
   var state = { city:'*', type:'*' };
 
+  /* ---------- traduzioni parti generate da JS ---------- */
+  function curLang() { var l = document.documentElement.getAttribute('lang'); return (l === 'en' || l === 'zh') ? l : 'it'; }
+  var UI = {
+    it: { all:'Tutte', illum:'Illuminato', noillum:'Non illuminato', yes:'Sì', no:'No', full:'Scheda completa &rarr;',
+          count:function(n,t){ return '<b>'+n+'</b> impiant'+(n===1?'o':'i')+' su '+t; },
+          spec:{ dim:'Dimensioni', sqm:'Superficie', type:'Tipologia', light:'Illuminazione', flow:'Visibilità', code:'Codice impianto' } },
+    en: { all:'All', illum:'Illuminated', noillum:'Not illuminated', yes:'Yes', no:'No', full:'Full details &rarr;',
+          count:function(n,t){ return '<b>'+n+'</b> site'+(n===1?'':'s')+' of '+t; },
+          spec:{ dim:'Dimensions', sqm:'Area', type:'Type', light:'Lighting', flow:'Visibility', code:'Site code' } },
+    zh: { all:'全部', illum:'有照明', noillum:'无照明', yes:'是', no:'否', full:'查看详情 &rarr;',
+          count:function(n,t){ return '共 '+t+' 个中的 <b>'+n+'</b> 个点位'; },
+          spec:{ dim:'尺寸', sqm:'面积', type:'类型', light:'照明', flow:'可见度', code:'点位编号' } }
+  };
+  var TIPO = {
+    en:{ 'Facciata':'Façade', 'Ponteggio':'Scaffolding', 'Copertura':'Rooftop', 'Muro cieco':'Blind wall' },
+    zh:{ 'Facciata':'立面', 'Ponteggio':'脚手架', 'Copertura':'楼顶', 'Muro cieco':'山墙' }
+  };
+  function ui() { return UI[curLang()]; }
+  function tlabel(t) { var m = TIPO[curLang()]; return (m && m[t]) || t; }
+
   var gallery = document.getElementById('maxi-gallery');
   var countEl = document.getElementById('maxi-count');
   var cityBar = document.getElementById('filter-city');
@@ -50,11 +70,12 @@
   }
 
   /* ---------- chip filtri ---------- */
-  function buildChips(bar, values, dim) {
+  function buildChips(bar, values, dim, labelFn) {
     if (!bar) return;
-    var html = '<button class="chip active" data-val="*">Tutte</button>';
+    bar._labelFn = labelFn || function (v) { return v; };
+    var html = '<button class="chip active" data-val="*">' + ui().all + '</button>';
     values.forEach(function (v) {
-      html += '<button class="chip" data-val="' + esc(v) + '">' + esc(v) + '</button>';
+      html += '<button class="chip" data-val="' + esc(v) + '">' + esc(bar._labelFn(v)) + '</button>';
     });
     bar.innerHTML = html;
     bar.addEventListener('click', function (e) {
@@ -63,6 +84,14 @@
       Array.prototype.forEach.call(bar.querySelectorAll('.chip'), function (c) { c.classList.remove('active'); });
       b.classList.add('active');
       apply();
+    });
+  }
+  /* aggiorna solo le etichette dei chip (senza ri-registrare i listener) */
+  function relabelChips(bar) {
+    if (!bar) return;
+    Array.prototype.forEach.call(bar.querySelectorAll('.chip'), function (c) {
+      var v = c.getAttribute('data-val');
+      c.textContent = (v === '*') ? ui().all : bar._labelFn(v);
     });
   }
 
@@ -83,12 +112,12 @@
           badge +
           '<div class="maxi-card__grad"></div>' +
           '<div class="maxi-card__body">' +
-            '<span class="maxi-chip-type">' + esc(i.type) + '</span>' +
+            '<span class="maxi-chip-type">' + esc(tlabel(i.type)) + '</span>' +
             '<p class="maxi-card__city">' + esc(i.city) + '</p>' +
             '<p class="maxi-card__pos">' + esc(i.pos) + '</p>' +
             '<div class="maxi-card__meta">' +
               '<span><b>' + esc(i.dim) + '</b></span>' +
-              '<span>' + (i.light ? 'Illuminato' : 'Non illuminato') + '</span>' +
+              '<span>' + (i.light ? ui().illum : ui().noillum) + '</span>' +
             '</div>' +
           '</div>' +
         '</button>';
@@ -163,16 +192,17 @@
       thumbs.innerHTML = '';
     }
 
-    lb.querySelector('#maxi-lb-type').textContent = i.type;
+    lb.querySelector('#maxi-lb-type').textContent = tlabel(i.type);
     lb.querySelector('#maxi-lb-title').textContent = i.city;
     lb.querySelector('#maxi-lb-sub').textContent = i.pos;
+    var S = ui().spec;
     lb.querySelector('#maxi-lb-specs').innerHTML = '' +
-      spec('Dimensioni', '<b>' + esc(i.dim) + '</b>') +
-      spec('Superficie', '<b>' + (i.sqm != null ? i.sqm + ' m²' : '—') + '</b>') +
-      spec('Tipologia', esc(i.type)) +
-      spec('Illuminazione', i.light ? 'Sì' : 'No') +
-      spec('Visibilità', esc(i.flow || '—')) +
-      spec('Codice impianto', esc(i.code));
+      spec(S.dim, '<b>' + esc(i.dim) + '</b>') +
+      spec(S.sqm, '<b>' + (i.sqm != null ? i.sqm + ' m²' : '—') + '</b>') +
+      spec(S.type, esc(tlabel(i.type))) +
+      spec(S.light, i.light ? ui().yes : ui().no) +
+      spec(S.flow, esc(i.flow || '—')) +
+      spec(S.code, esc(i.code));
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -216,11 +246,11 @@
       : '<div class="maxi-pop__img maxi-ph"><span>' + esc(i.dim) + '</span></div>';
     return '<div class="maxi-pop">' + thumb +
       '<div class="maxi-pop__b">' +
-        '<span class="maxi-pop__type">' + esc(i.type) + '</span>' +
+        '<span class="maxi-pop__type">' + esc(tlabel(i.type)) + '</span>' +
         '<strong>' + esc(i.city) + '</strong>' +
         '<span class="maxi-pop__pos">' + esc(i.pos) + '</span>' +
-        '<span class="maxi-pop__meta"><b>' + esc(i.dim) + '</b> · ' + (i.light ? 'Illuminato' : 'Non illuminato') + '</span>' +
-        '<button type="button" class="maxi-pop__btn" onclick="openMaxiImpianto(\'' + esc(i.code) + '\')">Scheda completa &rarr;</button>' +
+        '<span class="maxi-pop__meta"><b>' + esc(i.dim) + '</b> · ' + (i.light ? ui().illum : ui().noillum) + '</span>' +
+        '<button type="button" class="maxi-pop__btn" onclick="openMaxiImpianto(\'' + esc(i.code) + '\')">' + ui().full + '</button>' +
       '</div></div>';
   }
 
@@ -244,14 +274,20 @@
   function currentList() { return IMPIANTI.filter(matches); }
   function apply() {
     var list = currentList();
-    countEl.innerHTML = '<b>' + list.length + '</b> impiant' + (list.length === 1 ? 'o' : 'i') + ' su ' + IMPIANTI.length;
+    countEl.innerHTML = ui().count(list.length, IMPIANTI.length);
     renderGallery(list);
     renderMap(list);
   }
 
   /* ---------- init ---------- */
-  buildChips(cityBar, uniq('city'), 'city');
-  buildChips(typeBar, uniq('type'), 'type');
+  buildChips(cityBar, uniq('city'), 'city', function (v) { return v; });
+  buildChips(typeBar, uniq('type'), 'type', tlabel);
   initMap();
   apply();
+  /* al cambio lingua: riaggiorna etichette filtri, galleria, mappa e popup */
+  window.addEventListener('dsm:langchange', function () {
+    relabelChips(cityBar);
+    relabelChips(typeBar);
+    apply();
+  });
 })();
