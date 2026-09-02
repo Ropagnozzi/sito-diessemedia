@@ -107,7 +107,7 @@
 
   /* prepara reveal cards / sezioni */
   targets = Array.prototype.slice.call(document.querySelectorAll(
-    '.card, .section-head, .stat, .split > *, .table-wrap, .cta-band .container, .contact-grid > *, .grid .photo'
+    '.card, .section-head, .stat, .split > *, .table-wrap, .cta-band .container, .contact-grid > *, .grid .photo, .net-card, .maxi-value .v, .maxi-steps .st'
   ));
   targets.forEach(function (el) {
     var sib = Array.prototype.filter.call(el.parentNode.children, function (c) {
