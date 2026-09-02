@@ -117,6 +117,19 @@ Dopo ogni modifica al sito, ri-lanciare lo script e ricaricare lo zip.
 
 ### Come funziona il multilingua (i18n)
 
+**TRADUZIONE AUTOMATICA (nuovo):** oltre alle chiavi `data-i18n`, `js/i18n.js`
+ha un **dizionario per testo-sorgente** `SRC = { 'frase italiana': {en, zh} }`.
+Il motore traduce **qualsiasi testo italiano** presente in `SRC`, su **tutte le
+pagine (anche future), senza dover marcare nulla**. Vale per il testo "puro"
+(paragrafi, h3, span, link, li…) e, tramite `splitHeading`, anche per i titoli
+animati. **Per tradurre nuovi testi: aggiungi la frase italiana a `SRC` una
+volta con `en`/`zh`** — comparirà tradotta ovunque appaia.
+- Fanno eccezione: i testi con HTML interno (es. `<br>`, `<span>`) e quelli
+  **generati da JavaScript** (gallerie maxi/allestimenti) → questi usano ancora
+  `data-i18n` (per l'HTML misto) o le funzioni `ui()`/`DSMi18n.t()` negli script.
+- `window.DSMi18n.t('frase italiana')` traduce al volo (usato dagli script per
+  i contenuti dinamici).
+
 - Lingue: **italiano (fonte), inglese, cinese semplificato (中文)**.
 - **L'italiano è la fonte** e resta nell'HTML; inglese e cinese vivono nei
   dizionari `DICTS.en` / `DICTS.zh` in `js/i18n.js` (chiavi `data-i18n`).

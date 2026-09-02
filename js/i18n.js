@@ -79,6 +79,7 @@
       'mx.cta.h2': 'Want a large format for your brand?',
       'mx.cta.p': 'Tell us your goal, city and period: we propose the right sites with a quote and an interactive dashboard.',
       'mx.lb.cta': 'Request this site',
+      'al.hero.h1': 'We shape<br>your brand.',
       'home.hero.eyebrow': 'Media Agency &middot; Outdoor Communication',
       'home.hero.title': 'Your advertising, everywhere they <span class="accent">look</span>.',
       'home.hero.lead': '6x3 posters, large-format billboards and digital screens. Together we choose where and when to communicate, backed by data — in Campania and across Italy.',
@@ -360,6 +361,7 @@
       'mx.cta.h2': '想为你的品牌拿下一个大幅面吗？',
       'mx.cta.p': '告诉我们目标、城市与时段：我们将提供合适的点位、报价与交互式仪表板。',
       'mx.lb.cta': '申请此点位',
+      'al.hero.h1': '为你的品牌<br>塑造形象。',
       'home.hero.eyebrow': '媒体代理 &middot; 户外传播',
       'home.hero.title': '让您的广告<span class="accent">无处不在</span>。',
       'home.hero.lead': '6x3 海报、大幅面广告牌与数字屏幕。我们与您一起，用数据决定在何时何地传播——覆盖坎帕尼亚大区乃至全意大利。',
@@ -567,6 +569,67 @@
     }
   };
 
+  /* ========= Traduzione AUTOMATICA per testo-sorgente italiano =========
+     Qualsiasi elemento a solo testo il cui italiano e una chiave di SRC
+     viene tradotto su OGNI pagina (anche nuove), senza data-i18n.
+     Frase nuova? aggiungila a SRC una volta con en/zh. ================= */
+  var SRC = {
+    'Allestimenti': { en: 'Fit-outs', zh: '布展搭建' },
+    'Wrapping, vetrine, stand ed eventi: portiamo la tua immagine dove serve, con progettazione, produzione e montaggio chiavi in mano.': { en: 'Wrapping, windows, stands and events: we take your image where it needs to be, with design, production and installation, turnkey.', zh: '车身贴、橱窗、展台与活动：从设计、制作到安装一站式交付，把你的品牌形象带到需要的地方。' },
+    'Vedi le realizzazioni': { en: 'See our work', zh: '查看案例' },
+    'Richiedi preventivo': { en: 'Request a quote', zh: '申请报价' },
+    'Wrapping ad alta visibilità': { en: 'High-visibility wrapping', zh: '高曝光车身与橱窗贴' },
+    'Auto, flotte e vetrine diventano superfici che comunicano, ovunque vadano e a qualsiasi ora.': { en: 'Cars, fleets and shop windows become surfaces that communicate, wherever they go and at any hour.', zh: '车辆、车队与橱窗都成为随时随地传播信息的载体。' },
+    'Stand ed eventi memorabili': { en: 'Memorable stands & events', zh: '令人难忘的展台与活动' },
+    'Fiere, temporary store e lanci: uno spazio che si fa notare e racconta il tuo brand.': { en: 'Trade shows, temporary stores and launches: a space that gets noticed and tells your brand story.', zh: '展会、快闪店与新品发布：让空间脱颖而出，讲述你的品牌故事。' },
+    'Chiavi in mano': { en: 'Turnkey', zh: '一站式交付' },
+    'Dalla grafica al montaggio, un unico referente per tutto l’allestimento. Tu segui il risultato.': { en: 'From graphics to installation, a single point of contact for the whole fit-out. You just follow the result.', zh: '从图形到安装，整个布展只需一个对接人。你只需关注结果。' },
+    'Realizzazioni': { en: 'Our work', zh: '案例' },
+    'Alcuni dei nostri allestimenti': { en: 'A selection of our fit-outs', zh: '部分布展案例' },
+    'Filtra per tipologia e apri ogni lavoro per vederne i dettagli. Wrapping, vetrine, stand ed eventi realizzati per i nostri clienti.': { en: 'Filter by type and open each project to see the details. Wrapping, windows, stands and events made for our clients.', zh: '按类型筛选，点开每个项目查看详情。为客户打造的车身贴、橱窗、展台与活动。' },
+    'Tipologia': { en: 'Type', zh: '类型' },
+    'Come lavoriamo': { en: 'How we work', zh: '工作流程' },
+    'Dall’idea al montaggio': { en: 'From idea to installation', zh: '从创意到安装' },
+    'Brief e sopralluogo': { en: 'Brief & site survey', zh: '需求沟通与现场勘察' },
+    'Capiamo obiettivi, spazi e vincoli tecnici del luogo da allestire.': { en: 'We understand goals, spaces and technical constraints of the site to be fitted out.', zh: '了解待布展场地的目标、空间与技术限制。' },
+    'Progettazione grafica': { en: 'Graphic design', zh: '图形设计' },
+    'Progettiamo l’allestimento e adattiamo la creatività ai supporti.': { en: 'We design the fit-out and adapt the creative to the materials.', zh: '设计布展方案，并将创意适配到各类载体。' },
+    'Produzione e stampa': { en: 'Production & printing', zh: '生产与印刷' },
+    'Stampa su pellicole e materiali idonei, resistenti e a resa cromatica alta.': { en: 'Printing on suitable films and materials, durable and with high colour fidelity.', zh: '在耐用、色彩还原度高的专用膜与材料上印刷。' },
+    'Installazione e montaggio': { en: 'Installation & assembly', zh: '安装与搭建' },
+    'Squadre specializzate installano; verifica finale del risultato.': { en: 'Specialised teams install it; final check of the result.', zh: '专业团队完成安装，并对成品进行最终核验。' },
+    'Un allestimento da realizzare?': { en: 'A fit-out to build?', zh: '有布展项目要做吗？' },
+    'Raccontaci la tua idea: ti proponiamo progetto, materiali e preventivo, fino al montaggio.': { en: 'Tell us your idea: we propose design, materials and a quote, all the way to installation.', zh: '告诉我们你的想法：我们提供方案、材料与报价，直至完成安装。' },
+    'Voglio un allestimento così': { en: 'I want a fit-out like this', zh: '我想要这样的布展' },
+    'Ascensore panoramico brandizzato': { en: 'Branded panoramic lift', zh: '品牌化观光电梯' },
+    'Scale mobili brandizzate': { en: 'Branded escalators', zh: '品牌化扶梯' },
+    'Totem nell’area centrale': { en: 'Totem in the central area', zh: '中庭广告柱' },
+    'Ingresso e welcome banner': { en: 'Entrance & welcome banner', zh: '入口与欢迎横幅' },
+    'Rivestimento vani ascensore': { en: 'Lift-shaft wrapping', zh: '电梯井包裹' },
+    'Rivestimento integrale del vano ascensore panoramico, a tutta altezza, per la campagna TECNOMAT al Centro Commerciale Campania: un punto focale impossibile da ignorare.': { en: 'Full-height wrap of the panoramic lift shaft for the TECNOMAT campaign at Centro Commerciale Campania: a focal point impossible to ignore.', zh: '为 Centro Commerciale Campania 的 TECNOMAT 广告项目对观光电梯井进行整体、全高包裹：无法忽视的视觉焦点。' },
+    'Fiancate delle scale mobili rivestite con grafica coordinata: il messaggio accompagna i visitatori lungo tutta la risalita.': { en: 'Escalator sides wrapped with coordinated graphics: the message accompanies visitors all the way up.', zh: '扶梯侧板采用统一图形包裹：信息在整段上行过程中始终陪伴访客。' },
+    'Totem pubblicitario a tutta altezza nell’area centrale della galleria commerciale, visibile da ogni livello.': { en: 'Full-height advertising totem in the central area of the shopping gallery, visible from every level.', zh: '位于商业中庭的全高广告柱，从各楼层均清晰可见。' },
+    'Allestimento dell’ingresso con maxi grafica a parete e vetrofania “Benvenuti / Welcome” sulle porte automatiche.': { en: 'Entrance fit-out with a large wall graphic and “Benvenuti / Welcome” window film on the automatic doors.', zh: '入口布展：大幅墙面图形，自动门上“Benvenuti / Welcome”橱窗贴。' },
+    'Wrapping dei vani ascensore su più livelli: massima visibilità in un punto di grande passaggio.': { en: 'Wrapping of the lift shafts across several levels: maximum visibility in a high-traffic spot.', zh: '多楼层电梯井包裹：在高人流点位实现最大曝光。' }
+  };
+  function _norm(s){ return s.replace(/\s+/g, ' ').trim(); }
+  var _srcOrig = new WeakMap();
+  var SRC_TAGS = 'h1,h2,h3,h4,h5,h6,p,span,a,li,button,small,strong,em,b,figcaption,label,blockquote,summary,th,td';
+  function autoTranslate(lang){
+    var els = document.querySelectorAll(SRC_TAGS);
+    for (var i=0;i<els.length;i++){
+      var el=els[i];
+      if (el.childElementCount!==0) continue;
+      if (el.hasAttribute('data-i18n')) continue;
+      if (el.matches && el.matches('.hero-copy h1,.page-hero h1,.section-head h2,.split h2,.cta-band h2')) continue; /* titoli animati: li traduce splitHeading */
+      var key = _srcOrig.has(el) ? _norm(_srcOrig.get(el)) : _norm(el.textContent);
+      var entry = SRC[key];
+      if (!entry) continue;
+      if (!_srcOrig.has(el)) _srcOrig.set(el, el.textContent);
+      el.textContent = (lang!=='it' && entry[lang]) ? entry[lang] : _srcOrig.get(el);
+    }
+  }
+
   var STORE = 'dsmLang';
   var ATTRS = ['placeholder', 'alt', 'content', 'aria-label', 'title'];
   var orig = new WeakMap();
@@ -624,6 +687,7 @@
         if (v2 != null) el2.setAttribute(a, v2);
       }
     });
+    autoTranslate(lang);
     document.documentElement.setAttribute('lang', lang);
     try { localStorage.setItem(STORE, lang); } catch (e) {}
     var btns = document.querySelectorAll('[data-lang-btn]');
@@ -639,7 +703,9 @@
   try { initial = localStorage.getItem(STORE) || 'it'; } catch (e) {}
   if (!DICTS[initial] && initial !== 'it') initial = 'it';
 
-  window.DSMi18n = { apply: apply, current: function () { return document.documentElement.getAttribute('lang'); } };
+  window.DSMi18n = { apply: apply,
+    t: function (text) { var l = document.documentElement.getAttribute('lang'); if (l !== 'en' && l !== 'zh') return text; var e = SRC[_norm(text)]; return (e && e[l]) ? e[l] : text; },
+    current: function () { return document.documentElement.getAttribute('lang'); } };
 
   capture();
   apply(initial);

@@ -15,6 +15,13 @@
 
   /* ---------- Titoli: split lettera per lettera ---------- */
   function splitHeading(el) {
+    /* titoli senza data-i18n: traduzione automatica via dizionario sorgente
+       (l'originale italiano è memorizzato una volta in data-i18n-src) */
+    if (!el.hasAttribute('data-i18n') && window.DSMi18n && window.DSMi18n.t) {
+      var raw = el.getAttribute('data-i18n-src');
+      if (raw == null) { raw = el.textContent.replace(/\s+/g, ' ').trim(); el.setAttribute('data-i18n-src', raw); }
+      el.textContent = window.DSMi18n.t(raw);
+    }
     var chIndex = 0;
     (function walk(node) {
       var kids = Array.prototype.slice.call(node.childNodes);

@@ -1,8 +1,7 @@
 /* ============================================================
    Allestimenti — galleria realizzazioni filtrabile + lightbox.
-   I dati qui sotto sono SEGNAPOSTO: sostituire con le realizzazioni
-   reali. Foto: metterle in assets/foto/allestimenti/ e indicare il
-   nome nel campo "photo" (se vuoto, si mostra un segnaposto).
+   Testi tradotti IT/EN/ZH: chrome via UI/CAT qui sotto, contenuti
+   (titoli/descrizioni) via il dizionario condiviso DSMi18n.t().
    ============================================================ */
 (function () {
   'use strict';
@@ -17,6 +16,24 @@
 
   var PHOTO_BASE = 'assets/foto/allestimenti/';
   var state = { cat:'*' };
+
+  /* traduzione: T() per i contenuti (dizionario condiviso), UI/CAT per il chrome */
+  var T = (window.DSMi18n && window.DSMi18n.t) ? window.DSMi18n.t : function (x) { return x; };
+  function curLang() { var l = document.documentElement.getAttribute('lang'); return (l === 'en' || l === 'zh') ? l : 'it'; }
+  var UI = {
+    it: { all:'Tutte', count:function(n,t){ return '<b>'+n+'</b> '+(n===1?'realizzazione':'realizzazioni')+' su '+t; },
+          spec:{ type:'Tipologia', place:'Luogo', desc:'Descrizione', ref:'Riferimento' } },
+    en: { all:'All', count:function(n,t){ return '<b>'+n+'</b> project'+(n===1?'':'s')+' of '+t; },
+          spec:{ type:'Type', place:'Place', desc:'Description', ref:'Reference' } },
+    zh: { all:'全部', count:function(n,t){ return '共 '+t+' 个中的 <b>'+n+'</b> 个案例'; },
+          spec:{ type:'类型', place:'地点', desc:'描述', ref:'编号' } }
+  };
+  var CAT = {
+    en:{ 'Wrapping':'Wrapping', 'Vetrine':'Windows', 'Stand':'Stands', 'Eventi':'Events' },
+    zh:{ 'Wrapping':'车身贴', 'Vetrine':'橱窗', 'Stand':'展台', 'Eventi':'活动' }
+  };
+  function ui() { return UI[curLang()]; }
+  function clabel(c) { var m = CAT[curLang()]; return (m && m[c]) || c; }
 
   var gallery = document.getElementById('al-gallery');
   var countEl = document.getElementById('al-count');
@@ -34,11 +51,12 @@
   function matches(i) { return state.cat === '*' || i.cat === state.cat; }
   function byCode(code) { return ITEMS.filter(function (x) { return x.code === code; })[0]; }
 
-  function buildChips(bar, values, dim) {
+  function buildChips(bar, values, dim, labelFn) {
     if (!bar) return;
-    var html = '<button class="chip active" data-val="*">Tutte</button>';
+    bar._labelFn = labelFn || function (v) { return v; };
+    var html = '<button class="chip active" data-val="*">' + ui().all + '</button>';
     values.forEach(function (v) {
-      html += '<button class="chip" data-val="' + esc(v) + '">' + esc(v) + '</button>';
+      html += '<button class="chip" data-val="' + esc(v) + '">' + esc(bar._labelFn(v)) + '</button>';
     });
     bar.innerHTML = html;
     bar.addEventListener('click', function (e) {
@@ -49,21 +67,28 @@
       apply();
     });
   }
+  function relabelChips(bar) {
+    if (!bar) return;
+    Array.prototype.forEach.call(bar.querySelectorAll('.chip'), function (c) {
+      var v = c.getAttribute('data-val');
+      c.textContent = (v === '*') ? ui().all : bar._labelFn(v);
+    });
+  }
 
   function imgMarkup(i, cls) {
     if (i.photo) return '<div class="' + cls + '" style="background-image:url(\'' + PHOTO_BASE + esc(i.photo) + '\')"></div>';
-    return '<div class="' + cls + ' maxi-ph"><span>' + esc(i.cat) + '</span></div>';
+    return '<div class="' + cls + ' maxi-ph"><span>' + esc(clabel(i.cat)) + '</span></div>';
   }
 
   function renderGallery(list) {
     gallery.innerHTML = list.map(function (i) {
       return '' +
-        '<button class="maxi-card" data-code="' + esc(i.code) + '" aria-label="Dettagli ' + esc(i.title) + '">' +
+        '<button class="maxi-card" data-code="' + esc(i.code) + '" aria-label="' + esc(T(i.title)) + '">' +
           imgMarkup(i, 'maxi-card__img') +
           '<div class="maxi-card__grad"></div>' +
           '<div class="maxi-card__body">' +
-            '<span class="maxi-chip-type">' + esc(i.cat) + '</span>' +
-            '<p class="maxi-card__city">' + esc(i.title) + '</p>' +
+            '<span class="maxi-chip-type">' + esc(clabel(i.cat)) + '</span>' +
+            '<p class="maxi-card__city">' + esc(T(i.title)) + '</p>' +
             '<p class="maxi-card__pos">' + esc(i.place) + '</p>' +
           '</div>' +
         '</button>';
@@ -81,15 +106,16 @@
     lb.querySelector('#al-lb-img').outerHTML =
       i.photo
         ? '<div id="al-lb-img" class="maxi-lb__img" style="background-image:url(\'' + PHOTO_BASE + esc(i.photo) + '\')"></div>'
-        : '<div id="al-lb-img" class="maxi-lb__img maxi-ph"><span>' + esc(i.cat) + '</span></div>';
-    lb.querySelector('#al-lb-type').textContent = i.cat;
-    lb.querySelector('#al-lb-title').textContent = i.title;
+        : '<div id="al-lb-img" class="maxi-lb__img maxi-ph"><span>' + esc(clabel(i.cat)) + '</span></div>';
+    lb.querySelector('#al-lb-type').textContent = clabel(i.cat);
+    lb.querySelector('#al-lb-title').textContent = T(i.title);
     lb.querySelector('#al-lb-sub').textContent = i.place;
+    var S = ui().spec;
     lb.querySelector('#al-lb-specs').innerHTML = '' +
-      spec('Tipologia', esc(i.cat)) +
-      spec('Luogo', esc(i.place)) +
-      spec('Descrizione', esc(i.desc)) +
-      spec('Riferimento', esc(i.code));
+      spec(S.type, esc(clabel(i.cat))) +
+      spec(S.place, esc(i.place)) +
+      spec(S.desc, esc(T(i.desc))) +
+      spec(S.ref, esc(i.code));
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -105,9 +131,13 @@
   /* ---------- init ---------- */
   function apply() {
     var list = ITEMS.filter(matches);
-    countEl.innerHTML = '<b>' + list.length + '</b> ' + (list.length === 1 ? 'realizzazione' : 'realizzazioni') + ' su ' + ITEMS.length;
+    countEl.innerHTML = ui().count(list.length, ITEMS.length);
     renderGallery(list);
   }
-  buildChips(catBar, uniq('cat'), 'cat');
+  buildChips(catBar, uniq('cat'), 'cat', clabel);
   apply();
+  window.addEventListener('dsm:langchange', function () {
+    relabelChips(catBar);
+    apply();
+  });
 })();
