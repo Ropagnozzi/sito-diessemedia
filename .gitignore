@@ -1,6 +1,3 @@
-# dominio ufficiale: NON pubblicare sul repo di staging
-CNAME
-
 # tema WordPress: è rigenerabile con build-wordpress-theme.py
 wordpress-theme/
 
