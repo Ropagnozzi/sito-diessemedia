@@ -203,6 +203,12 @@
       spec(S.light, i.light ? ui().yes : ui().no) +
       spec(S.flow, esc(i.flow || '—')) +
       spec(S.code, esc(i.code));
+    /* link presentazione PDF (Google Drive) — mostrato solo se presente */
+    var pdfEl = lb.querySelector('#maxi-lb-pdf');
+    if (pdfEl) {
+      if (i.pdf) { pdfEl.setAttribute('href', i.pdf); pdfEl.hidden = false; }
+      else { pdfEl.removeAttribute('href'); pdfEl.hidden = true; }
+    }
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
   }

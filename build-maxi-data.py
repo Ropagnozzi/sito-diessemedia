@@ -8,10 +8,13 @@ alimenta SIA la galleria SIA la mappa della pagina maxi.html.
 USO: doppio-click su AGGIORNA_MAPPA_MAXI.bat  (oppure:  python build-maxi-data.py)
 
 Colonne attese (prima riga = intestazioni, in qualsiasi ordine):
-  code, city, pos, type, dim, sqm, light, flow, photo, photo2, photo3, lat, lng
+  code, city, pos, type, dim, sqm, light, flow, photo, photo2, photo3, lat, lng, pdf
 Le colonne photo, photo2, photo3, ... (fino a quante ne servono) vengono
 raccolte in ordine: la prima è la foto di copertina, le altre si sfogliano
 nella scheda dell'impianto.
+La colonna pdf (facoltativa) contiene il link alla presentazione PDF
+dell'impianto (es. link di condivisione Google Drive): se valorizzata, sulla
+scheda compare il pulsante "Vedi presentazione (PDF)".
 """
 import json, sys, os, re
 import openpyxl
@@ -91,6 +94,9 @@ def main():
             'photos': [photonorm(cell(r, n)) for n in photo_cols
                        if cell(r, n) and str(cell(r, n)).strip()],
         }
+        pdf = cell(r, 'pdf')
+        if pdf and str(pdf).strip():
+            item['pdf'] = str(pdf).strip()
         if lat is not None and lng is not None:
             item['lat'] = lat
             item['lng'] = lng
