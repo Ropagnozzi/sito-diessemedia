@@ -217,10 +217,44 @@
   function byCode(code) { return IMPIANTI.filter(function (x) { return x.code === code; })[0]; }
   window.openMaxiImpianto = openLightbox;  /* usato dai popup della mappa */
 
+  /* ---------- visualizzatore presentazione PDF (sopra la scheda) ---------- */
+  var pdfModal = document.getElementById('maxi-pdf');
+  var pdfFrame = document.getElementById('maxi-pdf-frame');
+  function drivePreview(url) {
+    var m = /\/file\/d\/([^\/?#]+)/.exec(url) || /[?&]id=([^&]+)/.exec(url);
+    return m ? 'https://drive.google.com/file/d/' + m[1] + '/preview' : null;
+  }
+  function openPdf(url) {
+    var p = drivePreview(url);
+    if (!p || !pdfModal || !pdfFrame) { window.open(url, '_blank', 'noopener'); return; } /* fallback link non-Drive */
+    pdfFrame.src = p;
+    pdfModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePdf() {
+    if (!pdfModal) return;
+    pdfModal.classList.remove('open');
+    if (pdfFrame) pdfFrame.src = 'about:blank';
+    /* la scheda impianto resta aperta sotto: l'overflow lo gestisce la lightbox */
+  }
+  if (pdfModal) {
+    pdfModal.querySelector('.maxi-pdf__bg').addEventListener('click', closePdf);
+    pdfModal.querySelector('.maxi-pdf__close').addEventListener('click', closePdf);
+  }
+
   if (lb) {
     lb.querySelector('.maxi-lb__bg').addEventListener('click', closeLightbox);
     lb.querySelector('.maxi-lb__close').addEventListener('click', closeLightbox);
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+    var pdfBtn = lb.querySelector('#maxi-lb-pdf');
+    if (pdfBtn) pdfBtn.addEventListener('click', function (e) {
+      var url = this.getAttribute('href');
+      if (url) { e.preventDefault(); openPdf(url); }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      if (pdfModal && pdfModal.classList.contains('open')) { closePdf(); return; }
+      closeLightbox();
+    });
   }
 
   /* ---------- mappa Leaflet ---------- */

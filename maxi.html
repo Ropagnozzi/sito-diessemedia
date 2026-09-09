@@ -36,7 +36,7 @@
 <title>Maxi Formati — Diesse Media | Maxi Affissioni ad alto impatto</title>
 <meta name="description" content="Maxi affissioni su facciate, ponteggi e coperture: grandi superfici a massimo impatto per lanci di prodotto e brand awareness. Scopri il patrimonio impianti Diesse Media in Campania e in Italia.">
 <link rel="stylesheet" href="css/style.css?v=16">
-<link rel="stylesheet" href="css/maxi.css?v=6">
+<link rel="stylesheet" href="css/maxi.css?v=7">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css">
@@ -226,7 +226,7 @@
     <div id="maxi-lb-img" class="maxi-lb__img"></div>
     <div class="maxi-lb__bar">
       <div id="maxi-lb-thumbs" class="maxi-lb__thumbs"></div>
-      <a id="maxi-lb-pdf" class="btn btn-dark maxi-lb__pdf" target="_blank" rel="noopener noreferrer" hidden data-i18n="mx.lb.pdf">Vedi presentazione (PDF)</a>
+      <a id="maxi-lb-pdf" class="btn btn-primary maxi-lb__pdf" target="_blank" rel="noopener noreferrer" hidden data-i18n="mx.lb.pdf">Vedi presentazione (PDF)</a>
     </div>
     <div class="maxi-lb__info">
       <div class="maxi-lb__type" id="maxi-lb-type"></div>
@@ -235,6 +235,19 @@
       <div class="maxi-specs" id="maxi-lb-specs"></div>
       <div class="maxi-lb__cta"><a href="contatti.html" class="btn btn-primary" data-i18n="mx.lb.cta">Richiedi questo impianto</a></div>
     </div>
+  </div>
+</div>
+
+<!-- Visualizzatore presentazione PDF (si apre SOPRA la scheda impianto) -->
+<div class="maxi-pdf" id="maxi-pdf" role="dialog" aria-modal="true" aria-label="Presentazione impianto" data-lenis-prevent>
+  <div class="maxi-pdf__bg"></div>
+  <div class="maxi-pdf__panel">
+    <div class="maxi-pdf__head">
+      <button type="button" class="maxi-pdf__close" aria-label="Chiudi presentazione" data-i18n-aria-label="mx.pdf.closeAria">
+        <span aria-hidden="true">&times;</span> <span data-i18n="mx.pdf.close">Chiudi</span>
+      </button>
+    </div>
+    <iframe id="maxi-pdf-frame" title="Presentazione impianto maxi" allowfullscreen></iframe>
   </div>
 </div>
 
@@ -302,11 +315,11 @@
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
 <script defer src="js/fx.js?v=6"></script>
-<script defer src="js/i18n.js?v=15"></script>
+<script defer src="js/i18n.js?v=16"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
 <script defer src="js/maxi-data.js?v=2"></script>
-<script defer src="js/maxi.js?v=9"></script>
+<script defer src="js/maxi.js?v=10"></script>
 <script defer src="js/site.js?v=8"></script>
 </body>
 </html>
