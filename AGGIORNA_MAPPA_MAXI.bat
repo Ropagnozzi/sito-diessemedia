@@ -5,13 +5,17 @@ echo ============================================================
 echo   Aggiornamento dati Maxi Formati (Excel -^> sito)
 echo ============================================================
 echo.
-echo [1/2] Ottimizzo e normalizzo le foto...
+echo [1/3] Ottimizzo e normalizzo le foto...
 python ottimizza-foto-maxi.py
 if errorlevel 1 py ottimizza-foto-maxi.py
 echo.
-echo [2/2] Rigenero i dati di galleria e mappa...
+echo [2/3] Rigenero i dati di galleria e mappa...
 python build-maxi-data.py
 if errorlevel 1 py build-maxi-data.py
+echo.
+echo [3/3] Aggiorno i link alle schede web (colonna link_web)...
+python aggiorna-link-schede.py
+if errorlevel 1 py aggiorna-link-schede.py
 echo.
 echo ------------------------------------------------------------
 echo   Fatto. Per pubblicare online, esegui poi:
