@@ -211,9 +211,13 @@
     }
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
+    try { history.replaceState(null, '', '#imp=' + encodeURIComponent(code)); } catch (e) {}
   }
   function spec(k, v) { return '<div class="s"><div class="k">' + k + '</div><div class="val">' + v + '</div></div>'; }
-  function closeLightbox() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  function closeLightbox() {
+    lb.classList.remove('open'); document.body.style.overflow = '';
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+  }
   function byCode(code) { return IMPIANTI.filter(function (x) { return x.code === code; })[0]; }
   window.openMaxiImpianto = openLightbox;  /* usato dai popup della mappa */
 
@@ -324,6 +328,23 @@
   buildChips(typeBar, uniq('type'), 'type', tlabel);
   initMap();
   apply();
+
+  /* deep-link: apre automaticamente la scheda dell'impianto indicato nell'URL
+     (es. maxi.html#imp=NA04 oppure maxi.html?imp=NA04) — usato dai link inviati ai clienti */
+  function codeFromUrl() {
+    var q = '';
+    try { q = new URLSearchParams(location.search).get('imp') || ''; } catch (e) {}
+    var h = (location.hash || '').replace(/^#/, '');
+    if (h.indexOf('imp=') === 0) h = h.slice(4);
+    try { return decodeURIComponent(q || h || '').trim(); } catch (e) { return (q || h || '').trim(); }
+  }
+  function openFromUrl() {
+    var code = codeFromUrl();
+    if (code && byCode(code)) openLightbox(code);
+  }
+  openFromUrl();
+  window.addEventListener('hashchange', openFromUrl);
+
   /* al cambio lingua: riaggiorna etichette filtri, galleria, mappa e popup */
   window.addEventListener('dsm:langchange', function () {
     relabelChips(cityBar);
