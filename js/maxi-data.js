@@ -13,6 +13,7 @@ window.MAXI_IMPIANTI = [
     "photos": [
       "na01.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/16vG1RTYz_ScddE7d_eqsRnU2dbDt3SRa/view?usp=drive_link",
     "lat": 40.8529176,
     "lng": 14.272529
   },
@@ -28,6 +29,7 @@ window.MAXI_IMPIANTI = [
     "photos": [
       "na05.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1yDqAyeVnIQOOv0N9Q7h7PoS-8-6djMbV/view?usp=drive_link",
     "lat": 40.8530043,
     "lng": 14.2730587
   },
@@ -44,6 +46,7 @@ window.MAXI_IMPIANTI = [
       "na63-1.jpg",
       "na63-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1_pZnlgOJmH_yb_HBnMEx-GBht_i0yzVz/view?usp=drive_link",
     "lat": 40.8434707,
     "lng": 14.285129
   },
@@ -57,9 +60,9 @@ window.MAXI_IMPIANTI = [
     "light": true,
     "flow": "",
     "photos": [
-      "na65-1.jpg",
-      "na65-2.jpg"
+      "na65-1.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1HfmI5m4J2SFTwVEJCmJHHJySQONbAO1b/view?usp=drive_link",
     "lat": 40.8432079,
     "lng": 14.2857851
   },
@@ -76,6 +79,7 @@ window.MAXI_IMPIANTI = [
       "na64-1.jpg",
       "na64-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1D8o9wIFWrjgf6GfDilP10zFUaph8ATAv/view?usp=sharing",
     "lat": 40.8288336,
     "lng": 14.1962536
   },
@@ -92,6 +96,7 @@ window.MAXI_IMPIANTI = [
       "na66-1.jpg",
       "na66-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1IVRloIC_Q4PKfq3crD6lGZBN-blA79on/view?usp=drive_link",
     "lat": 40.8479045,
     "lng": 14.2763135
   },
@@ -108,6 +113,7 @@ window.MAXI_IMPIANTI = [
       "na68-1.jpg",
       "na68-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1Zrx-VMiTF8AY2WcJGOUjl8_ok1kfFUuK/view?usp=drive_link",
     "lat": 40.8483073,
     "lng": 14.3235664
   },
@@ -124,6 +130,7 @@ window.MAXI_IMPIANTI = [
       "na69-1.jpg",
       "na69-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1P2GetYKby0ZKu5poZp3cjTc_5I_nnOrk/view?usp=drive_link",
     "lat": 40.8476009,
     "lng": 14.1913539
   },
@@ -140,6 +147,7 @@ window.MAXI_IMPIANTI = [
       "na67-1.jpg",
       "na67-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1UZtydQ-Ss275fV93nZSCR4GNqHCBAMXp/view?usp=drive_link",
     "lat": 40.8238497,
     "lng": 14.1774396
   },
@@ -155,6 +163,7 @@ window.MAXI_IMPIANTI = [
     "photos": [
       "na72-1.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1DVTI2W9NsSPbjhvciY-PF7AbSpoUwhCW/view?usp=drive_link",
     "lat": 40.8285001,
     "lng": 14.1973064
   },
@@ -171,6 +180,7 @@ window.MAXI_IMPIANTI = [
       "na80-1.jpg",
       "na80-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1-ws2utLWp8qMT3opyPhKcB0srl3Pw617/view?usp=drive_link",
     "lat": 40.8227712,
     "lng": 14.1930718
   },
@@ -187,6 +197,7 @@ window.MAXI_IMPIANTI = [
       "na81-1.jpg",
       "na81-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/14E1QiBU2qIAzVfw3uPP0Y-ihTmt6vQrd/view?usp=drive_link",
     "lat": 40.819075,
     "lng": 14.177719
   },
@@ -203,6 +214,7 @@ window.MAXI_IMPIANTI = [
       "na83-1.jpg",
       "na83-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1okdcJw-OkTzNXns26kQRsKJY8HuFJmdM/view?usp=drive_link",
     "lat": 40.8590047,
     "lng": 14.2166811
   },
@@ -219,6 +231,7 @@ window.MAXI_IMPIANTI = [
       "na86-1.jpg",
       "na86-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1TfShvjssHDDXQ35TT-i32b1b5NTg-VUg/view?usp=drive_link",
     "lat": 40.8900494,
     "lng": 14.2517168
   },
@@ -235,6 +248,7 @@ window.MAXI_IMPIANTI = [
       "na88-1.jpg",
       "na88-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1qJlGkmbJXGlOVqiBbyruYv72I1hHXzJh/view?usp=drive_link",
     "lat": 40.8273596,
     "lng": 14.1986482
   },
@@ -251,6 +265,7 @@ window.MAXI_IMPIANTI = [
       "na87-1.jpg",
       "na87-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1mCwKGFtJqE-oKLf9MpSaVk37JhpXu50h/view?usp=drive_link",
     "lat": 40.8829448,
     "lng": 14.2310994
   },
@@ -263,7 +278,11 @@ window.MAXI_IMPIANTI = [
     "sqm": 50,
     "light": true,
     "flow": "",
-    "photos": [],
+    "photos": [
+      "na95-1.jpg",
+      "na95-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1zqJA_3FH4k8WJYwdZ6DY0RB_HKzRAB_s/view?usp=sharing",
     "lat": 40.8523986,
     "lng": 14.2299017
   },
@@ -280,6 +299,7 @@ window.MAXI_IMPIANTI = [
       "na91-1.jpg",
       "na91-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1LvtXYG5yNk7lCyMX_FPwBjBf0bDbdq5N/view?usp=drive_link",
     "lat": 40.8576935,
     "lng": 14.2597536
   },
@@ -296,6 +316,7 @@ window.MAXI_IMPIANTI = [
       "na92-1.jpg",
       "na92-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1uItwka6i5KFoxBVyvzzXddUv7AQqT0OT/view?usp=drive_link",
     "lat": 40.8206792,
     "lng": 14.1708516
   },
@@ -311,6 +332,7 @@ window.MAXI_IMPIANTI = [
     "photos": [
       "na93-1.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1P3uijUwLYBVchnpBdZHCUcoA3nL4mURx/view?usp=sharing",
     "lat": 40.8749357,
     "lng": 14.3059782
   },
@@ -327,6 +349,7 @@ window.MAXI_IMPIANTI = [
       "na89-1.jpg",
       "na89-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1ShkIPgc8suaDQTiWQMCz7rtt4-LVx7iU/view?usp=drive_link",
     "lat": 40.8484328,
     "lng": 14.2885877
   },
@@ -343,6 +366,7 @@ window.MAXI_IMPIANTI = [
       "na190-1.jpg",
       "na190-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1DIPFK2DsZATvstk4Nfz0gkYHqxgmMKIl/view?usp=drive_link",
     "lat": 40.8909184,
     "lng": 14.2226047
   },
@@ -356,6 +380,7 @@ window.MAXI_IMPIANTI = [
     "light": true,
     "flow": "",
     "photos": [],
+    "pdf": "https://drive.google.com/file/d/1qBGa-lPOtAlGznIwGPc7jFWoQPmatveK/view?usp=sharing",
     "lat": 40.8193127,
     "lng": 14.1751098
   },
@@ -372,6 +397,7 @@ window.MAXI_IMPIANTI = [
       "na40-1.jpg",
       "na40-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/11ksiqfCg7x3chwOC00PHi2d0SwGaa7lz/view?usp=sharing",
     "lat": 40.819765,
     "lng": 14.175772
   },
@@ -388,6 +414,7 @@ window.MAXI_IMPIANTI = [
       "na84-1.jpg",
       "na84-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1B_VLsKhDSVovcVH4OYf4ya8-NSSJvmN-/view?usp=sharing",
     "lat": 40.8261875,
     "lng": 14.2004891
   },
@@ -404,6 +431,7 @@ window.MAXI_IMPIANTI = [
       "na120-1.jpg",
       "na120-2.jpg"
     ],
+    "pdf": "https://drive.google.com/file/d/1xXT2OPWld2_Lp_rAYi0_wQf0wva57TT3/view?usp=drive_link",
     "lat": 40.8374037,
     "lng": 14.2264429
   }
