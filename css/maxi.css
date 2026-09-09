@@ -123,7 +123,10 @@
 }
 .maxi-lb__close:hover{ border-color:var(--border-glow); }
 /* striscia miniature nella lightbox */
-.maxi-lb__thumbs{ display:flex; gap:10px; padding:12px 16px 0; flex-wrap:wrap; }
+.maxi-lb__bar{ display:flex; align-items:center; gap:12px; padding:14px 16px 0; flex-wrap:wrap; }
+.maxi-lb__thumbs{ display:flex; gap:10px; flex-wrap:wrap; }
+.maxi-lb__pdf{ margin-left:auto; white-space:nowrap; }
+@media (max-width:560px){ .maxi-lb__pdf{ margin-left:0; width:100%; text-align:center; } }
 .maxi-thumb{
   width:74px; height:56px; border-radius:8px; cursor:pointer; padding:0;
   background-size:cover; background-position:center;
