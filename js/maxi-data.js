@@ -11,7 +11,7 @@ window.MAXI_IMPIANTI = [
     "light": false,
     "flow": "",
     "photos": [
-      "na01.jpg"
+      "na04.jpg"
     ],
     "pdf": "https://drive.google.com/file/d/16vG1RTYz_ScddE7d_eqsRnU2dbDt3SRa/view?usp=drive_link",
     "lat": 40.8529176,
@@ -434,5 +434,353 @@ window.MAXI_IMPIANTI = [
     "pdf": "https://drive.google.com/file/d/1xXT2OPWld2_Lp_rAYi0_wQf0wva57TT3/view?usp=drive_link",
     "lat": 40.8374037,
     "lng": 14.2264429
+  },
+  {
+    "code": "NA01",
+    "city": "Napoli",
+    "pos": "P.ZZA GARIBALDI FRONTE CORSO A. LUCCI - STAZIONE CENTRALE",
+    "type": "Facciata",
+    "dim": "17X8 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na01-1.jpg",
+      "na01-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1Ze99d7OndJiHONdJFjvBrhxfm-ZUEGBj/view?usp=drive_link",
+    "lat": 40.852507,
+    "lng": 14.271571
+  },
+  {
+    "code": "NA02",
+    "city": "Napoli",
+    "pos": "P.ZZA GARIBALDI FRONTE CORSO  UMBERTO - STAZIONE CENTRALE",
+    "type": "Facciata",
+    "dim": "14X6 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na02-1.jpg",
+      "na02-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1dMLz8vu4fDBJgTwc-EI2XnPrruwlwRGl/view?usp=drive_link",
+    "lat": 40.85317,
+    "lng": 14.270822
+  },
+  {
+    "code": "NA32",
+    "city": "Napoli",
+    "pos": "P.ZZA GARIBALDI FR.HOTEL TERMINUS -STAZIONE CENTRALE",
+    "type": "Facciata",
+    "dim": "14X4 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na32-1.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/12ZZ8slp22tMFC_P7G_CArH8UrY8JWfLW/view?usp=drive_link",
+    "lat": 40.852521,
+    "lng": 14.27078
+  },
+  {
+    "code": "NA03",
+    "city": "Napoli",
+    "pos": "VIA C. ROSARROL DIREZIONE VIA FORIA",
+    "type": "Facciata",
+    "dim": "7X8 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na03-1.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1-bSXxZh7gRSM7FzagRSVyD3tzCL8K19c/view?usp=drive_link",
+    "lat": 40.855482,
+    "lng": 14.26506
+  },
+  {
+    "code": "NA09",
+    "city": "Napoli",
+    "pos": "VIALE F. RUFFO DI CALABRIA USCITA AEREOPORTO CAPODICHINO",
+    "type": "Facciata",
+    "dim": "8x4 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na09-1.jpg",
+      "na09-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1_dDzdcm1SW2BRHJ4REEXt63KhKC7TTwO/view?usp=drive_link",
+    "lat": 40.874682,
+    "lng": 14.28523
+  },
+  {
+    "code": "NA16",
+    "city": "Napoli",
+    "pos": "VIA NUOVA POGGIOREALE INCR. VIA AUSILIO dir.uscita città",
+    "type": "Facciata",
+    "dim": "8x4 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na16-1.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1L_KUat2119meWNPJmzPXrF7gvf0e5Qvk/view?usp=drive_link",
+    "lat": 40.863074,
+    "lng": 14.28374
+  },
+  {
+    "code": "NA13",
+    "city": "Napoli",
+    "pos": "VIA DOMENICO FONTANA INC.  A. ROCCO DIREZIONE PIAZZA MUZII",
+    "type": "Facciata",
+    "dim": "6X9 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na13-1.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1qmPB9seFCrh8sNkIHPcT3dyM4_EB5_w4/view?usp=drive_link",
+    "lat": 40.85459,
+    "lng": 14.228845
+  },
+  {
+    "code": "NA11",
+    "city": "Napoli",
+    "pos": "TANGENZIALE ALTEZZA SVINCOLO  CAPODICHINO DIREZIONE CENTRO",
+    "type": "Facciata",
+    "dim": "11X4 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na11-1.jpg",
+      "na11-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1cC3aKjNdAbamecgbWj4WkiUaB4jwf6BZ/view?usp=drive_link",
+    "lat": 40.874769,
+    "lng": 14.288231
+  },
+  {
+    "code": "NA17",
+    "city": "Napoli",
+    "pos": "TANGENZIALE SV. CAPODICHINO  DIREZIONE CENTRO CITTA'",
+    "type": "Facciata",
+    "dim": "8x4 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na17-1.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1UboUIwvETUkzomjvAJs7wjkZlwrI-hPz/view?usp=drive_link",
+    "lat": 40.874072,
+    "lng": 14.287265
+  },
+  {
+    "code": "NA14",
+    "city": "Napoli",
+    "pos": "VIA MASCAGNI INCROCIO VIA DE NARDIS DIREZIONE VIA CILEA",
+    "type": "Facciata",
+    "dim": "6x7 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na14-1.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1VUL0qzQO1PsINjrF519-55fk9mI2TQm9/view?usp=drive_link",
+    "lat": 40.844741,
+    "lng": 14.221057
+  },
+  {
+    "code": "NA06",
+    "city": "Napoli",
+    "pos": "VIA GIAMBATTISTA MARINO ANG. J. DE GENNARO - STADIO MARADONA",
+    "type": "Facciata",
+    "dim": "6x6 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na06-1.jpg",
+      "na06-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1f-tBKHWbm3RulZkiGC_Xy0V6lplfMKlQ/view?usp=drive_link",
+    "lat": 40.828856,
+    "lng": 14.196072
+  },
+  {
+    "code": "NA10",
+    "city": "Napoli",
+    "pos": "TANGENZIALE ALTEZZA SVINCOLO CAPODICHINO DIREZIONE  AUTOSTRADE",
+    "type": "Facciata",
+    "dim": "9X4.5 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na10-1.jpg",
+      "na10-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1BAdv7cWbPWtiRHO7E8iub7w_y6h8o-fv/view?usp=drive_link",
+    "lat": 40.875306,
+    "lng": 14.288729
+  },
+  {
+    "code": "NA07",
+    "city": "Napoli",
+    "pos": "V.LE MICHELANGELO DIREZIONE PIAZZA LEONARDO",
+    "type": "Facciata",
+    "dim": "7X10 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na07-1.jpg",
+      "na07-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1lEAVJbr9sbTwOyx99WPGE5yr8DUu-5qO/view?usp=drive_link",
+    "lat": 40.84788,
+    "lng": 14.2338
+  },
+  {
+    "code": "NA08",
+    "city": "Napoli",
+    "pos": "VIA S. GENNARO AD ANTIGNANO INCR. VIA MERLIANI DIR. PIAZZA DEGLI ARTISTI",
+    "type": "Facciata",
+    "dim": "6X9 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na08-1.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1eDarPFYfUM_qcZOXxtMlDLLYPf47AENQ/view?usp=drive_link",
+    "lat": 40.847214,
+    "lng": 14.229604
+  },
+  {
+    "code": "NA15",
+    "city": "Napoli",
+    "pos": "VIA TASSO DIREZIONE INCROCIO VIA ANIELLO FALCONE",
+    "type": "Facciata",
+    "dim": "6x9 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na15-1.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1D-c2BC1E2rfX8UZ-SgDupmSy9CqrIiNL/view?usp=drive_link",
+    "lat": 40.838444,
+    "lng": 14.223576
+  },
+  {
+    "code": "NA18",
+    "city": "Napoli",
+    "pos": "VIA SALOMONE ROTATORIA USCITA AEREOPORTO INGRESSO TANGENZIALE CAPODICHINO E INGR. AUTOSTRADE",
+    "type": "Facciata",
+    "dim": "8x4 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na18-1.jpg",
+      "na18-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1DZYTUi22pOGkUP3MSDksJl291FbRhO19/view?usp=drive_link",
+    "lat": 40.873807,
+    "lng": 14.286437
+  },
+  {
+    "code": "NA26",
+    "city": "Napoli",
+    "pos": "VIA NUOVA AGNANO ANGOLO GIOCHI DEL MEDITERRANEO",
+    "type": "Facciata",
+    "dim": "6x9 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na26-1.jpg",
+      "na26-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1vS0h0SqJvD7tzLaLmkq_7kUCMKit9ns5/view?usp=drive_link",
+    "lat": 40.82043,
+    "lng": 14.174702
+  },
+  {
+    "code": "NA22",
+    "city": "Napoli",
+    "pos": "VIA VOLTA  - MARINA DIR.CENTRO",
+    "type": "Facciata",
+    "dim": "9x4,5 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na22-1.jpg",
+      "na22-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1TAA_0QMeeSx9FxPytHfIX8JPGvieg9_t/view?usp=drive_link",
+    "lat": 40.845043,
+    "lng": 14.281764
+  },
+  {
+    "code": "NA23",
+    "city": "Napoli",
+    "pos": "VIA CINTHIA FRONTE INGRESSO TANGENZIALE FUORIGROTTA",
+    "type": "Facciata",
+    "dim": "8x4 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na23-1.jpg",
+      "na23-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/17XPU8tk31w34w1FSazSzY7lTmrLVJ2D1/view?usp=drive_link",
+    "lat": 40.834053,
+    "lng": 14.190913
+  },
+  {
+    "code": "NA24",
+    "city": "Napoli",
+    "pos": "CORSO NOVARA ALT. VIA NAZIONALE DIR. PIAZZA GARIBALDI STAZIONE CENTRALE",
+    "type": "Facciata",
+    "dim": "6x9 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na24-1.jpg",
+      "na24-2.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/1oDUDxhu0tmAy-Fb96Bm097gSwrbBMmso/view?usp=drive_link",
+    "lat": 40.856386,
+    "lng": 14.271022
+  },
+  {
+    "code": "NA25",
+    "city": "Napoli",
+    "pos": "VIA GIUSTINIANO MT 100 ROTATORIA USC. TANGENZIALE VIA EPOMEO",
+    "type": "Facciata",
+    "dim": "6x9 illuminato",
+    "sqm": null,
+    "light": true,
+    "flow": "",
+    "photos": [
+      "na25-1.jpg"
+    ],
+    "pdf": "https://drive.google.com/file/d/11-LKJADVG19BuwOtan7CnYbsTBeD-zpk/view?usp=drive_link",
+    "lat": 40.842523,
+    "lng": 14.206922
   }
 ];
