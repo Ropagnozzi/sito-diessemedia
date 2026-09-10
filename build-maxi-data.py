@@ -110,6 +110,21 @@ def main():
     with open(OUT, 'w', encoding='utf-8', newline='\n') as f:
         f.write(js)
 
+    # auto-bump del cache-buster di maxi-data.js in maxi.html
+    # (evita che browser/CDN continuino a servire i dati vecchi dopo un aggiornamento).
+    # Replace a livello di byte per non toccare i fine-riga del resto del file.
+    try:
+        if os.path.exists('maxi.html'):
+            raw = open('maxi.html', 'rb').read()
+            m = re.search(rb'(maxi-data\.js\?v=)(\d+)', raw)
+            if m:
+                newv = m.group(1) + str(int(m.group(2)) + 1).encode()
+                raw = raw[:m.start()] + newv + raw[m.end():]
+                open('maxi.html', 'wb').write(raw)
+                print('Cache-buster maxi-data.js aggiornato a', newv.decode())
+    except Exception as e:
+        print('Nota: cache-buster non aggiornato (%s)' % e)
+
     for i in impianti:
         if 'lat' in i and (not (-90 <= i['lat'] <= 90) or not (-180 <= i['lng'] <= 180)):
             print('  !! ATTENZIONE: %s ha coordinate fuori scala (lat=%s lng=%s) — '
