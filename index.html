@@ -55,7 +55,7 @@
     else { sessionStorage.setItem('dsmSeen', '1'); }
   } catch (e) { p.classList.add('skip'); }
   /* rete di sicurezza: si chiude comunque */
-  setTimeout(function () { p.classList.add('done'); }, 3000);
+  setTimeout(function () { p.classList.add('done'); }, 700);
 })();
 </script>
 
@@ -486,7 +486,7 @@
           <circle cx="1120" cy="849" r="9"/><rect x="1112" y="856" width="16" height="33" rx="7"/>
         </g>
       </svg>
-      <img class="scene-photo" src="assets/foto/scena2-maxi.jpg" alt="" onerror="this.remove();">
+      <img class="scene-photo" src="assets/foto/scena2-maxi.jpg" alt="" loading="lazy" onerror="this.remove();">
       <div class="scene-shade"></div>
     </div>
 
@@ -564,7 +564,7 @@
         <rect x="1042" y="738" width="76" height="8" rx="4" fill="#2c3442"/>
         <ellipse cx="1080" cy="742" rx="130" ry="14" fill="#ee7d00" opacity=".18"/>
       </svg>
-      <img class="scene-photo" src="assets/foto/scena3-digital.jpg" alt="" onerror="this.remove();">
+      <img class="scene-photo" src="assets/foto/scena3-digital.jpg" alt="" loading="lazy" onerror="this.remove();">
       <div class="scene-shade"></div>
     </div>
 
@@ -610,7 +610,7 @@
     </div>
     <div class="photo" style="position:relative;aspect-ratio:1518/912">
       <span data-i18n="home.method.photo" style="padding:0 20px;text-align:center">Screenshot pianificazione su mappa con isocrone<br>(assets/foto/home-pianificazione.jpg)</span>
-      <img src="assets/foto/home-pianificazione.jpg" alt="Simulazione di pianificazione su mappa con calcolo delle isocrone" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.remove()">
+      <img src="assets/foto/home-pianificazione.jpg" alt="Simulazione di pianificazione su mappa con calcolo delle isocrone" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.remove()">
     </div>
   </div>
 </section>
@@ -882,9 +882,11 @@
 </script>
 
 <script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
-<script defer src="js/fx.js?v=6"></script>
+<script>
+/* WebGL + cursore magnetico solo su desktop (puntatore fine): su mobile si evitano ~580KB di Three.js */
+(function(){var m=window.matchMedia;if(!m("(hover:hover) and (pointer:fine)").matches||m("(prefers-reduced-motion:reduce)").matches)return;["https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js","js/fx.js?v=6"].forEach(function(src){var s=document.createElement("script");s.src=src;s.async=false;document.head.appendChild(s);});})();
+</script>
 <script defer src="js/i18n.js?v=13"></script>
-<script defer src="js/site.js?v=8"></script>
+<script defer src="js/site.js?v=9"></script>
 </body>
 </html>

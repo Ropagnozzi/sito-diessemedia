@@ -10,7 +10,7 @@
   /* ---------- Preloader: si chiude sempre ---------- */
   var pre = document.getElementById('preloader');
   if (pre && !pre.classList.contains('skip')) {
-    setTimeout(function () { pre.classList.add('done'); }, reduced ? 200 : 1500);
+    setTimeout(function () { pre.classList.add('done'); }, reduced ? 200 : 600);
   }
 
   /* ---------- Titoli: split lettera per lettera ---------- */
